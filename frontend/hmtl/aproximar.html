@@ -1,34 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aproxime</title>
     <style>
-        .wrapper{
-            max-width: 1000px;
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(91, 166, 189);
+        }
+
+
+        .wrapper {
+            width: 20%;
+            align-items: center;
+            justify-content: center;
+            margin-top: 12%;
+        }
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .topo-esquerda #logo {
+            width: 93px;
+        }
+
+
+        .container-main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            margin-top: 300px;
         }
-        .wrapper h1{
-            font-family: 'Poppins', sans-serif;
-            align-items: center;
-            margin-bottom: 70px;
-            font-size: 47px;
+
+
+        .container-main #foto-main {
+            width: 200px;
+            padding-top: 15px;
         }
-        .wrapper img{
-            width: 250px;
+
+
+        .topo-direita #horario {
+            text-align: center;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        .topo-direita #data {
+            text-align: center;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        #container-dados {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        #container-dados #aproximar {
+            padding-top: 10px;
+            font-size: 27px;
+        }
+
+
+        #container-dados #mensagem {
+            font-size: 20px;
         }
     </style>
 </head>
+
 <body>
     <div class="wrapper">
-        <h3>Logo da empresa</h3>
-        <h1>Aproxime seu cartão aqui:</h1>
-        <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/14309091-icone-do-cartao-nfc-estilo-de-estrutura-de-topicos-vetor.jpg" alt="Cartão aproximando">
+        <header>
+            <div class="header">
+                <div class="topo-esquerda">
+                    <img id="logo" src="../img/logo1-removebg-preview2.png" alt=""> <!-- logo -->
+                </div>
+
+
+                <div class="topo-direita">
+                    <p id="horario">10:30</p>
+                    <p id="data">20/08/23</p>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+            <div class="container-main">
+                <div>
+                    <img id="foto-main"
+                        src="../img/14309091-icone-do-cartao-nfc-estilo-de-estrutura-de-topicos-vetor-removebg-preview 1 (1).png"
+                        alt="">
+                </div>
+
+
+                <div id="container-dados">
+                    <p id="mensagem">Valor da passagem: R$4,60</p>
+                    <p id="aproximar">Aproxime seu cartão na tela.</p>
+                </div>
+            </div>
+        </main>
     </div>
 </body>
+
 </html>
