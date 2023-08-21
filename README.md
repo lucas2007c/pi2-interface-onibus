@@ -10,6 +10,6 @@
 # Authors
 * Lucas - <carneiro.g@aluno.ifsp.edu.br>
 * Renan - <alves.renan1@aluno.ifsp.edu.br>
-* Manoela - <o.manuela@aluno.ifsp.edu.br>
+* Manuela - <o.manuela@aluno.ifsp.edu.br>
   
 IFSP - Campus Caraguatatuba - Brasil
