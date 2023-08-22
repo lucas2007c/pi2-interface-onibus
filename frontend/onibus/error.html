@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aproxime</title>
+    <link rel="icon" type="url" href="https://cdn.icon-icons.com/icons2/2249/PNG/512/alert_circle_outline_icon_140028.png">
+    <link rel="stylesheet" href="/frontend/css/validacao_true.css">
+    <title>Error</title>
     <style>
         * {
             margin: 0px;
             padding: 0px;
-            box-sizing: border-box;
         }
 
 
         body {
             display: flex;
             justify-content: center;
-            background-color: rgb(91, 166, 189);
+            background-color: rgb(204, 28, 28);
+            color: white;
         }
 
 
@@ -34,8 +38,9 @@
         }
 
 
-        .topo-esquerda #logo {
+        .header #logo {
             width: 93px;
+            filter: invert(100%);
         }
 
 
@@ -48,7 +53,8 @@
 
         .container-main #foto-main {
             width: 200px;
-            padding-top: 15px;
+            padding-top: 10px;
+            filter: invert(100%)
         }
 
 
@@ -69,27 +75,35 @@
         #container-dados {
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
+            width: 300px;
         }
 
 
-        #container-dados #aproximar {
-            padding-top: 10px;
-            font-size: 27px;
+        #container-dados #msg {
+            padding-top:10px;
+            font-size: 30px;
         }
 
 
-        #container-dados #mensagem {
-            font-size: 20px;
+        #container-dados #exp {
+            font-size: 19px;
+        }
+
+
+        #container-dados #saldo {
+            font-size: 17px;
+            padding:15px 10px;
         }
     </style>
 </head>
+
 
 <body>
     <div class="wrapper">
         <header>
             <div class="header">
                 <div class="topo-esquerda">
-                    <img id="logo" src="../img/logo1-removebg-preview2.png" alt=""> <!-- logo -->
+                    <img id="logo" src="../onibus\img\logo1-removebg-preview2.png" alt=""> <!-- logo -->
                 </div>
 
 
@@ -105,18 +119,20 @@
             <div class="container-main">
                 <div>
                     <img id="foto-main"
-                        src="../img/14309091-icone-do-cartao-nfc-estilo-de-estrutura-de-topicos-vetor-removebg-preview 1 (1).png"
+                        src="https://cdn.icon-icons.com/icons2/2249/PNG/512/alert_circle_outline_icon_140028.png"
                         alt="">
                 </div>
 
 
                 <div id="container-dados">
-                    <p id="mensagem">Valor da passagem: R$4,60</p>
-                    <p id="aproximar">Aproxime seu cartão na tela.</p>
+                    <p id="msg">Mensagem de erro</p>
+                    <p id="exp">Explicação</p>
+                    <p id="saldo">Saldo atual: R$50,00</p>
                 </div>
             </div>
         </main>
     </div>
 </body>
+
 
 </html>
