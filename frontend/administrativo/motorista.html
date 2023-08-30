@@ -11,6 +11,7 @@
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="motorista-foto.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                         </li>
                        
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../administrativo/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
@@ -111,13 +112,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Cadastrar motorista</h2>
+                                <h2 class="pageheader-title">Cadastrar Motorista</h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Página Inicial</li>
+                                            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Página Inicial</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Cadastrar Motorista</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -139,41 +140,70 @@
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="validationCustom01">Nome completo</label>
-                                                <input type="text" class="form-control" id="validationCustom01" placeholder="Informe seu nome completo" value="" required>
+                                                <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe seu nome completo" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas caracteres alfabéticos.
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;">
                                                 <label for="validationCustom01">CPF</label>
-                                                <input type="text" required="" data-parsley-minlength="11" placeholder="Informe seu CPF" class="form-control">
+                                                <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" autocomplete="off" required="" placeholder="Informe seu CPF" class="form-control" inlength="11">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe no formato 111.111.111-11
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;">
                                                 <label for="validationCustom01">Data nascimento</label>
-                                                <input type="date" class="form-control" id="validationCustom01" placeholder="dd/mm/yyyy" value="" required>
+                                                <input type="date" autocomplete="off" class="form-control" id="validationCustom01" placeholder="dd/mm/yyyy" value="" required min="">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe uma data válida.
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;">
                                                 <label for="validationCustom01">Número de celular</label>
-                                                <input type="text" class="form-control" id="validationCustom01" placeholder="Informe seu celular para contato" value="" required>
+                                                <input type="text" pattern="^\d+$" minlength="9" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe seu celular para contato" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe apenas números.
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px; padding-bottom: 10px;">
                                                 <label for="validationCustom01">Email</label>
-                                                <input type="text" class="form-control" id="validationCustom01" placeholder="Informe seu email" value="" required>
+                                                <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe seu email" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
+                                                <div class="invalid-feedback">
+                                                    Informe um email válido, ex: nome@exemplo.com
+                                                </div>
                                             </div>
+                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;"">
+                                                <div class="cardFoto">
+                                                  <h3 class="">Foto</h3>
+                                                  <div class="drop_box">
+                                                    <header>
+                                                      <h4>Selecione o arquivo</h4>
+                                                    </header>
+                                                    <p>Arquivos Suportados: JPG, PNG</p>
+                                                    <button class="btn upload-button" type="button">Escolha um arquivo</button>
+                                                    <input type="file" class="file-input" hidden accept=".jpeg, .jpg, .png" id="validationCustom01" style="display:none;" required>
+                                                  </div>
+                                              
+                                                </div>
+                                              </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                                <button class="btn btn-primary" type="submit">Enviar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -193,24 +223,67 @@
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
-    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <!-- slimscroll js -->
-    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="../administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <!-- main js -->
-    <script src="assets/libs/js/main-js.js"></script>
+    <script src="../administrativo/assets/libs/js/main-js.js"></script>
     <!-- chart chartist js -->
-    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
     <!-- sparkline js -->
-    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <script src="../administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
     <!-- morris js -->
-    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <script src="../administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
     <!-- chart c3 js -->
-    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+    <script src="../administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+    <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+    <!-- script da foto no foto -->
+    <script>
+        const dropArea = document.querySelector(".drop_box"),
+            uploadButton = dropArea.querySelector(".upload-button"),
+            fileInput = dropArea.querySelector(".file-input");
+    
+        uploadButton.addEventListener("click", () => {
+            fileInput.click();
+        });
+    
+        fileInput.addEventListener("change", function (e) {
+            const fileName = e.target.files[0].name;
+            let filedata = `
+                <div class="form">
+                    <h4>${fileName}</h4>
+                </div>`;
+            dropArea.innerHTML = filedata;
+        });
+    </script>
+    <script>
+    $('#form').parsley();
+    </script>
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    </script>
 </body>
 </html>
