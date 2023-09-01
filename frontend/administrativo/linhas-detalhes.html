@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../administrativo/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Fast Travel | Dashboard</title>
+    <title>Fast Travel | Detalhes da linha x</title>
 </head>
 
 <body>
@@ -116,12 +116,12 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Página Inicial</h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <h1 class="title">Linha 108 - Hospital Regional - Gaivotas / Martim de Sá via Rodoviária</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item active" aria-current="page">Página Inicial</li>
+                                            <li class="breadcrumb-item"><a href="linhas.html" class="breadcrumb-link">Linhas</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Detalhes da linha x</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -132,112 +132,78 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="ecommerce-widget">
-
-                        <!-- inicio dos cards da linha dois -->
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <a href="motorista.html"> <div class="card-body">
-                                        <div class="d-inline-block">
-                                            <h5 class="text-muted">Motoristas</h5>
-                                            <h2 class="mb-0">12</h2>
-                                        </div>
-                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
-                                            <i class="fa fa-user fa-fw fa-sm text-primary"></i>
-                                        </div>
-                                    </div> </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <a href="passageiros.html"> <div class="card-body">
-                                        <div class="d-inline-block">
-                                            <h5 class="text-muted">Passageiros</h5>
-                                            <h2 class="mb-0">24</h2>
-                                        </div>
-                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
-                                            <i class="fa fa-users fa-fw fa-sm text-primary"></i>
-                                        </div>
-                                    </div> </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <a href="linhas.html"> <div class="card-body">
-                                        <div class="d-inline-block">
-                                            <h5 class="text-muted">Linhas</h5>
-                                            <h2 class="mb-0">87</h2>
-                                        </div>
-                                        <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
-                                            <i class="fa fa-bus fa-fw fa-sm text-primary"></i>
-                                        </div>
-                                    </div> </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- removi a seguinte class (col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12) da div logo abaixo. mudava a formatação. -->
-                        <div class="">
+                        <div>
                             <div class="card">
-                            <h5 class="card-header">Ações Recentes</h5>
+                            <h5 class="card-header">Detalhes da linha</h5>
                             <div class="card-body p-0">
                             <div class="table-responsive">
                             <table class="table">
                             <thead class="bg-light">
                             <tr class="border-0">
-                            <th class="border-0">Função</th>
-                            <th class="border-0">ID</th>
-                            <th class="border-0">Nome</th>
-                            
-                            <th class="border-0">Data</th>
-                            <th class="border-0">Autor</th>
-                            <th class="border-0">Ação</th>
+                            <th class="border-0">Dia da semana</th>
+                            <th class="border-0">Horário de operação</th>
+                            <th class="border-0">Frequência</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                             
                             
-                            <td>Motorista</td>
-                            <td>7</td>
-                            <td>Sara Hadassa da Cruz</td>
-                            
-                            <td>27-08-2018 01:22:12</td>
-                            <td>Patricia Santos</td>
-                            <td><span class="badge-dot badge-danger mr-2"></span>Removido</td>
+                            <td>Domingo</td>
+                            <td>00:50 - 23:40</td>
+                            <td>30 min</td>
+                    
+
                             </tr>
                             <tr>
                             
                             
-                            <td>Passageiro</td>
-                            <td>4</td>
-                            <td>César Antonio Gonçalves</td>
+                            <td>Segunda</td>
+                            <td>00:35 - 23:55</td>
+                            <td>20 min</td>
                             
-                            <td>25-08-2018 21:12:56</td>
-                            <td>Rachel Wicker</td>
-                            <td><span class="badge-dot badge-success mr-2"></span>Cadastrado</td>
                             </tr>
                             <tr>
                             
                             
-                            <td>Linha</td>
-                            <td>106</td>
-                            <td>Jaraguá Noturno</td>
-                            
-                            <td>24-08-2018 14:12:77</td>
-                            <td>Michael K. Ledford </td>
-                            <td><span class="badge-dot badge-success mr-2"></span>Cadastrado</td>
+                            <td>Terça</td>
+                            <td>00:50 - 23:55</td>
+                            <td>20 min</td>
                             </tr>
                             <tr>
                             
                             
-                            <td>Motorista</td>
-                            <td>6</td>
-                            <td>Rosa Melissa da Conceição</td>
-                                
-                            <td>25-08-2018 21:12:56</td>
-                            <td>Rachel Wicker</td>
-                            <td><span class="badge-dot badge-success mr-2"></span>Cadastrado</td>
+                            <td>Quarta</td>
+                            <td>00:50 - 23:40</td>
+                            <td>20 min</td>
+                            </tr>
+                            <tr>
+                            
+                            
+                            <td>Quinta</td>
+                            <td>00:50 - 23:40</td>
+                            <td>20 min</td>
+                            </tr>
+                            <tr>
+                            
+                            
+                            <td>Quinta</td>
+                            <td>00:50 - 23:40</td>
+                            <td>20 min</td>
+                            </tr>
+                            <tr>
+                            
+                            
+                            <td>Sexta</td>
+                            <td>00:50 - 23:40</td>
+                            <td>20 min</td>
+                            </tr>
+                            <tr>
+                            
+                            
+                            <td>Sábado</td>
+                            <td>00:50 - 23:40</td>
+                            <td>20 min</td>
                             </tr>
                             </tbody>
                             </table>

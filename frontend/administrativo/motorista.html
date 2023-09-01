@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Form Validation</title>
+    <title>Fast Travel | Motoristas</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -222,11 +222,11 @@
                     <div class="">
                         <div class="card">
                             <h5 class="card-header">Motoristas cadastrados</h5>
-                    <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="">
                         <div class="card">
                             <h5 class="card-header">Ações Recentes</h5>
                             <div class="card-body p-0">
-                                <div class="table-responsive">
+                                <div class="table table-hover">
                                     <table class="table">
                                         <thead class="bg-light">
                                             <tr class="border-0">
@@ -319,7 +319,7 @@
                     </div>
 
                     <!-- ============================================================== -->
-                    <!-- end table passageiros -->
+                    <!-- end table motorista -->
                     <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- end wrapper  -->
@@ -364,7 +364,8 @@
             const fileName = e.target.files[0].name;
             let filedata = `
                 <div class="form">
-                    <h4>${fileName}</h4>
+                    <center> <h4>${fileName}</h4> </center>
+                    <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
                 </div>`;
             dropArea.innerHTML = filedata;
         });

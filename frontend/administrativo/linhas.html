@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="pt-br">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fast Travel | Linhas</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../administrativo/assets/libs/css/style.css">
+    <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="motorista-foto.css">
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html">Fast Travel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+                       
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../administrativo/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fas fa-clipboard"></i>Cadastrar<span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                       
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="motorista.html">Motorista</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="passageiros.html">Passageiro</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="linhas.html">Linha</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            
+                    
+                           
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Cadastrar Linha</h2>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Página Inicial</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Cadastrar Linha</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- form cadastro -->
+                        <!-- ============================================================== -->
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Formulário de cadastro</h5>
+                                <div class="card-body">
+                                    <form class="needs-validation" novalidate>
+                                        <div class="form-row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <label for="validationCustom01">Nome da linha</label>
+                                                <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe o nome de cadastro da linha" value="" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas caracteres alfabéticos.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 12px; color: black;">
+                                                <center><p>Selecione os dias de funcionamento e preencha as informações necessárias:</p></center>
+                                            </div>
+
+                                            <div class="row" style="padding-left: 5px; padding-top: 5px;">
+                                                
+                                                <!-- domingo -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                   <center><label style="padding-bottom: 15px; padding-top: 20px;" for="domingo">Domingo</label></center>
+                                                    <input  type="checkbox" class="form-control" id="domingo">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 20px;" for="domingoHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="domingoFeiraHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 20px;" for="domingoHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="domingoHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 20px;" for="domingoFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="domingoFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+
+                                                <!-- segunda -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <center><label style="padding-bottom: 15px; padding-top: 5px;" for="segundaFeira">Segunda-Feira</label></center>
+                                                    <input type="checkbox" class="form-control" id="segundaFeira">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="segundaFeiraHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="segundaFeiraHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="segundaFeiraHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="segundaFeiraHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="segundaFeiraFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="segundaFeiraFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+
+                                                <!-- terça -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <center><label style="padding-bottom: 15px; padding-top: 5px;" for="tercaFeira">Terça-Feira</label></center>
+                                                    <input type="checkbox" class="form-control" id="tercaFeira">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="tercaFeiraHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="tercaFeiraHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="tercaFeiraHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="tercaFeiraHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="tercaFeiraFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="tercaFeiraFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+
+                                                <!-- quarta -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <center><label style="padding-bottom: 15px; padding-top: 5px;" for="quartaFeira">Quarta-Feira</label></center>
+                                                    <input type="checkbox" class="form-control" id="quartaFeira">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="quartaFeiraHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="quartaFeiraHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="quartaFeiraHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="quartaFeiraHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="quartaFeiraFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="quartaFeiraFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+
+                                                <!-- quinta -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <center><label style="padding-bottom: 15px; padding-top: 5px;" for="quintaFeira">Quinta-Feira</label></center>
+                                                    <input type="checkbox" class="form-control" id="quintaFeira">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="quintaFeiraHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="quintaFeiraHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="quintaFeiraHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="quintaFeiraHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="quintaFeiraFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="quintaFeiraFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+
+                                                <!-- sexta -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <center><label style="padding-bottom: 15px; padding-top: 5px;" for="sextaFeira">Sexta-Feira</label></center>
+                                                    <input type="checkbox" class="form-control" id="sextaFeira">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="sextaFeiraHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="sextaFeiraHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="sextaFeiraHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="sextaFeiraHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="sextaFeiraFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="sextaFeiraFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+
+                                                <!-- sabado -->
+                                                <div class="col-xl-2 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <center><label style="padding-bottom: 15px; padding-top: 5px;" for="sabado">Sábado</label></center>
+                                                    <input type="checkbox" class="form-control" id="sabado">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="sabadoHorarioInicio">Horário de operação (ínicio)</label>
+                                                    <input type="time" class="form-control" id="sabadoHorarioInicio">
+                                                </div>
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="sabadoHorarioFim">Horário de operação (fim)</label>
+                                                    <input type="time" class="form-control" id="sabadoHorarioFim">
+                                                </div>
+                                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                                    <label style="padding-top: 5px;" for="sabadoFrequencia">Frequência</label>
+                                                    <input type="number" min="1" max="" class="form-control" id="sabadoFrequencia" placeholder="Informe o tempo em minutos">
+                                                </div>
+                                            </div>
+
+                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;"">
+                                                <div class="cardFoto">
+                                                  <h3>Foto da linha</h3>
+                                                  <div class="drop_box">
+                                                    <header>
+                                                      <h4>Selecione o arquivo</h4>
+                                                    </header>
+                                                    <p>Arquivos Suportados: JPG, PNG</p>
+                                                    <button class="btn upload-button" type="button">Escolha um arquivo</button>
+                                                    <input type="file" class="file-input" hidden accept=".jpeg, .jpg, .png" id="validationCustom01" style="display:none;" required>
+                                                  </div>
+                                              
+                                                </div>
+                                              </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end validation form -->
+                        <!-- ============================================================== -->
+                    </div>
+
+                    <!-- ============================================================== -->
+                        <!-- hoverable table -->
+                        <!-- ============================================================== -->
+                        <div class="">
+                            <div class="card">
+                                <h5 class="card-header">Lista de linhas</h5>
+                                <div class="card-body p-0">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Número</th>
+                                                <th scope="col">Nome</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">100</th>
+                                                <td><a href="linhas-detalhes.html">Tinga - Olaria via Rodoviária</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">101</th>
+                                                <td><a href="linhas-detalhes.html">Hospital Regional - Gaivotas / Martim de Sá via Rodoviária</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">102</th>
+                                                <td colspan="2"><a href="linhas-detalhes.html">Morro do Algodão via Pontal / Golfinho</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">103</th>
+                                                <td><a href="linhas-detalhes.html">Morro do Algodão</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">104</th>
+                                                <td><a href="linhas-detalhes.html">Pegorelli - Tarumãs (via UPA Sul)</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">105</th>
+                                                <td><a href="linhas-detalhes.html">Pegorelli / Tarumãs via Perequê</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">106</th>
+                                                <td><a href="linhas-detalhes.html">Jaraguá Noturno</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">107</th>
+                                                <td><a href="linhas-detalhes.html">Jaraguá via Barranco Alto</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">108</th>
+                                                <td><a href="linhas-detalhes.html">Jaraguá</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">109</th>
+                                                <td><a href="linhas-detalhes.html">Vapapesca via Rodoviária</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end hoverable table -->
+                        <!-- ============================================================== -->
+                    </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="../administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="../administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="../administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="../administrativo/assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="../administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="../administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="../administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="../administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+    <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+    <!-- script da foto no foto -->
+    <script>
+        const dropArea = document.querySelector(".drop_box"),
+            uploadButton = dropArea.querySelector(".upload-button"),
+            fileInput = dropArea.querySelector(".file-input");
+    
+        uploadButton.addEventListener("click", () => {
+            fileInput.click();
+        });
+    
+        fileInput.addEventListener("change", function (e) {
+            const fileName = e.target.files[0].name;
+            let filedata = `
+                <div class="form">
+                    <center> <h4>${fileName}</h4> </center>
+                    <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
+                </div>`;
+            dropArea.innerHTML = filedata;
+        });
+    </script>
+    <script>
+    $('#form').parsley();
+    </script>
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    </script>
+</body>
+</html>
