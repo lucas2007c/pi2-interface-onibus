@@ -1352,6 +1352,10 @@ section {
   cursor: pointer;
 }
 
+.cor-cabecalho th, 
+.cor-cabecalho tr {
+  color: #444444;
+}
 .faq .faq-list .icon-help {
   font-size: 24px;
   position: absolute;
