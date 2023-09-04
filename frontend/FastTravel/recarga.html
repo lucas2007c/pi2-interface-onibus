@@ -81,7 +81,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="display: flex; justify-content: center;">
           <div class="card cartaoContainer">
             <center>
-              <h3 class="card-header">Buscar cartão</h3>
+              <h3 class="card-header">Formulário de recarga</h3>
             </center>
             <div class="card-body">
               <form class="needs-validation" novalidate>
@@ -108,6 +108,54 @@
                     </div>
                     <div class="invalid-feedback">
                       Informe um valor acima de x reais.
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding-top: 10px; padding-bottom: 15px;">
+                    <label for="numeroCartao">Número do cartão</label>
+                    <input type="text" autocomplete="off" required
+                      placeholder="Informe o número do seu cartão" class="form-control" inlength="11" id="numeroCartao">
+                    <div class="valid-feedback">
+                      Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                      Informe apenas numeros
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding-top: 10px; padding-bottom: 15px;">
+                    <label for="dataValidade">Data de validade</label>
+                    <input type="text" autocomplete="off" required
+                      placeholder="Informe no formato MM/AA" class="form-control" inlength="11" id="dataValidade">
+                    <div class="valid-feedback">
+                      Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                      Informe no formato MM/AA
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding-top: 10px; padding-bottom: 15px;">
+                    <label for="codigoSeguranca">Código de segurança</label>
+                    <input type="text" autocomplete="off" required
+                      placeholder="Informe o CVV" class="form-control" inlength="11" id="codigoSeguranca">
+                    <div class="valid-feedback">
+                      Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                      Informe no apenas os três números
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                    style="padding-top: 10px; padding-bottom: 15px;">
+                    <label for="enderecoCobranca">Endereço de cobrança</label>
+                    <input type="text" autocomplete="off" required
+                      placeholder="Informe estado/cidade/rua/numero" class="form-control" inlength="11" id="enderecoCobranca">
+                    <div class="valid-feedback">
+                      Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                      Informe no formato exato: estado/cidade/rua/numero
                     </div>
                   </div>
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
