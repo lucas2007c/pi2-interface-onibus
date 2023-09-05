@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-br">
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,6 +15,20 @@
 </head>
 
 <body>
+    <style>
+        /* Media query formlulario - foto */
+        @media (max-width: 461px) {
+            .cardFoto {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 367px) {
+            .cardFoto {
+                width: 244px;
+            }
+        }
+    </style>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -25,7 +39,9 @@
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="index.html">Fast Travel</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -35,10 +51,14 @@
                                 <input class="form-control" type="text" placeholder="Search..">
                             </div>
                         </li>
-                       
+
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../administrativo/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="../administrativo/assets/images/avatar-1.jpg" alt=""
+                                    class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
@@ -62,7 +82,8 @@
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
@@ -71,10 +92,13 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fas fa-clipboard"></i>Cadastrar<span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-1" aria-controls="submenu-1"><i
+                                        class="fas fa-clipboard"></i>Cadastrar<span
+                                        class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu">
                                     <ul class="nav flex-column">
-                                       
+
                                         <li class="nav-item">
                                             <a class="nav-link" href="motorista.html">Motorista</a>
                                         </li>
@@ -84,14 +108,14 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="linhas.html">Linha</a>
                                         </li>
-                                        
+
                                     </ul>
                                 </div>
                             </li>
-                            
-                            
-                    
-                           
+
+
+
+
                         </ul>
                     </div>
                 </nav>
@@ -113,12 +137,15 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
                                 <h2 class="pageheader-title">Cadastrar Motorista</h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
+                                    vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Cadastrar Motorista</li>
+                                            <li class="breadcrumb-item"><a href="index.html"
+                                                    class="breadcrumb-link">Página Inicial</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Cadastrar Motorista
+                                            </li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -140,7 +167,9 @@
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="validationCustom01">Nome completo</label>
-                                                <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe seu nome completo" value="" required>
+                                                <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
+                                                    class="form-control" id="validationCustom01"
+                                                    placeholder="Informe seu nome completo" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -148,9 +177,12 @@
                                                     Utilize apenas caracteres alfabéticos.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                                style="padding-top: 10px;">
                                                 <label for="validationCustom01">CPF</label>
-                                                <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" autocomplete="off" required="" placeholder="Informe seu CPF" class="form-control" inlength="11">
+                                                <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
+                                                    autocomplete="off" required="" placeholder="Informe seu CPF"
+                                                    class="form-control" inlength="11">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -158,9 +190,12 @@
                                                     Informe no formato 111.111.111-11
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                                style="padding-top: 10px;">
                                                 <label for="validationCustom01">Data nascimento</label>
-                                                <input type="date" autocomplete="off" class="form-control" id="validationCustom01" placeholder="dd/mm/yyyy" value="" required min="">
+                                                <input type="date" autocomplete="off" class="form-control"
+                                                    id="validationCustom01" placeholder="dd/mm/yyyy" value="" required
+                                                    min="">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -168,9 +203,12 @@
                                                     Informe uma data válida.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                                style="padding-top: 10px;">
                                                 <label for="validationCustom01">Número de celular</label>
-                                                <input type="text" pattern="^\d+$" minlength="9" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe seu celular para contato" value="" required>
+                                                <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
+                                                    class="form-control" id="validationCustom01"
+                                                    placeholder="Informe seu celular para contato" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -178,9 +216,13 @@
                                                     Informe apenas números.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px; padding-bottom: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                                style="padding-top: 10px; padding-bottom: 10px;">
                                                 <label for="validationCustom01">Email</label>
-                                                <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe seu email" value="" required>
+                                                <input type="email"
+                                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                                    autocomplete="off" class="form-control" id="validationCustom01"
+                                                    placeholder="Informe seu email" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -188,210 +230,216 @@
                                                     Informe um email válido, ex: nome@exemplo.com
                                                 </div>
                                             </div>
-                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 10px;"">
-                                                <div class="cardFoto">
-                                                  <h3 class="">Foto</h3>
-                                                  <div class="drop_box">
+                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                                style="padding-top: 10px;"">
+                                                <div class=" cardFoto">
+                                                <h3 class="">Foto</h3>
+                                                <div class="drop_box">
                                                     <header>
-                                                      <h4>Selecione o arquivo</h4>
+                                                        <h4>Selecione o arquivo</h4>
                                                     </header>
                                                     <p>Arquivos Suportados: JPG, PNG</p>
-                                                    <button class="btn upload-button" type="button">Escolha um arquivo</button>
-                                                    <input type="file" class="file-input" hidden accept=".jpeg, .jpg, .png" id="validationCustom01" style="display:none;" required>
-                                                  </div>
-                                              
+                                                    <button class="btn upload-button" type="button">Escolha um
+                                                        arquivo</button>
+                                                    <input type="file" class="file-input" hidden
+                                                        accept=".jpeg, .jpg, .png" id="validationCustom01"
+                                                        style="display:none;" required>
                                                 </div>
-                                              </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                                <button class="btn btn-primary" type="submit">Enviar</button>
+
                                             </div>
                                         </div>
-                                    </form>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <button class="btn btn-primary" type="submit">Enviar</button>
+                                        </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- end validation form -->
-                        <!-- ============================================================== -->
-                    </div>
-
-                    <!-- ============================================================== -->
-                    <!-- table motoristas -->
-                    <!-- ============================================================== -->
-
-                    <div class="">
-                        <div class="card">
-                            <h5 class="card-header">Motoristas cadastrados</h5>
-                    <div class="">
-                        <div class="card">
-                            <h5 class="card-header">Ações Recentes</h5>
-                            <div class="card-body p-0">
-                                <div class="table table-hover">
-                                    <table class="table">
-                                        <thead class="bg-light">
-                                            <tr class="border-0">
-                                                <th class="border-0">ID</th>
-                                                <th class="border-0">Foto</th>
-                                                <th class="border-0">Nome</th>
-
-                                                <th class="border-0">CPF</th>
-                                                <th class="border-0">Nascimento</th>
-                                                <th class="border-0">Número</th>
-                                                <th class="border-0">Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><img src="https://img.freepik.com/fotos-gratis/homem-negro-afro-americano-com-expressao-seria-a-pensar_273609-14062.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais" alt="foto-registro" style="height: 45px;"></td>
-                                                <td>Renan Alves da Silva</td>
-                                                <td>909.857.048-88</td>
-
-                                                <td>09-02-2005</td>
-                                                <td>(12) 99630-2834</td>
-                                                <td>silva.renan@aluno.ifsp.edu.br</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>2</td>
-                                                <td><img src="https://img.freepik.com/fotos-gratis/vista-frontal-de-homem-bonito_23-2148780801.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais" alt="foto-registro" style="height: 45px;"></td>
-                                                <td>Jorge Roberto Ruan da Rosa</td>
-                                                <td>519.921.878-60</td>
-
-                                                <td>25-08-1953</td>
-                                                <td>(11) 99695-6841</td>
-                                                <td>jorge.roberto.darosa@gmail.com</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>3</td>
-                                                <td><img src="https://img.freepik.com/fotos-gratis/foto-de-bonitao-barba-por-fazer-parece-com-expressao-agradavel-diretamente-na-camera_176532-8164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais" alt="foto-registro" style="height: 45px;"></td>
-                                                <td>Oliver Gustavo</td>
-                                                <td>282.835.658-26</td>
-
-                                                <td>17-01-1992</td>
-                                                <td>(12) 97504-9864</td>
-                                                <td>oliver.gustavo@hotmail.com</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>4</td>
-                                                <td><img src="https://img.freepik.com/fotos-gratis/perto-de-um-jovem-atraente-de-pele-escura-em-uma-camisa-em-branco-olha-para-a-camera-com-uma-expressao-calma-fica-sobre-um-fundo-rosa_295783-3270.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais" alt="foto-registro" style="height: 45px;"></td>
-                                                <td>César Antonio Gonçalves</td>
-                                                <td>563.498.928-01</td>
-
-                                                <td>07-11-2000</td>
-                                                <td>(12) 98743-9310</td>
-                                                <td>cesarantoniogoncalves@gmail.com</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>5</td>
-                                                <td><img src="https://img.freepik.com/fotos-gratis/perto-de-jovem-bonita-e-encantadora-garota-caucasiana-com-cabelos-castanhos-compridos-em-t-shirt-cinza-com-expressao-seria-foto-de-mulher-ficando-para-passaporte_176420-10835.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais" alt="foto-registro" style="height: 45px;"></td>
-                                                <td>Tânia Isabela Vieira</td>
-                                                <td>824.239.348-66</td>
-
-                                                <td>15-07-1956</td>
-                                                <td>(11) 99509-3588</td>
-                                                <td>isabela.vieira@gmail.com</td>
-                                            </tr>
-                                            <tr>
-
-
-                                                <td>6</td>
-                                                <td><img src="https://img.freepik.com/fotos-gratis/close-de-uma-mulher-fofa-e-hippie-sorrindo-e-parecendo-feliz_176420-26164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais" alt="foto-registro" style="height: 45px;"></td>
-                                                <td>Rosa Melissa da Conceição</td>
-                                                <td>511.159.388-86</td>
-
-                                                <td>05-01-2000</td>
-                                                <td>(14) 99374-1147</td>
-                                                <td>rosaconceicao@gmail.com</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- end validation form -->
+                    <!-- ============================================================== -->
+                </div>
 
+                <!-- ============================================================== -->
+                <!-- table motoristas -->
+                <!-- ============================================================== -->
+
+                <div class="">
+                    <div class="card">
+                        <h5 class="card-header">Passageiros cadastrados</h5>
+                        <div class="card-body p-0">
+                            <div class="table table-hover table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">ID</th>
+                                            <th class="border-0">Foto</th>
+                                            <th class="border-0">Nome</th>
+                                            <th class="border-0">CPF</th>
+                
+                                            <th class="border-0">Nascimento</th>
+                                            <th class="border-0">Número</th>
+                                            <th class="border-0">Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><img src="https://img.freepik.com/fotos-gratis/homem-negro-afro-americano-com-expressao-seria-a-pensar_273609-14062.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
+                                            <td>Renan Alves da Silva</td>
+                                            <td>909.857.048-88</td>
+                
+                                            <td>09-02-2005</td>
+                                            <td>(12) 99630-2834</td>
+                                            <td>silva.renan@aluno.ifsp.edu.br</td>
+                                        </tr>
+                                        <tr>
+                
+                
+                                            <td>2</td>
+                                            <td><img src="https://img.freepik.com/fotos-gratis/vista-frontal-de-homem-bonito_23-2148780801.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
+                                            <td>Jorge Roberto Ruan da Rosa</td>
+                                            <td>519.921.878-60</td>
+                
+                                            <td>25-08-2003</td>
+                                            <td>(11) 99695-6841</td>
+                                            <td>jorge.roberto.darosa@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                
+                
+                                            <td>3</td>
+                                            <td><img src="https://img.freepik.com/fotos-gratis/foto-de-bonitao-barba-por-fazer-parece-com-expressao-agradavel-diretamente-na-camera_176532-8164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
+                                            <td>Oliver Gustavo</td>
+                                            <td>282.835.658-26</td>
+                
+                                            <td>17-01-1992</td>
+                                            <td>(12) 97504-9864</td>
+                                            <td>oliver.gustavo@hotmail.com</td>
+                                        </tr>
+                                        <tr>
+                
+                
+                                            <td>4</td>
+                                            <td><img src="https://img.freepik.com/fotos-gratis/perto-de-um-jovem-atraente-de-pele-escura-em-uma-camisa-em-branco-olha-para-a-camera-com-uma-expressao-calma-fica-sobre-um-fundo-rosa_295783-3270.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
+                                            <td>César Antonio Gonçalves</td>
+                                            <td>563.498.928-01</td>
+                
+                                            <td>07-11-2000</td>
+                                            <td>(12) 98743-9310</td>
+                                            <td>cesarantoniogoncalves@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                
+                
+                                            <td>5</td>
+                                            <td><img src="https://img.freepik.com/fotos-gratis/perto-de-jovem-bonita-e-encantadora-garota-caucasiana-com-cabelos-castanhos-compridos-em-t-shirt-cinza-com-expressao-seria-foto-de-mulher-ficando-para-passaporte_176420-10835.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
+                                            <td>Tânia Isabela Vieira</td>
+                                            <td>824.239.348-66</td>
+                
+                                            <td>15-07-1956</td>
+                                            <td>(11) 99509-3588</td>
+                                            <td>isabela.vieira@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                
+                
+                                            <td>6</td>
+                                            <td><img src="https://img.freepik.com/fotos-gratis/close-de-uma-mulher-fofa-e-hippie-sorrindo-e-parecendo-feliz_176420-26164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
+                                            <td>Rosa Melissa da Conceição</td>
+                                            <td>511.159.388-86</td>
+                
+                                            <td>05-01-1966</td>
+                                            <td>(14) 99374-1147</td>
+                                            <td>rosaconceicao@gmail.com</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End lista -->
+                        <!-- ============================================================== -->
+                        <!-- end table motorista -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end wrapper  -->
+                        <!-- ============================================================== -->
                     <!-- ============================================================== -->
-                    <!-- end table motorista -->
+                    <!-- end main wrapper  -->
                     <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper  -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 -->
-    <script src="../administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="../administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="../administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="../administrativo/assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="../administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="../administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="../administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="../administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    <script src="../administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="../administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
-    <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
-    <!-- script da foto no foto -->
-    <script>
-        const dropArea = document.querySelector(".drop_box"),
-            uploadButton = dropArea.querySelector(".upload-button"),
-            fileInput = dropArea.querySelector(".file-input");
-    
-        uploadButton.addEventListener("click", () => {
-            fileInput.click();
-        });
-    
-        fileInput.addEventListener("change", function (e) {
-            const fileName = e.target.files[0].name;
-            let filedata = `
+                    <!-- Optional JavaScript -->
+                    <!-- jquery 3.3.1 -->
+                    <script src="../administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+                    <!-- bootstap bundle js -->
+                    <script src="../administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                    <!-- slimscroll js -->
+                    <script src="../administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                    <!-- main js -->
+                    <script src="../administrativo/assets/libs/js/main-js.js"></script>
+                    <!-- chart chartist js -->
+                    <script src="../administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+                    <!-- sparkline js -->
+                    <script src="../administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+                    <!-- morris js -->
+                    <script src="../administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+                    <script src="../administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+                    <!-- chart c3 js -->
+                    <script src="../administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+                    <script src="../administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+                    <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+                    <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                    <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <!-- script da foto no foto -->
+                    <script>
+                        const dropArea = document.querySelector(".drop_box"),
+                            uploadButton = dropArea.querySelector(".upload-button"),
+                            fileInput = dropArea.querySelector(".file-input");
+
+                        uploadButton.addEventListener("click", () => {
+                            fileInput.click();
+                        });
+
+                        fileInput.addEventListener("change", function (e) {
+                            const fileName = e.target.files[0].name;
+                            let filedata = `
                 <div class="form">
                     <center> <h4>${fileName}</h4> </center>
                     <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
                 </div>`;
-            dropArea.innerHTML = filedata;
-        });
-    </script>
-    <script>
-    $('#form').parsley();
-    </script>
-    <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-    </script>
+                            dropArea.innerHTML = filedata;
+                        });
+                    </script>
+                    <script>
+                        $('#form').parsley();
+                    </script>
+                    <script>
+                        // Example starter JavaScript for disabling form submissions if there are invalid fields
+                        (function () {
+                            'use strict';
+                            window.addEventListener('load', function () {
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.getElementsByClassName('needs-validation');
+                                // Loop over them and prevent submission
+                                var validation = Array.prototype.filter.call(forms, function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    </script>
 </body>
+
 </html>

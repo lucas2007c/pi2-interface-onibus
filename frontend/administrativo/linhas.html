@@ -15,6 +15,20 @@
 </head>
 
 <body>
+    <style>
+        /* Media query formlulario - foto */
+        @media (max-width: 461px) {
+            .cardFoto {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 367px) {
+            .cardFoto {
+                width: 244px;
+            }
+        }
+    </style>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -315,7 +329,7 @@
                             <div class="card">
                                 <h5 class="card-header">Lista de linhas</h5>
                                 <div class="card-body p-0">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover table-bordered">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Número</th>
