@@ -91,6 +91,44 @@ app.delete('/motorista/:id', async (req, res) => {
     res.status(200).json(query)
 }); // DELETAR
 
+// LINHA ------------------------------------------------------------------------------------------------
+app.get('/linha', async (req, res) => {
+    const [query] = await connection.execute('select * from linha');
+    res.status(200).json(query);
+}); // GERAL
+
+app.get('/linha/:id', async (req, res) => {
+    const { id } = req.params
+    const [query] = await connection.execute('select * from linha where id = ?', [id]);
+    res.status(200).json(query);
+}); // POR ID
+
+app.get('/linha/busca/:nomex', async (req, res) => {
+    const { nomex } = req.params;
+    const nome = '%' + nomex + '%';
+    const [query] = await connection.execute('select * from linha where nome like ?', [nome]);
+    res.status(200).json(query);
+}); // LIKE
+
+app.post('/linha', async (req, res) => {
+    const { nome, email } = req.body
+    const [query] = await connection.execute('insert into linha (nome, email) values (?,?)', [nome, email]);
+    res.status(201).json(query);
+}); // CADASTRAR
+
+app.put('/linha/:id', async (req, res) => {
+    const { id } = req.params
+    const { nome, email } = req.body
+    const [query] = await connection.execute('update linha set nome = ?, email = ? where id = ?', [nome, email, id]);
+    res.status(200).json(query);
+}); // EDITAR
+
+app.delete('/linha/:id', async (req, res) => {
+    const { id } = req.params
+    const [query] = await connection.execute("delete from linha where id  = ?", [id])
+    res.status(200).json(query)
+}); // DELETAR
+
 
 
 // RODANDO SERVIDOR
