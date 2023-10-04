@@ -8,67 +8,84 @@ datasource db {
 }
 
 model linha {
-  id          Int      @id
+  id          Int      @id @default(autoincrement())
   inicio      DateTime @db.DateTime(0)
   fim         DateTime @db.DateTime(0)
   localinicio String   @db.VarChar(45)
   localfim    String   @db.VarChar(45)
+  viagem      viagem[]
 }
 
 model motorista {
-  id           Int      @id
+  id           Int      @id @default(autoincrement())
   cpf          String?  @db.VarChar(15)
   nome         String   @db.VarChar(200)
   nascimento   DateTime @db.Date
   numero       String   @db.VarChar(15)
   email        String   @db.VarChar(200)
   foto_caminho String   @db.VarChar(200)
+  viagem       viagem[]
 }
 
 model onibus {
-  id    Int    @id
-  placa String @db.VarChar(8)
+  id     Int      @id
+  placa  String   @db.VarChar(8)
+  viagem viagem[]
 }
 
 model passageiro {
-  id           Int
-  nome         String   @db.VarChar(200)
-  saldo        Decimal  @db.Decimal(10, 2)
-  cpf          String?  @db.VarChar(15)
-  nascimento   DateTime @db.Date
-  numero       String   @db.VarChar(20)
-  email        String   @db.VarChar(200)
-  foto_caminho String   @db.VarChar(200)
-  tipo_cartao  String   @db.VarChar(50)
-  usuario_id   Int
+  id                    Int  @unique                   @default(autoincrement())
+  nome                  String                  @db.VarChar(200)
+  saldo                 Decimal                 @db.Decimal(10, 2)
+  cpf                   String?                 @db.VarChar(15)
+  nascimento            DateTime                @db.Date
+  numero                String                  @db.VarChar(20)
+  email                 String                  @db.VarChar(200)
+  foto_caminho          String                  @db.VarChar(200)
+  tipo_cartao           String                  @db.VarChar(50)
+  usuario_id            Int
+  usuario               usuario                 @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
+  viagem_has_passageiro viagem_has_passageiro[]
 
   @@id([id, usuario_id])
+  @@index([usuario_id], map: "fk_usuario_id")
 }
 
 model usuario {
-  id           Int    @id
-  nome         String @db.VarChar(200)
-  email        String @db.VarChar(200)
-  senha        String @db.VarChar(45)
-  token        String @db.VarChar(45)
-  foto_caminho String @db.VarChar(200)
+  id           Int          @id @default(autoincrement())
+  nome         String       @db.VarChar(200)
+  email        String       @db.VarChar(200)
+  senha        String       @db.VarChar(45)
+  token        String       @db.VarChar(45)
+  foto_caminho String       @db.VarChar(200)
+  passageiro   passageiro[]
 }
 
 model viagem {
-  id           Int
-  data         DateTime? @db.DateTime(0)
-  onibus_id    Int
-  motorista_id Int
-  linha_id     Int
+  id                    Int   @unique                  @default(autoincrement())
+  data                  DateTime?               @db.DateTime(0)
+  onibus_id             Int
+  motorista_id          Int
+  linha_id              Int
+  motorista             motorista               @relation(fields: [motorista_id], references: [id], onUpdate: Restrict, map: "fk_motorista_id")
+  onibus                onibus                  @relation(fields: [onibus_id], references: [id], onUpdate: Restrict, map: "fk_onibus_id")
+  linha                 linha                   @relation(fields: [linha_id], references: [id], onUpdate: Restrict, map: "linha_id")
+  viagem_has_passageiro viagem_has_passageiro[]
 
   @@id([id, onibus_id, motorista_id, linha_id])
+  @@index([motorista_id], map: "fk_motorista_id")
+  @@index([onibus_id], map: "fk_onibus_id")
+  @@index([linha_id], map: "linha_id")
 }
 
 model viagem_has_passageiro {
-  tarifa        Decimal  @db.Decimal(10, 2)
-  data          DateTime @db.DateTime(0)
+  tarifa        Decimal    @db.Decimal(10, 2)
+  data          DateTime   @db.DateTime(0)
   passageiro_id Int
   viagem_id     Int
+  passageiro    passageiro @relation(fields: [passageiro_id], references: [id], onUpdate: Restrict, map: "fk_passageiro_id")
+  viagem        viagem     @relation(fields: [viagem_id], references: [id], onUpdate: Restrict, map: "fk_viagem_id")
 
   @@id([passageiro_id, viagem_id])
+  @@index([viagem_id], map: "fk_viagem_id")
 }
