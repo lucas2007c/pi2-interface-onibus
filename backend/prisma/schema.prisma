@@ -28,7 +28,7 @@ model motorista {
 }
 
 model onibus {
-  id     Int      @id
+  id     Int      @id @default(autoincrement()) 
   placa  String   @db.VarChar(8)
   viagem viagem[]
 }

@@ -24,7 +24,7 @@ CREATE TABLE `motorista` (
 
 -- CreateTable
 CREATE TABLE `onibus` (
-    `id` INTEGER NOT NULL,
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `placa` VARCHAR(8) NOT NULL,
 
     PRIMARY KEY (`id`)

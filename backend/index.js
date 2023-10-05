@@ -53,7 +53,6 @@ app.get('/passageiro/:id', async (req, res) => {
 app.get('/passageiro/busca/:nome', async (req, res) => {
     try {
         const { nome } = req.params;
-        console.log(nome)
         const passageiros = await prisma.passageiro.findMany({
             where: {
                 nome: {
@@ -70,17 +69,17 @@ app.get('/passageiro/busca/:nome', async (req, res) => {
 
 app.post('/passageiro', async (req, res) => {
     try {
-        const { id, nome, saldo, cpf, nascimento, numero, email, foto_caminho, tipo_cartao, usuario_id } = req.body
+        const { nome, saldo, cpf, nascimento, numero, email, foto_caminho, tipo_cartao, usuario_id } = req.body
         const passageiro = await prisma.passageiro.create({
             data: {
-                nome: nome,
-                saldo: saldo,
-                cpf: cpf,
+                nome,
+                saldo,
+                cpf,
                 nascimento: `${nascimento}T00:00:00.000Z`,
-                numero: numero,
-                email: email,
-                foto_caminho: foto_caminho,
-                tipo_cartao: tipo_cartao,
+                numero,
+                email,
+                foto_caminho,
+                tipo_cartao,
                 usuario: {
                     connect: {
                         id: parseInt(usuario_id)
@@ -104,14 +103,14 @@ app.put('/passageiro/:id', async (req, res) => {
                 id: parseInt(id)
             },
             data: {
-                nome: nome,
-                saldo: saldo,
-                cpf: cpf,
+                nome,
+                saldo,
+                cpf,
                 nascimento: `${nascimento}T00:00:00.000Z`,
-                numero: numero,
-                email: email,
-                foto_caminho: foto_caminho,
-                tipo_cartao: tipo_cartao,
+                numero,
+                email,
+                foto_caminho,
+                tipo_cartao,
                 usuario: {
                     connect: {
                         id: parseInt(usuario_id)
@@ -129,17 +128,12 @@ app.put('/passageiro/:id', async (req, res) => {
 app.delete('/passageiro/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const passageiro = await prisma.passageiro.findUnique({
-            where: {
-                id: parseInt(id)
-            }
-        });
-        await prisma.passageiro.delete({
+        const passageiro = await prisma.passageiro.delete({
             where: {
                 id: parseInt(id)
             }
         })
-        res.status(200).json({msg: 'passageiro deletado:', passageiro})
+        res.status(200).json({ msg: 'passageiro deletado:', passageiro })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -149,8 +143,8 @@ app.delete('/passageiro/:id', async (req, res) => {
 // MOTORISTA ------------------------------------------------------------------------------------------------
 app.get('/motorista', async (req, res) => {
     try {
-        const [query] = await connection.execute('select * from motorista');
-        res.status(200).json(query);
+        const motoristas = await prisma.motorista.findMany()
+        res.status(200).json(motoristas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -159,20 +153,34 @@ app.get('/motorista', async (req, res) => {
 app.get('/motorista/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const [query] = await connection.execute('select * from motorista where id = ?', [id]);
-        res.status(200).json(query);
+        const motorista = await prisma.motorista.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        });
+
+        if (!motorista) {
+            res.status(404).json({ success: false, msg: 'motorista não encontrado' });
+        } else {
+            res.status(200).json(motorista);
+        }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
 
 }); // POR ID
 
-app.get('/motorista/busca/:nomex', async (req, res) => {
+app.get('/motorista/busca/:nome', async (req, res) => {
     try {
-        const { nomex } = req.params;
-        const nome = '%' + nomex + '%';
-        const [query] = await connection.execute('select * from motorista where nome like ?', [nome]);
-        res.status(200).json(query);
+        const { nome } = req.params;
+        const motoristas = await prisma.motorista.findMany({
+            where: {
+                nome: {
+                    contains: nome
+                }
+            }
+        });
+        res.status(200).json(motoristas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -182,8 +190,17 @@ app.get('/motorista/busca/:nomex', async (req, res) => {
 app.post('/motorista', async (req, res) => {
     try {
         const { nome, cpf, nascimento, numero, email, foto_caminho } = req.body
-        const [query] = await connection.execute('insert into motorista (nome, cpf, nascimento, numero, email, foto_caminho) values (?,?,?,?,?,?)', [nome, cpf, nascimento, numero, email, foto_caminho]);
-        res.status(201).json(query);
+        const motorista = await prisma.motorista.create({
+            data: {
+                cpf,
+                nome,
+                nascimento: `${nascimento}T00:00:00.000Z`,
+                numero,
+                email,
+                foto_caminho
+            }
+        });
+        res.status(201).json(motorista);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -194,8 +211,20 @@ app.put('/motorista/:id', async (req, res) => {
     try {
         const { id } = req.params
         const { nome, cpf, nascimento, numero, email, foto_caminho } = req.body
-        const [query] = await connection.execute('update motorista set nome = ?, cpf = ?, nascimento = ?, numero = ?, email = ?,  foto_caminho = ? where id = ?', [nome, cpf, nascimento, numero, email, foto_caminho, id]);
-        res.status(200).json(query);
+        const motorista = await prisma.motorista.update({
+            where: {
+                id: parseInt(id)
+            },
+            data: {
+                cpf,
+                nome,
+                nascimento: `${nascimento}T00:00:00.000Z`,
+                numero,
+                email,
+                foto_caminho
+            }
+        })
+        res.status(200).json(motorista);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -205,8 +234,12 @@ app.put('/motorista/:id', async (req, res) => {
 app.delete('/motorista/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const [query] = await connection.execute("delete from motorista where id  = ?", [id])
-        res.status(200).json(query)
+        const motorista = await prisma.motorista.delete({
+            where: {
+                id: parseInt(id)
+            }
+        })
+        res.status(200).json({ msg: 'motorista deletado:', motorista })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -216,8 +249,8 @@ app.delete('/motorista/:id', async (req, res) => {
 // LINHA ------------------------------------------------------------------------------------------------
 app.get('/linha', async (req, res) => {
     try {
-        const [query] = await connection.execute('select * from linha');
-        res.status(200).json(query);
+        const linhas = await prisma.linha.findMany()
+        res.status(200).json(linhas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -227,20 +260,34 @@ app.get('/linha', async (req, res) => {
 app.get('/linha/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const [query] = await connection.execute('select * from linha where id = ?', [id]);
-        res.status(200).json(query);
+        const linha = await prisma.linha.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        });
+
+        if (!linha) {
+            res.status(404).json({ success: false, msg: 'linha não encontrado' });
+        } else {
+            res.status(200).json(linha);
+        }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
 
 }); // POR ID
 
-app.get('/linha/busca/:nomex', async (req, res) => {
+app.get('/linha/busca/:localinicio', async (req, res) => {
     try {
-        const { nomex } = req.params;
-        const nome = '%' + nomex + '%';
-        const [query] = await connection.execute('select * from linha where nome like ?', [nome]);
-        res.status(200).json(query);
+        const { localinicio } = req.params;
+        const linhas = await prisma.linha.findMany({
+            where: {
+                localinicio: {
+                    contains: localinicio
+                }
+            }
+        });
+        res.status(200).json(linhas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -249,9 +296,16 @@ app.get('/linha/busca/:nomex', async (req, res) => {
 
 app.post('/linha', async (req, res) => {
     try {
-        const { nome, email } = req.body
-        const [query] = await connection.execute('insert into linha (nome, email) values (?,?)', [nome, email]);
-        res.status(201).json(query);
+        const { inicio, fim, localinicio, localfim } = req.body
+        const linha = await prisma.linha.create({
+            data: {
+                inicio: `${inicio}.000Z`,
+                fim: `${fim}.000Z`,
+                localinicio,
+                localfim
+            }
+        });
+        res.status(201).json(linha);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -261,9 +315,19 @@ app.post('/linha', async (req, res) => {
 app.put('/linha/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const { nome, email } = req.body
-        const [query] = await connection.execute('update linha set nome = ?, email = ? where id = ?', [nome, email, id]);
-        res.status(200).json(query);
+        const { inicio, fim, localinicio, localfim } = req.body
+        const linha = await prisma.linha.update({
+            where: {
+                id: parseInt(id)
+            },
+            data: {
+                inicio: `${inicio}.000Z`,
+                fim: `${fim}.000Z`,
+                localinicio,
+                localfim
+            }
+        })
+        res.status(200).json(linha);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -273,8 +337,12 @@ app.put('/linha/:id', async (req, res) => {
 app.delete('/linha/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const [query] = await connection.execute("delete from linha where id  = ?", [id])
-        res.status(200).json(query)
+        const linha = await prisma.linha.delete({
+            where: {
+                id: parseInt(id)
+            }
+        })
+        res.status(200).json({ msg: 'linha deletada:', linha })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -284,8 +352,8 @@ app.delete('/linha/:id', async (req, res) => {
 // usuario ------------------------------------------------------------------------------------------------
 app.get('/usuario', async (req, res) => {
     try {
-        const [query] = await connection.execute('select * from usuario');
-        res.status(200).json(query);
+        const usuarios = await prisma.usuario.findMany()
+        res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -295,20 +363,34 @@ app.get('/usuario', async (req, res) => {
 app.get('/usuario/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const [query] = await connection.execute('select * from usuario where id = ?', [id]);
-        res.status(200).json(query);
+        const passageiro = await prisma.usuario.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        });
+
+        if (!passageiro) {
+            res.status(404).json({ success: false, msg: 'passageiro não encontrado' });
+        } else {
+            res.status(200).json(passageiro);
+        }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
 
 }); // POR ID
 
-app.get('/usuario/busca/:nomex', async (req, res) => {
+app.get('/usuario/busca/:nome', async (req, res) => {
     try {
-        const { nomex } = req.params;
-        const nome = '%' + nomex + '%';
-        const [query] = await connection.execute('select * from usuario where nome like ?', [nome]);
-        res.status(200).json(query);
+        const { nome } = req.params;
+        const usuarios = await prisma.usuario.findMany({
+            where: {
+                nome: {
+                    contains: nome
+                }
+            }
+        });
+        res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -318,8 +400,16 @@ app.get('/usuario/busca/:nomex', async (req, res) => {
 app.post('/usuario', async (req, res) => {
     try {
         const { nome, email, senha, token, foto_caminho } = req.body
-        const [query] = await connection.execute('insert into usuario (nome, email, senha, token, foto_caminho) values (?,?,?,?,?)', [nome, email, senha, token, foto_caminho]);
-        res.status(201).json(query);
+        const usuario = await prisma.usuario.create({
+            data: {
+                nome,
+                email,
+                senha,
+                token,
+                foto_caminho
+            }
+        });
+        res.status(201).json(usuario);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -330,8 +420,19 @@ app.put('/usuario/:id', async (req, res) => {
     try {
         const { id } = req.params
         const { nome, email, senha, token, foto_caminho } = req.body
-        const [query] = await connection.execute('update usuario set nome = ?, email = ?, senha = ?, token = ?, foto_caminho = ?  where id = ?', [nome, email, senha, token, foto_caminho, id]);
-        res.status(200).json(query);
+        const usuario = await prisma.usuario.update({
+            where: {
+                id: parseInt(id)
+            },
+            data: {
+                nome,
+                email,
+                senha,
+                token,
+                foto_caminho
+            }
+        })
+        res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
@@ -341,8 +442,107 @@ app.put('/usuario/:id', async (req, res) => {
 app.delete('/usuario/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const [query] = await connection.execute("delete from usuario where id  = ?", [id])
-        res.status(200).json(query)
+        const usuario = await prisma.usuario.delete({
+            where: {
+                id: parseInt(id)
+            }
+        })
+        res.status(200).json({ msg: 'usuario deletado:', usuario })
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+    }
+
+}); // DELETAR
+
+// ONIBUS ------------------------------------------------------------------------------------------------
+app.get('/onibus', async (req, res) => {
+    try {
+        const onibus = await prisma.onibus.findMany()
+        res.status(200).json(onibus);
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+    }
+
+}); // GERAL
+
+app.get('/onibus/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const onibus = await prisma.onibus.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        });
+
+        if (!onibus) {
+            res.status(404).json({ success: false, msg: 'onibus não encontrado' });
+        } else {
+            res.status(200).json(onibus);
+        }
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+    }
+
+}); // POR ID
+
+app.get('/onibus/busca/:placa', async (req, res) => {
+    try {
+        const { placa } = req.params;
+        const onibus = await prisma.onibus.findMany({
+            where: {
+                placa: {
+                    contains: placa
+                }
+            }
+        });
+        res.status(200).json(onibus);
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+    }
+
+}); // LIKE
+
+app.post('/onibus', async (req, res) => {
+    
+        const { placa } = req.body
+        const onibus = await prisma.onibus.create({
+            data: {
+               placa
+            }
+        });
+        res.status(201).json(onibus);
+   
+
+}); // CADASTRAR
+
+app.put('/onibus/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const { placa } = req.body
+        const onibus = await prisma.onibus.update({
+            where: {
+                id: parseInt(id)
+            },
+            data: {
+               placa
+            }
+        })
+        res.status(200).json(onibus);
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+    }
+
+}); // EDITAR
+
+app.delete('/onibus/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const onibus = await prisma.onibus.delete({
+            where: {
+                id: parseInt(id)
+            }
+        })
+        res.status(200).json({ msg: 'onibus deletado:', onibus })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
     }
