@@ -128,12 +128,12 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Linhas cadastradas</h2>
+                                <h2 class="pageheader-title">Ônibus cadastrados</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Linhas cadastradas</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Ônibus cadastrados</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -153,70 +153,16 @@
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate>
                                         <div class="form-row">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <label for="validationCustom01">Nome da linha</label>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
+                                                <label for="validationCustom01">Placa do ônibus</label>
                                                 <input type="text" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe o nome de cadastro da linha" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
+                                                    Informe uma placa válida.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="validationCustom01">Horário início</label>
-                                                <input type="time" class="form-control" id="sabadoHorarioInicio">
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="validationCustom01">Horário fim</label>
-                                                <input type="time" class="form-control" id="sabadoHorarioInicio">
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="validationCustom01">Local início</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe o nome de cadastro da linha" value="" required>
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="validationCustom01">Local fim</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="validationCustom01" placeholder="Informe o nome de cadastro da linha" value="" required>
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
-                                                </div>
-                                            </div>
-                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <div class="cardFoto">
-                                                  <h3>Foto da linha</h3>
-                                                  <div class="drop_box">
-                                                    <header>
-                                                      <h4>Selecione o arquivo</h4>
-                                                    </header>
-                                                    <p>Arquivos Suportados: JPG, PNG</p>
-                                                    <button class="btn upload-button" type="button">Escolha um arquivo</button>
-                                                    <input type="file" class="file-input" hidden accept=".jpeg, .jpg, .png" id="validationCustom01" style="display:none;" required>
-                                                  </div>
-                                              
-                                                </div>
-                                              </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                                 <button class="btn btn-primary" type="submit">Enviar</button>
                                             </div>
@@ -233,79 +179,53 @@
                     <!-- ============================================================== -->
                         <!-- hoverable table -->
                         <!-- ============================================================== -->
-                        <div class="">
+                        <div>
                             <div class="card">
-                                <h5 class="card-header pl-2">Lista de linhas</h5>
+                                <h5 class="card-header pl-2">Lista de ônibus</h5>
                                 <div class="card-body p-0">
                                     <table class="table table-hover table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Local início</th>
-                                                <th scope="col">Local fim</th>
-                                                <th scope="col">Horário início</th>
-                                                <th scope="col">Horário fim</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Placa</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">1</th>
+                                                <td><a href="linhas-detalhes.html">EGY-6727</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">2</th>
+                                                <td><a href="linhas-detalhes.html">BZU-8334</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">3</th>
+                                                <td colspan="2"><a href="linhas-detalhes.html">GHS-9960</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">4</th>
+                                                <td><a href="linhas-detalhes.html">GII-8456</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">5</th>
+                                                <td><a href="linhas-detalhes.html">EBI-4163</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">6</th>
+                                                <td><a href="linhas-detalhes.html">EEI-7424</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">7</th>
+                                                <td><a href="linhas-detalhes.html">CXS-6785</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">8</th>
+                                                <td><a href="linhas-detalhes.html">GGG-5835</a></td>
                                             </tr>
                                             <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Terminal Sumaré</td>
-                                                <td>EMEF Masako Sone</td>
-                                                <td>00:50</td>
-                                                <td>23:40</td>
+                                                <th scope="row">10</th>
+                                                <td><a href="linhas-detalhes.html">ESB-8726</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

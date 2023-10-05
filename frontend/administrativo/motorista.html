@@ -11,7 +11,7 @@
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="motorista-foto.css">
+    <link rel="stylesheet" href="foto.css">
 </head>
 
 <body>
@@ -94,21 +94,23 @@
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-1" aria-controls="submenu-1"><i
-                                        class="fas fa-clipboard"></i>Cadastrar<span
+                                        class="fas fa-clipboard"></i>Listar<span
                                         class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu">
                                     <ul class="nav flex-column">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="motorista.html">Motorista</a>
+                                            <a class="nav-link" href="motorista.html">Motoristas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="passageiros.html">Passageiro</a>
+                                            <a class="nav-link" href="passageiros.html">Passageiros</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="linhas.html">Linha</a>
+                                            <a class="nav-link" href="linhas.html">Linhas</a>
                                         </li>
-
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="onibus.html">Ônibus</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -136,15 +138,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Cadastrar Motorista</h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
-                                    vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <h2 class="pageheader-title">Motoristas cadastrados</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.html"
                                                     class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Cadastrar Motorista
+                                            <li class="breadcrumb-item active" aria-current="page">Motoristas cadastrados
                                             </li>
                                         </ol>
                                     </nav>
@@ -159,7 +159,7 @@
                         <!-- ============================================================== -->
                         <!-- validation form -->
                         <!-- ============================================================== -->
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <h5 class="card-header">Formulário de cadastro</h5>
                                 <div class="card-body">
@@ -167,7 +167,7 @@
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="validationCustom01">Nome completo</label>
-                                                <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
+                                                <input type="text" autocomplete="off"
                                                     class="form-control" id="validationCustom01"
                                                     placeholder="Informe seu nome completo" value="" required>
                                                 <div class="valid-feedback">
@@ -180,7 +180,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                                 style="padding-top: 10px;">
                                                 <label for="validationCustom01">CPF</label>
-                                                <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
+                                                <input type="text"
                                                     autocomplete="off" required="" placeholder="Informe seu CPF"
                                                     class="form-control" inlength="11">
                                                 <div class="valid-feedback">
@@ -206,7 +206,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                                 style="padding-top: 10px;">
                                                 <label for="validationCustom01">Número de celular</label>
-                                                <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
+                                                <input type="text" minlength="9" autocomplete="off"
                                                     class="form-control" id="validationCustom01"
                                                     placeholder="Informe seu celular para contato" value="" required>
                                                 <div class="valid-feedback">
@@ -255,7 +255,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- ============================================================== -->
                     <!-- end validation form -->
                     <!-- ============================================================== -->
@@ -267,13 +267,12 @@
 
                 <div class="">
                     <div class="card">
-                        <h5 class="card-header">Passageiros cadastrados</h5>
+                        <h5 class="card-header pl-2">Lista de motoristas</h5>
                         <div class="card-body p-0">
                             <div class="table table-hover table-responsive">
                                 <table class="table">
                                     <thead class="bg-light">
                                         <tr class="border-0">
-                                            <th class="border-0">ID</th>
                                             <th class="border-0">Foto</th>
                                             <th class="border-0">Nome</th>
                                             <th class="border-0">CPF</th>
@@ -285,7 +284,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
                                             <td><img src="https://img.freepik.com/fotos-gratis/homem-negro-afro-americano-com-expressao-seria-a-pensar_273609-14062.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
                                                     alt="foto-registro" style="height: 45px;"></td>
                                             <td>Renan Alves da Silva</td>
@@ -296,9 +294,6 @@
                                             <td>silva.renan@aluno.ifsp.edu.br</td>
                                         </tr>
                                         <tr>
-                
-                
-                                            <td>2</td>
                                             <td><img src="https://img.freepik.com/fotos-gratis/vista-frontal-de-homem-bonito_23-2148780801.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
                                                     alt="foto-registro" style="height: 45px;"></td>
                                             <td>Jorge Roberto Ruan da Rosa</td>
@@ -309,9 +304,6 @@
                                             <td>jorge.roberto.darosa@gmail.com</td>
                                         </tr>
                                         <tr>
-                
-                
-                                            <td>3</td>
                                             <td><img src="https://img.freepik.com/fotos-gratis/foto-de-bonitao-barba-por-fazer-parece-com-expressao-agradavel-diretamente-na-camera_176532-8164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
                                                     alt="foto-registro" style="height: 45px;"></td>
                                             <td>Oliver Gustavo</td>
@@ -322,9 +314,6 @@
                                             <td>oliver.gustavo@hotmail.com</td>
                                         </tr>
                                         <tr>
-                
-                
-                                            <td>4</td>
                                             <td><img src="https://img.freepik.com/fotos-gratis/perto-de-um-jovem-atraente-de-pele-escura-em-uma-camisa-em-branco-olha-para-a-camera-com-uma-expressao-calma-fica-sobre-um-fundo-rosa_295783-3270.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
                                                     alt="foto-registro" style="height: 45px;"></td>
                                             <td>César Antonio Gonçalves</td>
@@ -335,9 +324,6 @@
                                             <td>cesarantoniogoncalves@gmail.com</td>
                                         </tr>
                                         <tr>
-                
-                
-                                            <td>5</td>
                                             <td><img src="https://img.freepik.com/fotos-gratis/perto-de-jovem-bonita-e-encantadora-garota-caucasiana-com-cabelos-castanhos-compridos-em-t-shirt-cinza-com-expressao-seria-foto-de-mulher-ficando-para-passaporte_176420-10835.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
                                                     alt="foto-registro" style="height: 45px;"></td>
                                             <td>Tânia Isabela Vieira</td>
@@ -348,9 +334,6 @@
                                             <td>isabela.vieira@gmail.com</td>
                                         </tr>
                                         <tr>
-                
-                
-                                            <td>6</td>
                                             <td><img src="https://img.freepik.com/fotos-gratis/close-de-uma-mulher-fofa-e-hippie-sorrindo-e-parecendo-feliz_176420-26164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
                                                     alt="foto-registro" style="height: 45px;"></td>
                                             <td>Rosa Melissa da Conceição</td>

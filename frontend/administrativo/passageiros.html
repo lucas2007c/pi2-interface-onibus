@@ -11,9 +11,24 @@
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="foto.css">
 </head>
 
 <body>
+    <style>
+        /* Media query formlulario - foto */
+        @media (max-width: 461px) {
+            .cardFoto {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 367px) {
+            .cardFoto {
+                width: 244px;
+            }
+        }
+    </style>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -79,21 +94,23 @@
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
                                     data-target="#submenu-1" aria-controls="submenu-1"><i
-                                        class="fas fa-clipboard"></i>Cadastrar<span
+                                        class="fas fa-clipboard"></i>Listar<span
                                         class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu">
                                     <ul class="nav flex-column">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="motorista.html">Motorista</a>
+                                            <a class="nav-link" href="motorista.html">Motoristas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="passageiros.html">Passageiro</a>
+                                            <a class="nav-link" href="passageiros.html">Passageiros</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="linhas.html">Linha</a>
+                                            <a class="nav-link" href="linhas.html">Linhas</a>
                                         </li>
-
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="onibus.html">Ônibus</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -121,7 +138,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Cadastrar Passageiro</h2>
+                                <h2 class="pageheader-title">Passageiros cadastrados</h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
                                     vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
@@ -129,7 +146,7 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.html"
                                                     class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Cadastrar Passageiro
+                                            <li class="breadcrumb-item active" aria-current="page">Passageiros cadastrados
                                             </li>
                                         </ol>
                                     </nav>
@@ -144,15 +161,27 @@
                         <!-- ============================================================== -->
                         <!-- validation form -->
                         <!-- ============================================================== -->
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <h5 class="card-header">Formulário de cadastro</h5>
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate>
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <label for="validationCustom01">ID do usuário</label>
+                                                <input type="text" autocomplete="off"
+                                                    class="form-control" id="validationCustom01"
+                                                    placeholder="Informe seu ID" value="" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas números.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="validationCustom01">Nome completo</label>
-                                                <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
+                                                <input type="text" autocomplete="off"
                                                     class="form-control" id="validationCustom01"
                                                     placeholder="Informe seu nome completo" value="" required>
                                                 <div class="valid-feedback">
@@ -162,21 +191,19 @@
                                                     Utilize apenas caracteres alfabéticos.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="validationCustom01">CPF</label>
-                                                <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
+                                                <input type="text"
                                                     autocomplete="off" required="" placeholder="Informe seu CPF"
                                                     class="form-control" inlength="11">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                    Informe no formato 111.111.111-11
+                                                    Informe um CPF válido
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="validationCustom01">Data nascimento</label>
                                                 <input type="date" autocomplete="off" class="form-control"
                                                     id="validationCustom01" placeholder="dd/mm/yyyy" value="" required
@@ -188,10 +215,9 @@
                                                     Informe uma data válida.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="validationCustom01">Número de celular</label>
-                                                <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
+                                                <input type="text" minlength="9" autocomplete="off"
                                                     class="form-control" id="validationCustom01"
                                                     placeholder="Informe seu celular para contato" value="" required>
                                                 <div class="valid-feedback">
@@ -201,8 +227,7 @@
                                                     Informe apenas números.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px; padding-bottom: 10px;">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="validationCustom01">Email</label>
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
@@ -215,9 +240,8 @@
                                                     Informe um email válido, ex: nome@exemplo.com
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px; padding-bottom: 10px;">
-                                                <label for="validationCustom01">Tipo do Cartão</label>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="validationCustom01">Tipo do cartão</label>
                                                 <select name="cartao" class="form-control" required>
                                                     <option value="" selected disabled>Escolha uma opção</option>
                                                     <option value="comum">Comum</option>
@@ -231,14 +255,42 @@
                                                     Escolha um tipo válido.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="validationCustom01">Saldo inicial do cartão</label>
+                                                <input type="number" autocomplete="off"
+                                                    class="form-control" id="validationCustom01"
+                                                    placeholder="Informe um número válido" value="" step="1" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe apenas números.
+                                                </div>
+                                            </div>
+                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <div class=" cardFoto">
+                                                <h3 class="">Foto</h3>
+                                                <div class="drop_box">
+                                                    <header>
+                                                        <h4>Selecione o arquivo</h4>
+                                                    </header>
+                                                    <p>Arquivos Suportados: JPG, PNG</p>
+                                                    <button class="btn upload-button" type="button">Escolha um
+                                                        arquivo</button>
+                                                    <input type="file" class="file-input" hidden
+                                                        accept=".jpeg, .jpg, .png" id="validationCustom01"
+                                                        style="display:none;" required>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-2">
                                                 <button class="btn btn-primary" type="submit">Enviar</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- ============================================================== -->
                         <!-- end validation form -->
                         <!-- ============================================================== -->
@@ -250,85 +302,99 @@
 
                     <div class="">
                         <div class="card">
-                            <h5 class="card-header">Passageiros cadastrados</h5>
+                            <h5 class="card-header pl-2">Lista de passageiros</h5>
                             <div class="card-body p-0">
                                 <div class="table table-hover table-responsive">
                                     <table class="table">
                                         <thead class="bg-light">
                                             <tr class="border-0">
-                                                <th class="border-0">ID</th>
+                                                <th class="border-0">Foto</th>
                                                 <th class="border-0">Nome</th>
                                                 <th class="border-0">CPF</th>
 
                                                 <th class="border-0">Nascimento</th>
                                                 <th class="border-0">Número</th>
                                                 <th class="border-0">Email</th>
+                                                <th class="border-0">Tipo do cartão</th>
+                                                <th class="border-0">Saldo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td><img src="https://img.freepik.com/fotos-gratis/homem-negro-afro-americano-com-expressao-seria-a-pensar_273609-14062.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
                                                 <td>Renan Alves da Silva</td>
                                                 <td>909.857.048-88</td>
-
                                                 <td>09-02-2005</td>
                                                 <td>(12) 99630-2834</td>
                                                 <td>silva.renan@aluno.ifsp.edu.br</td>
+                                                <td>Comum</td>
+                                                <td>100</td>
                                             </tr>
                                             <tr>
 
 
-                                                <td>2</td>
+                                                <td><img src="https://img.freepik.com/fotos-gratis/vista-frontal-de-homem-bonito_23-2148780801.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
                                                 <td>Jorge Roberto Ruan da Rosa</td>
                                                 <td>519.921.878-60</td>
-
                                                 <td>25-08-2003</td>
                                                 <td>(11) 99695-6841</td>
                                                 <td>jorge.roberto.darosa@gmail.com</td>
+                                                <td>Idoso</td>
+                                                <td>100</td>
                                             </tr>
                                             <tr>
 
 
-                                                <td>3</td>
+                                                <td><img src="https://img.freepik.com/fotos-gratis/foto-de-bonitao-barba-por-fazer-parece-com-expressao-agradavel-diretamente-na-camera_176532-8164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
                                                 <td>Oliver Gustavo</td>
                                                 <td>282.835.658-26</td>
-
                                                 <td>17-01-1992</td>
                                                 <td>(12) 97504-9864</td>
                                                 <td>oliver.gustavo@hotmail.com</td>
+                                                <td>Estudante</td>
+                                                <td>50</td>
                                             </tr>
                                             <tr>
 
 
-                                                <td>4</td>
+                                                <td><img src="https://img.freepik.com/fotos-gratis/perto-de-um-jovem-atraente-de-pele-escura-em-uma-camisa-em-branco-olha-para-a-camera-com-uma-expressao-calma-fica-sobre-um-fundo-rosa_295783-3270.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
                                                 <td>César Antonio Gonçalves</td>
                                                 <td>563.498.928-01</td>
-
                                                 <td>07-11-2000</td>
                                                 <td>(12) 98743-9310</td>
                                                 <td>cesarantoniogoncalves@gmail.com</td>
+                                                <td>Estudante</td>
+                                                <td>50</td>
                                             </tr>
                                             <tr>
 
 
-                                                <td>5</td>
+                                                <td><img src="https://img.freepik.com/fotos-gratis/perto-de-jovem-bonita-e-encantadora-garota-caucasiana-com-cabelos-castanhos-compridos-em-t-shirt-cinza-com-expressao-seria-foto-de-mulher-ficando-para-passaporte_176420-10835.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
                                                 <td>Tânia Isabela Vieira</td>
                                                 <td>824.239.348-66</td>
-
                                                 <td>15-07-1956</td>
                                                 <td>(11) 99509-3588</td>
                                                 <td>isabela.vieira@gmail.com</td>
+                                                <td>Comum</td>
+                                                <td>100</td>
                                             </tr>
                                             <tr>
 
 
-                                                <td>6</td>
+                                                <td><img src="https://img.freepik.com/fotos-gratis/close-de-uma-mulher-fofa-e-hippie-sorrindo-e-parecendo-feliz_176420-26164.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                                    alt="foto-registro" style="height: 45px;"></td>
                                                 <td>Rosa Melissa da Conceição</td>
                                                 <td>511.159.388-86</td>
-
                                                 <td>05-01-1966</td>
                                                 <td>(14) 99374-1147</td>
                                                 <td>rosaconceicao@gmail.com</td>
+                                                <td>Estudante</td>
+                                                <td>10</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -371,6 +437,26 @@
                 <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
                 <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                 <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                <!-- script da foto no foto -->
+                <script>
+                    const dropArea = document.querySelector(".drop_box"),
+                        uploadButton = dropArea.querySelector(".upload-button"),
+                        fileInput = dropArea.querySelector(".file-input");
+
+                    uploadButton.addEventListener("click", () => {
+                        fileInput.click();
+                    });
+
+                    fileInput.addEventListener("change", function (e) {
+                        const fileName = e.target.files[0].name;
+                        let filedata = `
+            <div class="form">
+                <center> <h4>${fileName}</h4> </center>
+                <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
+            </div>`;
+                        dropArea.innerHTML = filedata;
+                    });
+                </script>
                 <script>
                     $('#form').parsley();
                 </script>
