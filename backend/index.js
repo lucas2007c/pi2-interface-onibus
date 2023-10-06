@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const { PrismaClient } = require('@prisma/client');
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ errorFormat: 'minimal' });
 const port = 3000;
 
 const app = express();
@@ -17,6 +17,7 @@ app.get('/passageiro', async (req, res) => {
         res.status(200).json(passageiros);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 }); // GERAL
 
@@ -30,12 +31,14 @@ app.get('/passageiro/:id', async (req, res) => {
         });
 
         if (!passageiro) {
-            res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
-        } else {
-            res.status(200).json(passageiro);
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
         }
+
+        res.status(200).json(passageiro);
+
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // POR ID
@@ -54,6 +57,7 @@ app.get('/passageiro/busca/:nome', async (req, res) => {
         res.status(200).json(passageiros);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 }); // LIKE
 
@@ -80,6 +84,7 @@ app.post('/passageiro', async (req, res) => {
         res.status(201).json(passageiro);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // CADASTRAR
@@ -111,6 +116,7 @@ app.put('/passageiro/:id', async (req, res) => {
         res.status(200).json(passageiro);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // EDITAR
@@ -126,6 +132,7 @@ app.delete('/passageiro/:id', async (req, res) => {
         res.status(200).json({ msg: 'passageiro deletado:', passageiro })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // DELETAR
@@ -137,6 +144,7 @@ app.get('/motorista', async (req, res) => {
         res.status(200).json(motoristas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 }); // GERAL
 
@@ -156,6 +164,7 @@ app.get('/motorista/:id', async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // POR ID
@@ -173,6 +182,7 @@ app.get('/motorista/busca/:nome', async (req, res) => {
         res.status(200).json(motoristas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // LIKE
@@ -193,6 +203,7 @@ app.post('/motorista', async (req, res) => {
         res.status(201).json(motorista);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // CADASTRAR
@@ -217,6 +228,7 @@ app.put('/motorista/:id', async (req, res) => {
         res.status(200).json(motorista);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // EDITAR
@@ -232,6 +244,7 @@ app.delete('/motorista/:id', async (req, res) => {
         res.status(200).json({ msg: 'motorista deletado:', motorista })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // DELETAR
@@ -243,6 +256,7 @@ app.get('/linha', async (req, res) => {
         res.status(200).json(linhas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // GERAL
@@ -263,6 +277,7 @@ app.get('/linha/:id', async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // POR ID
@@ -280,6 +295,7 @@ app.get('/linha/busca/:localinicio', async (req, res) => {
         res.status(200).json(linhas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // LIKE
@@ -298,6 +314,7 @@ app.post('/linha', async (req, res) => {
         res.status(201).json(linha);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // CADASTRAR
@@ -320,6 +337,7 @@ app.put('/linha/:id', async (req, res) => {
         res.status(200).json(linha);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // EDITAR
@@ -335,6 +353,7 @@ app.delete('/linha/:id', async (req, res) => {
         res.status(200).json({ msg: 'linha deletada:', linha })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // DELETAR
@@ -346,6 +365,7 @@ app.get('/usuario', async (req, res) => {
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // GERAL
@@ -366,6 +386,7 @@ app.get('/usuario/:id', async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // POR ID
@@ -383,48 +404,39 @@ app.get('/usuario/busca/:nome', async (req, res) => {
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // LIKE
 
 app.post('/usuario', async (req, res) => {
     try {
-        const { nome, email, senha, token, foto_caminho } = req.body
+        const data = req.body
         const usuario = await prisma.usuario.create({
-            data: {
-                nome,
-                email,
-                senha,
-                token,
-                foto_caminho
-            }
+            data: data
         });
         res.status(201).json(usuario);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // CADASTRAR
 
-app.put('/usuario/:id', async (req, res) => {
+app.patch('/usuario/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const { nome, email, senha, token, foto_caminho } = req.body
+        const data = req.body
         const usuario = await prisma.usuario.update({
             where: {
                 id: parseInt(id)
             },
-            data: {
-                nome,
-                email,
-                senha,
-                token,
-                foto_caminho
-            }
+            data: data
         })
         res.status(200).json(usuario);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // EDITAR
@@ -440,6 +452,7 @@ app.delete('/usuario/:id', async (req, res) => {
         res.status(200).json({ msg: 'usuario deletado:', usuario })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // DELETAR
@@ -451,6 +464,7 @@ app.get('/onibus', async (req, res) => {
         res.status(200).json(onibus);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // GERAL
@@ -471,6 +485,7 @@ app.get('/onibus/:id', async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // POR ID
@@ -488,24 +503,23 @@ app.get('/onibus/busca/:placa', async (req, res) => {
         res.status(200).json(onibus);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // LIKE
 
 app.post('/onibus', async (req, res) => {
-    
-        const { placa } = req.body
-        const onibus = await prisma.onibus.create({
-            data: {
-               placa
-            }
-        });
-        res.status(201).json(onibus);
-   
+
+    const { placa } = req.body
+    const onibus = await prisma.onibus.create({
+        data: { placa }
+    });
+    res.status(201).json(onibus);
+
 
 }); // CADASTRAR
 
-app.put('/onibus/:id', async (req, res) => {
+app.patch('/onibus/:id', async (req, res) => {
     try {
         const { id } = req.params
         const { placa } = req.body
@@ -513,13 +527,12 @@ app.put('/onibus/:id', async (req, res) => {
             where: {
                 id: parseInt(id)
             },
-            data: {
-               placa
-            }
+            data: { placa }
         })
         res.status(200).json(onibus);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // EDITAR
@@ -535,9 +548,14 @@ app.delete('/onibus/:id', async (req, res) => {
         res.status(200).json({ msg: 'onibus deletado:', onibus })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
 
 }); // DELETAR
+
+app.all('*', (req, res) => {
+    res.status(501).json({ success: false, msg: 'Rota Não encontrada' });
+})
 
 // RODANDO SERVIDOR
 app.listen(port, () => {
