@@ -1,5 +1,4 @@
 const express = require('express');
-const mysql = require('mysql2/promise');
 const cors = require('cors')
 const { PrismaClient } = require('@prisma/client');
 
@@ -10,15 +9,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(cors());
-
-const connection = mysql.createPool({
-    host: 'localhost',
-    port: 3306,
-    database: 'fasttravel',
-    user: 'root',
-    password: ''
-});
-
 
 // PASSAGEIRO --------------------------------------------------------------------------------
 app.get('/passageiro', async (req, res) => {
