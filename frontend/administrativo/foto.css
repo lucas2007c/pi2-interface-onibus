@@ -43,7 +43,7 @@
     color: #a3a3a3;
   }
   
-  .btn {
+  .btn-foto {
     text-decoration: none;
     background-color: #005af0;
     color: #ffffff;
@@ -53,7 +53,7 @@
     transition: 0.3s;
   }
   
-  .btn:hover{
+  .btn-foto:hover{
     text-decoration: none;
     background-color: #ffffff;
     color: #005af0;
@@ -62,3 +62,15 @@
     outline: 1px solid #010101;
   }
   
+  /* Media query formlulario - foto */
+  @media (max-width: 461px) {
+    .cardFoto {
+        width: 300px;
+    }
+}
+
+@media (max-width: 367px) {
+    .cardFoto {
+        width: 244px;
+    }
+}
