@@ -9,8 +9,8 @@ datasource db {
 
 model linha {
   id          Int      @id @default(autoincrement())
-  inicio      DateTime @db.DateTime(0)
-  fim         DateTime @db.DateTime(0)
+  inicio      DateTime @db.Time(0)
+  fim         DateTime @db.Time(0)
   localinicio String   @db.VarChar(45)
   localfim    String   @db.VarChar(45)
   viagem      viagem[]
@@ -28,13 +28,13 @@ model motorista {
 }
 
 model onibus {
-  id     Int      @id @default(autoincrement()) 
+  id     Int      @id @default(autoincrement())
   placa  String   @db.VarChar(8)
   viagem viagem[]
 }
 
 model passageiro {
-  id                    Int  @unique                   @default(autoincrement())
+  id                    Int                     @unique @default(autoincrement())
   nome                  String                  @db.VarChar(200)
   saldo                 Decimal                 @db.Decimal(10, 2)
   cpf                   String?                 @db.VarChar(15)
@@ -62,7 +62,7 @@ model usuario {
 }
 
 model viagem {
-  id                    Int   @unique                  @default(autoincrement())
+  id                    Int                     @unique @default(autoincrement())
   data                  DateTime?               @db.DateTime(0)
   onibus_id             Int
   motorista_id          Int

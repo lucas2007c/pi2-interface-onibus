@@ -305,8 +305,8 @@ app.post('/linha', async (req, res) => {
         const { inicio, fim, localinicio, localfim } = req.body
         const linha = await prisma.linha.create({
             data: {
-                inicio: `${inicio}.000Z`,
-                fim: `${fim}.000Z`,
+                inicio: `2023-01-01T${inicio}:00.000Z`,
+                fim: `2023-01-01T${fim}:00.000Z`,
                 localinicio,
                 localfim
             }

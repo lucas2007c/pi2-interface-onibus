@@ -1,8 +1,8 @@
 -- CreateTable
 CREATE TABLE `linha` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `inicio` DATETIME(0) NOT NULL,
-    `fim` DATETIME(0) NOT NULL,
+    `inicio` TIME(0) NOT NULL,
+    `fim` TIME(0) NOT NULL,
     `localinicio` VARCHAR(45) NOT NULL,
     `localfim` VARCHAR(45) NOT NULL,
 
