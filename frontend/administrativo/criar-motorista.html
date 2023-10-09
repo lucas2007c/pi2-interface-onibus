@@ -169,12 +169,12 @@
                             <div class="card">
                                 <h5 class="card-header">Formulário de cadastro</h5>
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    <form class="needs-validation" novalidate id="form-linhas">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <label for="validationCustom01">Nome completo</label>
+                                                <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
-                                                    class="form-control" id="validationCustom01"
+                                                    class="form-control" id="nome"
                                                     placeholder="Informe seu nome completo" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -185,10 +185,10 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                                 style="padding-top: 10px;">
-                                                <label for="validationCustom01">CPF</label>
+                                                <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
                                                     autocomplete="off" required="" placeholder="Informe seu CPF"
-                                                    class="form-control" inlength="11">
+                                                    class="form-control" inlength="11" id="cpf">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -198,10 +198,9 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                                 style="padding-top: 10px;">
-                                                <label for="validationCustom01">Data nascimento</label>
+                                                <label for="nascimento">Data nascimento</label>
                                                 <input type="date" autocomplete="off" class="form-control"
-                                                    id="validationCustom01" placeholder="dd/mm/yyyy" value="" required
-                                                    min="">
+                                                    id="nascimento" placeholder="dd/mm/yyyy" value="" required min="">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -211,9 +210,9 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                                 style="padding-top: 10px;">
-                                                <label for="validationCustom01">Número de celular</label>
+                                                <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
-                                                    class="form-control" id="validationCustom01"
+                                                    class="form-control" id="numero"
                                                     placeholder="Informe seu celular para contato" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -224,10 +223,10 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
                                                 style="padding-top: 10px; padding-bottom: 10px;">
-                                                <label for="validationCustom01">Email</label>
+                                                <label for="email">Email</label>
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                                    autocomplete="off" class="form-control" id="validationCustom01"
+                                                    autocomplete="off" class="form-control" id="email"
                                                     placeholder="Informe seu email" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -242,13 +241,13 @@
                                                 <h3 class="">Foto</h3>
                                                 <div class="drop_box">
                                                     <header>
-                                                        <h4>Selecione o arquivo</h4>
+                                                        <h4 id="foto_caminho">Selecione o arquivo</h4>
                                                     </header>
                                                     <p>Arquivos Suportados: JPG, PNG</p>
                                                     <button class="btn upload-button" type="button">Escolha um
                                                         arquivo</button>
                                                     <input type="file" class="file-input" hidden
-                                                        accept=".jpeg, .jpg, .png" id="validationCustom01"
+                                                        accept=".jpeg, .jpg, .png" id="foto_caminho"
                                                         style="display:none;" required>
                                                 </div>
 
@@ -282,6 +281,7 @@
                     <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
                     <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                     <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <!-- script da foto no foto -->
                     <script>
                         const dropArea = document.querySelector(".drop_box"),
@@ -295,10 +295,10 @@
                         fileInput.addEventListener("change", function (e) {
                             const fileName = e.target.files[0].name;
                             let filedata = `
-                <div class="form">
-                    <center> <h4>${fileName}</h4> </center>
+              
+                    <center> <h4 id="foto_caminho">${fileName}</h4> </center>
                     <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
-                </div>`;
+                `;
                             dropArea.innerHTML = filedata;
                         });
                     </script>
@@ -325,7 +325,60 @@
                             }, false);
                         })();
                     </script>
+                    <script>
+                        (() => {
+                            const form = document.querySelector('#form-linhas');
+
+                            form.addEventListener('submit', async event => {
+                                event.preventDefault();
+
+                                if (!form.checkValidity()) {
+                                    event.stopPropagation();
+                                } else {
+                                    try {
+                                        const nome = document.getElementById('nome').value;
+                                        const cpf = document.getElementById('cpf').value;
+                                        const nascimento = document.getElementById('nascimento').value;
+                                        const numero = document.getElementById('numero').value;
+                                        const foto_caminho = document.getElementById('foto_caminho').textContent;
+
+                                        const data = {
+                                            nome,
+                                            cpf,
+                                            nascimento,
+                                            numero,
+                                            foto_caminho
+                                        };
+
+                                        console.log(data)
                     
+
+
+                                        const response = await axios.post('http://localhost:3000/motorista', data);
+
+                                        console.log('Resposta do servidor:', response.data);
+
+                                        if (response.status === 200) {
+                                            localStorage.setItem('alert', JSON.stringify({
+                                                alertType: 'success',
+                                                alertMessage: 'Cadastro realizado com sucesso'
+                                            }));
+
+                                            window.location.href = 'http://localhost:3000/';
+                                        } else {
+                                            console.error('Erro no servidor:', response.data);
+                                        }
+                                    } catch (error) {
+                                        console.error('Erro ao enviar a solicitação:', error);
+                                    }
+                                }
+
+                                form.classList.add('was-validated');
+                            });
+                        })();
+                    </script>
+
+
 </body>
 
 </html>
