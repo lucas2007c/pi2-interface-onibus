@@ -509,12 +509,16 @@ app.get('/onibus/busca/:placa', async (req, res) => {
 }); // LIKE
 
 app.post('/onibus', async (req, res) => {
-
-    const { placa } = req.body
-    const onibus = await prisma.onibus.create({
-        data: { placa }
-    });
-    res.status(201).json(onibus);
+    try {
+        const { placa } = req.body
+        const onibus = await prisma.onibus.create({
+            data: { placa }
+        });
+        res.status(201).json(onibus);
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
+    }
 
 
 }); // CADASTRAR
