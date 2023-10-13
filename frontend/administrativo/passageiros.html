@@ -612,7 +612,7 @@
                             passageiros.forEach(passageiro => {
                                 const row = document.createElement('tr');
                                 row.innerHTML = `
-                                <td><img src="https://img.freepik.com/fotos-gratis/homem-negro-afro-americano-com-expressao-seria-a-pensar_273609-14062.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                <td><img src="${passageiro.foto_caminho}"
                                                         alt="foto-registro" style="height: 45px;"></td>
                                                 <td>${passageiro.nome}</td>
                                                 <td>${passageiro.cpf}</td>
@@ -622,7 +622,7 @@
                                                 <td>${passageiro.tipo_cartao}</td>
                                                 <td>${passageiro.saldo}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#excluirModal">
+                                                    <a href="excluir-passageiro.html" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#excluirModal">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             fill="currentColor" class="bi bi-trash-fill"
                                                             viewBox="0 0 16 16">

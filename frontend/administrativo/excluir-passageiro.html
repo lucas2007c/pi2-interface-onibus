@@ -175,7 +175,7 @@
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
                                                     class="form-control" id="nome"
-                                                    placeholder="Informe seu nome completo" value="" disabled>
+                                                     value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -187,7 +187,7 @@
                                                 style="padding-top: 10px;">
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
-                                                    autocomplete="off" required="" placeholder="Informe seu CPF"
+                                                    autocomplete="off"
                                                     class="form-control" inlength="11" id="cpf" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -200,7 +200,7 @@
                                                 style="padding-top: 10px;">
                                                 <label for="nascimento">Data nascimento</label>
                                                 <input type="date" autocomplete="off" class="form-control"
-                                                    id="nascimento" placeholder="dd/mm/yyyy" value="" required min=""
+                                                    id="nascimento"  value=""  min=""
                                                     disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -214,7 +214,7 @@
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
                                                     class="form-control" id="numero"
-                                                    placeholder="Informe seu celular para contato" value="" disabled>
+                                                     value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -228,7 +228,7 @@
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                                     autocomplete="off" class="form-control" id="email"
-                                                    placeholder="Informe seu email" value="" disabled>
+                                                     value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -240,17 +240,7 @@
                                                 style="padding-top: 10px;"">
                                                 <div class=" cardFoto">
                                                 <h3 class="">Foto</h3>
-                                                <div class="drop_box">
-                                                    <header>
-                                                        <h4 id="foto_caminho">Selecione o arquivo</h4>
-                                                    </header>
-                                                    <p>Arquivos Suportados: JPG, PNG</p>
-                                                    <button class="btn upload-button" type="button">Escolha um
-                                                        arquivo</button>
-                                                    <input type="file" class="file-input" hidden
-                                                        accept=".jpeg, .jpg, .png" id="foto_caminho"
-                                                        style="display:none;" disabled>
-                                                </div>
+                                                <img id="foto-passageiro" src="assets/images/avatar-4.jpg" alt="Avatar">
 
                                             </div>
                                         </div>
@@ -309,25 +299,7 @@
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <!-- script da foto no foto -->
-                    <script>
-                        const dropArea = document.querySelector(".drop_box"),
-                            uploadButton = dropArea.querySelector(".upload-button"),
-                            fileInput = dropArea.querySelector(".file-input");
-
-                        uploadButton.addEventListener("click", () => {
-                            fileInput.click();
-                        });
-
-                        fileInput.addEventListener("change", function (e) {
-                            const fileName = e.target.files[0].name;
-                            let filedata = `
-              
-                    <center> <h4 id="foto_caminho">${fileName}</h4> </center>
-                    <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
-                `;
-                            dropArea.innerHTML = filedata;
-                        });
-                    </script>
+            
                     <script>
                         $('#form').parsley();
                     </script>
@@ -381,29 +353,6 @@
 
                         async function excluirPassageiro() {
 
-                            const form = document.querySelector("#form-passageiro")
-
-                            const nome = document.getElementById('nome').value;
-                            const saldo = document.getElementById('saldo').value;
-                            const cpf = document.getElementById('cpf').value;
-                            const email = document.getElementById('email').value;
-                            const nascimento = document.getElementById('nascimento').value;
-                            const numero = document.getElementById('numero').value;
-                            const foto_caminho = document.getElementById('foto_caminho').textContent;
-                            const tipo_cartao = document.getElementById('tipo_cartao').value;
-                            const usuario_id = document.getElementById('usuario').value;
-
-                            const data = {
-                                nome,
-                                saldo,
-                                cpf,
-                                nascimento: `${nascimento}T00:00:00.000Z`,
-                                numero,
-                                email,
-                                foto_caminho,
-                                tipo_cartao,
-                                usuario_id
-                            };
 
                             try {
                                 await axios.delete('http://localhost:3000/passageiro/:id');
@@ -427,7 +376,7 @@
 
                         const botaoExcluir = document.querySelector("#excluirBotao")
                         botaoExcluir.addEventListener('click', function () {
-                            deletarPassageiro();
+                            excluirPassageiro();
                         });
 
                     </script>

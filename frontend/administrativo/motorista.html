@@ -138,109 +138,7 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- validation form -->
-                        <!-- ============================================================== -->
-                        <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Formulário de cadastro</h5>
-                                <div class="card-body">
-                                    <form class="needs-validation" novalidate>
-                                        <div class="row">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <label for="validationCustom01">Nome completo</label>
-                                                <input type="text" autocomplete="off"
-                                                    class="form-control" id="validationCustom01"
-                                                    placeholder="Informe seu nome completo" value="" required>
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;">
-                                                <label for="validationCustom01">CPF</label>
-                                                <input type="text"
-                                                    autocomplete="off" required="" placeholder="Informe seu CPF"
-                                                    class="form-control" inlength="11">
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Informe no formato 111.111.111-11
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;">
-                                                <label for="validationCustom01">Data nascimento</label>
-                                                <input type="date" autocomplete="off" class="form-control"
-                                                    id="validationCustom01" placeholder="dd/mm/yyyy" value="" required
-                                                    min="">
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Informe uma data válida.
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;">
-                                                <label for="validationCustom01">Número de celular</label>
-                                                <input type="text" minlength="9" autocomplete="off"
-                                                    class="form-control" id="validationCustom01"
-                                                    placeholder="Informe seu celular para contato" value="" required>
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Informe apenas números.
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px; padding-bottom: 10px;">
-                                                <label for="validationCustom01">Email</label>
-                                                <input type="email"
-                                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                                    autocomplete="off" class="form-control" id="validationCustom01"
-                                                    placeholder="Informe seu email" value="" required>
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Informe um email válido, ex: nome@exemplo.com
-                                                </div>
-                                            </div>
-                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;"">
-                                                <div class=" cardFoto">
-                                                <h3 class="">Foto</h3>
-                                                <div class="drop_box">
-                                                    <header>
-                                                        <h4>Selecione o arquivo</h4>
-                                                    </header>
-                                                    <p>Arquivos Suportados: JPG, PNG</p>
-                                                    <button class="btn-foto btn upload-button" type="button">Escolha um
-                                                        arquivo</button>
-                                                    <input type="file" class="file-input" hidden
-                                                        accept=".jpeg, .jpg, .png" id="validationCustom01"
-                                                        style="display:none;" required>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <button class="btn-foto btn btn-primary" type="submit">Enviar</button>
-                                        </div>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
-                        <!-- ============================================================== -->
-                        <!-- end validation form -->
-                        <!-- ============================================================== -->
+                        
                     </div>
 
                     <!-- ============================================================== -->
@@ -485,7 +383,7 @@
                                 motoristas.forEach(motorista => {
                                     const row = document.createElement('tr');
                                     row.innerHTML = `
-                                    <td><img src="https://img.freepik.com/fotos-gratis/homem-negro-afro-americano-com-expressao-seria-a-pensar_273609-14062.jpg?size=626&ext=jpg&ga=GA1.1.1102904496.1691038721&semt=ais"
+                                    <td><img src="${motorista.foto_caminho}"
                                                         alt="foto-registro" style="height: 45px;"></td>
                                                 <td>${motorista.nome}</td>
                                                 <td>${motorista.cpf}</td>
@@ -493,7 +391,7 @@
                                                 <td>${motorista.numero}</td>
                                                 <td>${motorista.email}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-sm btn-outline-danger">
+                                                    <a href="excluir-motorista.html" class="btn btn-sm btn-outline-danger">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                             fill="currentColor" class="bi bi-trash-fill"
                                                             viewBox="0 0 16 16">
@@ -520,34 +418,6 @@
 
                         fetchMotoristas();
                     </script>
-
-
-
-                    <!-- script abaixo da foto no foto -->
-                    <!-- <script>
-                        const dropArea = document.querySelector(".drop_box"),
-                            uploadButton = dropArea.querySelector(".upload-button"),
-                            fileInput = dropArea.querySelector(".file-input");
-
-                        uploadButton.addEventListener("click", () => {
-                            fileInput.click();
-                        });
-
-                        fileInput.addEventListener("change", function (e) {
-                            const fileName = e.target.files[0].name;
-                            let filedata = `
-                <div class="form">
-                    <center> <h4>${fileName}</h4> </center>
-                    <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
-                </div>`;
-                            dropArea.innerHTML = filedata;
-                        });
-                    </script> -->
-
-                    <!-- script abaixo de validação dos formularios, apresentar erro e ok -->
-                    <!-- <script>
-                        $('#form').parsley();
-                    </script> -->
 </body>
 
 </html>
