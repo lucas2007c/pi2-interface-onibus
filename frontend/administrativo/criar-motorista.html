@@ -169,7 +169,7 @@
                             <div class="card">
                                 <h5 class="card-header">Formulário de cadastro</h5>
                                 <div class="card-body">
-                                    <form method="post" action="/motorista" class="needs-validation" novalidate id="form-linhas">
+                                    <form method="post" action="/motorista" class="needs-validation" novalidate id="form-motorista">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome completo</label>
@@ -328,7 +328,7 @@
                     </script>
                     <script>
                         (() => {
-                            const form = document.querySelector('#form-linhas');
+                            const form = document.querySelector('#form-motorista');
 
                             form.addEventListener('submit', async event => {
                                 event.preventDefault();
@@ -339,6 +339,7 @@
                                     try {
                                         const nome = document.getElementById('nome').value;
                                         const cpf = document.getElementById('cpf').value;
+                                        const email = document.getElementById('email').value;
                                         const nascimento = document.getElementById('nascimento').value;
                                         const numero = document.getElementById('numero').value;
                                         const foto_caminho = document.getElementById('foto_caminho').textContent;
@@ -346,8 +347,9 @@
                                         const data = {
                                             nome,
                                             cpf,
-                                            nascimento,
+                                            nascimento: `${nascimento}T00:00:00.000Z`,
                                             numero,
+                                            email,
                                             foto_caminho
                                         };
 
@@ -365,7 +367,7 @@
                                                 alertMessage: 'Cadastro realizado com sucesso'
                                             }));
 
-                                            window.location.href = 'http://localhost:3000/';
+                                            window.location.href = 'http://localhost:3000/motorista';
                                         } else {
                                             console.error('Erro no servidor:', response.data);
                                         }

@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Fast Travel | Editar Motorista</title>
+    <title>Fast Travel | Editar Passageiro</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -142,7 +142,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Editar Motorista</h2>
+                                <h2 class="pageheader-title">Editar Passageiro</h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
                                     vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
@@ -150,7 +150,7 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.html"
                                                     class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Editar Motorista
+                                            <li class="breadcrumb-item active" aria-current="page">Editar Passageiro
                                             </li>
                                         </ol>
                                     </nav>
@@ -169,8 +169,8 @@
                             <div class="card">
                                 <h5 class="card-header">Formulário de edição</h5>
                                 <div class="card-body">
-                                    <form method="put" action="/motorista/:id" class="needs-validation" novalidate
-                                        id="form-motorista">
+                                    <form method="put" action="/passageiro/:id" class="needs-validation" novalidate
+                                        id="form-passageiro">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome completo</label>
@@ -255,7 +255,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <a href="motorista.html"><button class="btn btn-danger"
+                                            <a href="passageiros.html"><button class="btn btn-danger"
                                                     type="button">Cancelar</button></a>
                                             <button class="btn btn-primary ml-2" type="submit">Salvar</button>
                                         </div>
@@ -284,6 +284,7 @@
                     <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
                     <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                     <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <!-- script da foto no foto -->
                     <script>
@@ -330,18 +331,23 @@
                     </script>
 
                     <script>
-                        async function getMotoristas() {
+                        async function getPassageiro() {
                             try {
-                                const response = await axios.get('http://localhost:3000/motorista/:id');
-                                const motorista = response.data;
+                                const response = await axios.get('http://localhost:3000/passageiro/:id');
 
-                                const form = document.querySelector('#form-motorista');
+                                const passageiro = response.data;
 
-                                const nome = document.getElementById('nome').value = motorista.nome;
-                                const cpf = document.getElementById('cpf').value = motorista.cpf
-                                const nascimento = document.getElementById('nascimento').value = motorista.nascimento;
-                                const numero = document.getElementById('numero').value = motorista.numero
-                                // const foto_caminho = document.getElementById('foto_caminho').textContent;
+                                const form = document.querySelector('#form-passageiro');
+
+                                const nome = document.getElementById('nome').value = passageiro.nome;
+                                const cpf = document.getElementById('cpf').value = passageiro.cpf;
+                                const nascimento = document.getElementById('nascimento').value = passageiro.nascimento;
+                                const numero = document.getElementById('numero').value = passageiro.numero;
+                                const saldo = document.getElementById('saldo').value = passageiro.saldo;
+                                const email = document.getElementById('email').value = passageiro.email;
+                                const foto_caminho = document.getElementById('foto_caminho').textContent = passageiro.foto_caminho;
+                                const tipo_cartao = document.getElementById('tipo_cartao').value = passageiro.tipo_cartao;
+                                const usuario_id = document.getElementById('usuario').value = passageiro.usuario_id;
 
 
                             } catch (error) {
@@ -349,17 +355,36 @@
                             }
                         }
 
-                        getMotoristas();
+                        getPassageiro();
 
-                        async function atualizarMotorista() {
+                        async function atualizarPassageiro() {
 
-                            const form = document.querySelector("#form-motorista")
+                            const form = document.querySelector("#form-passageiro")
+
                             const nome = document.getElementById('nome').value;
+                            const saldo = document.getElementById('saldo').value;
                             const cpf = document.getElementById('cpf').value;
+                            const email = document.getElementById('email').value;
                             const nascimento = document.getElementById('nascimento').value;
                             const numero = document.getElementById('numero').value;
+                            const foto_caminho = document.getElementById('foto_caminho').textContent;
+                            const tipo_cartao = document.getElementById('tipo_cartao').value;
+                            const usuario_id = document.getElementById('usuario').value;
+
+                            const data = {
+                                nome,
+                                saldo,
+                                cpf,
+                                nascimento: `${nascimento}T00:00:00.000Z`,
+                                numero,
+                                email,
+                                foto_caminho,
+                                tipo_cartao,
+                                usuario_id
+                            };
+
                             try {
-                                await axios.put('http://localhost:3000/motorista/:id', nome, cpf, nascimento, numero);
+                                await axios.put('http://localhost:3000/passageiro/:id', data);
                                 console.log('Dados atualizados com sucesso!');
                             } catch (error) {
                                 console.error('Erro ao atualizar os dados:', error);
@@ -367,8 +392,8 @@
                         }
 
                         form.addEventListener('submit', function (e) {
-                            e.preventDefault(); 
-                            atualizarMotorista();
+                            e.preventDefault();
+                            atualizarPassageiro();
                         });
 
                     </script>

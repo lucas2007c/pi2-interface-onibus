@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Fast Travel | Editar Motorista</title>
+    <title>Fast Travel | Excluir Passageiro</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -142,7 +142,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Editar Motorista</h2>
+                                <h2 class="pageheader-title">Excluir Passageiro</h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
                                     vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
@@ -150,7 +150,7 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.html"
                                                     class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Editar Motorista
+                                            <li class="breadcrumb-item active" aria-current="page">Excluir Passageiro
                                             </li>
                                         </ol>
                                     </nav>
@@ -167,16 +167,15 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Formulário de edição</h5>
+                                <h5 class="card-header">Informações do passageiro</h5>
                                 <div class="card-body">
-                                    <form method="put" action="/motorista/:id" class="needs-validation" novalidate
-                                        id="form-motorista">
+                                    <form class="needs-validation" novalidate id="form-passageiro">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
                                                     class="form-control" id="nome"
-                                                    placeholder="Informe seu nome completo" value="" required>
+                                                    placeholder="Informe seu nome completo" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -189,7 +188,7 @@
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
                                                     autocomplete="off" required="" placeholder="Informe seu CPF"
-                                                    class="form-control" inlength="11" id="cpf">
+                                                    class="form-control" inlength="11" id="cpf" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -201,7 +200,8 @@
                                                 style="padding-top: 10px;">
                                                 <label for="nascimento">Data nascimento</label>
                                                 <input type="date" autocomplete="off" class="form-control"
-                                                    id="nascimento" placeholder="dd/mm/yyyy" value="" required min="">
+                                                    id="nascimento" placeholder="dd/mm/yyyy" value="" required min=""
+                                                    disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -214,7 +214,7 @@
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
                                                     class="form-control" id="numero"
-                                                    placeholder="Informe seu celular para contato" value="" required>
+                                                    placeholder="Informe seu celular para contato" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -228,7 +228,7 @@
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                                     autocomplete="off" class="form-control" id="email"
-                                                    placeholder="Informe seu email" value="" required>
+                                                    placeholder="Informe seu email" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -249,15 +249,37 @@
                                                         arquivo</button>
                                                     <input type="file" class="file-input" hidden
                                                         accept=".jpeg, .jpg, .png" id="foto_caminho"
-                                                        style="display:none;" required>
+                                                        style="display:none;" disabled>
                                                 </div>
 
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <a href="motorista.html"><button class="btn btn-danger"
+                                            <a href="passageiros.html"><button class="btn btn-danger"
                                                     type="button">Cancelar</button></a>
-                                            <button class="btn btn-primary ml-2" type="submit">Salvar</button>
+                                            <button class="btn btn-primary ml-2" type="button" data-toggle="modal"
+                                                data-target="#excluirModal">Excluir</button>
+                                            <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
+                                                aria-labelledby="excluirModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="excluirModalLabel">Tem
+                                                                certeza que deseja excluir esse passageiro?</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-start">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Cancelar</button>
+                                                            <button id="excluirBotao" type="button"
+                                                                class="btn btn-primary">Excluir</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                 </div>
                                 </form>
@@ -284,6 +306,7 @@
                     <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
                     <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                     <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <!-- script da foto no foto -->
                     <script>
@@ -330,18 +353,23 @@
                     </script>
 
                     <script>
-                        async function getMotoristas() {
+                        async function getPassageiro() {
                             try {
-                                const response = await axios.get('http://localhost:3000/motorista/:id');
-                                const motorista = response.data;
+                                const response = await axios.get('http://localhost:3000/passageiro/:id');
 
-                                const form = document.querySelector('#form-motorista');
+                                const passageiro = response.data;
 
-                                const nome = document.getElementById('nome').value = motorista.nome;
-                                const cpf = document.getElementById('cpf').value = motorista.cpf
-                                const nascimento = document.getElementById('nascimento').value = motorista.nascimento;
-                                const numero = document.getElementById('numero').value = motorista.numero
-                                // const foto_caminho = document.getElementById('foto_caminho').textContent;
+                                const form = document.querySelector('#form-passageiro');
+
+                                const nome = document.getElementById('nome').value = passageiro.nome;
+                                const cpf = document.getElementById('cpf').value = passageiro.cpf;
+                                const nascimento = document.getElementById('nascimento').value = passageiro.nascimento;
+                                const numero = document.getElementById('numero').value = passageiro.numero;
+                                const saldo = document.getElementById('saldo').value = passageiro.saldo;
+                                const email = document.getElementById('email').value = passageiro.email;
+                                const foto_caminho = document.getElementById('foto_caminho').textContent = passageiro.foto_caminho;
+                                const tipo_cartao = document.getElementById('tipo_cartao').value = passageiro.tipo_cartao;
+                                const usuario_id = document.getElementById('usuario').value = passageiro.usuario_id;
 
 
                             } catch (error) {
@@ -349,26 +377,57 @@
                             }
                         }
 
-                        getMotoristas();
+                        getPassageiro();
 
-                        async function atualizarMotorista() {
+                        async function excluirPassageiro() {
 
-                            const form = document.querySelector("#form-motorista")
+                            const form = document.querySelector("#form-passageiro")
+
                             const nome = document.getElementById('nome').value;
+                            const saldo = document.getElementById('saldo').value;
                             const cpf = document.getElementById('cpf').value;
+                            const email = document.getElementById('email').value;
                             const nascimento = document.getElementById('nascimento').value;
                             const numero = document.getElementById('numero').value;
+                            const foto_caminho = document.getElementById('foto_caminho').textContent;
+                            const tipo_cartao = document.getElementById('tipo_cartao').value;
+                            const usuario_id = document.getElementById('usuario').value;
+
+                            const data = {
+                                nome,
+                                saldo,
+                                cpf,
+                                nascimento: `${nascimento}T00:00:00.000Z`,
+                                numero,
+                                email,
+                                foto_caminho,
+                                tipo_cartao,
+                                usuario_id
+                            };
+
                             try {
-                                await axios.put('http://localhost:3000/motorista/:id', nome, cpf, nascimento, numero);
-                                console.log('Dados atualizados com sucesso!');
+                                await axios.delete('http://localhost:3000/passageiro/:id');
+
+                                console.log('Resposta do servidor:', response.data);
+
+                                if (response.status === 200) {
+                                    localStorage.setItem('alert', JSON.stringify({
+                                        alertType: 'success',
+                                        alertMessage: 'Passageiro deletado com sucesso.'
+                                    }));
+
+                                    window.location.href = 'http://localhost:3000/passageiros';
+                                } else {
+                                    console.error('Erro no servidor:', response.data);
+                                }
                             } catch (error) {
                                 console.error('Erro ao atualizar os dados:', error);
                             }
                         }
 
-                        form.addEventListener('submit', function (e) {
-                            e.preventDefault(); 
-                            atualizarMotorista();
+                        const botaoExcluir = document.querySelector("#excluirBotao")
+                        botaoExcluir.addEventListener('click', function () {
+                            deletarPassageiro();
                         });
 
                     </script>
