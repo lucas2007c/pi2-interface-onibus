@@ -254,7 +254,7 @@
                                                         <div class="modal-footer justify-content-start">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Cancelar</button>
-                                                            <button id="excluirBotao" type="button"
+                                                            <button id="excluirBotao" type="submit"
                                                                 class="btn btn-primary">Excluir</button>
                                                         </div>
                                                     </div>
@@ -362,7 +362,7 @@
                         }
 
                         const botaoExcluir = document.querySelector("#excluirBotao")
-                        botaoExcluir.addEventListener('click', function () {
+                        botaoExcluir.addEventListener('submit', function () {
                             excluirMotorista();
                         });
 
