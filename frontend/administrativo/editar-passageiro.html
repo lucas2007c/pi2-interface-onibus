@@ -396,11 +396,17 @@
                             } catch (error) {
                                 console.error('Erro ao atualizar os dados:', error);
                             }
+
+                            form.classList.add('was-validated');
                         }
 
                         form.addEventListener('submit', function (e) {
                             e.preventDefault();
-                            atualizarPassageiro();
+                            if (!form.checkValidity()) {
+                                event.stopPropagation();
+                            } else {
+                                atualizarPassageiro();
+                            }
                         });
 
                     </script>
