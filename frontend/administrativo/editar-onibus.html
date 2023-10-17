@@ -243,8 +243,12 @@
 
                         <script>
                             async function getOnibus() {
+
+                                const url = window.location.href;
+                                const urlId = url.split("/").pop();
+
                                 try {
-                                    const response = await axios.get('http://localhost:3000/onibus/:id');
+                                    const response = await axios.get(`http://localhost:3000/onibus/:${urlId}`);
                                     const onibus = response.data;
                                     const form = document.querySelector('#form-onibus');
                                     const placa = document.getElementById('placa').value = onibus.placa;
@@ -259,11 +263,14 @@
 
                             async function atualizarOnibus() {
 
+                                const url = window.location.href;
+                                const urlId = url.split("/").pop();
+
                                 const form = document.querySelector("#form-onibus");
                                 const placa = document.getElementById('placa').value;
-                            
+
                                 try {
-                                    await axios.patch('http://localhost:3000/onibus/:id', placa);
+                                    await axios.patch(`http://localhost:3000/onibus/:${urlId}`, placa);
                                     console.log('Dados atualizados com sucesso!');
                                 } catch (error) {
                                     console.error('Erro ao atualizar os dados:', error);

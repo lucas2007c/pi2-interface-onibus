@@ -331,8 +331,12 @@
 
                     <script>
                         async function getMotoristas() {
+
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
                             try {
-                                const response = await axios.get('http://localhost:3000/motorista/:id');
+                                const response = await axios.get(`http://localhost:3000/motorista/:${urlId}`);
                                 const motorista = response.data;
 
                                 const form = document.querySelector('#form-motorista');
@@ -353,13 +357,16 @@
 
                         async function atualizarMotorista() {
 
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
                             const form = document.querySelector("#form-motorista")
                             const nome = document.getElementById('nome').value;
                             const cpf = document.getElementById('cpf').value;
                             const nascimento = document.getElementById('nascimento').value;
                             const numero = document.getElementById('numero').value;
                             try {
-                                await axios.put('http://localhost:3000/motorista/:id', nome, cpf, nascimento, numero);
+                                await axios.put(`http://localhost:3000/motorista/:${urlId}`, nome, cpf, nascimento, numero);
                                 console.log('Dados atualizados com sucesso!');
                             } catch (error) {
                                 console.error('Erro ao atualizar os dados:', error);

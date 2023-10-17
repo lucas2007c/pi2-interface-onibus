@@ -316,8 +316,12 @@
 
                     <script>
                         async function getMotorista() {
+
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
                             try {
-                                const response = await axios.get('http://localhost:3000/motorista/:id');
+                                const response = await axios.get(`http://localhost:3000/motorista/:${urlId}`);
 
                                 const motorista = response.data;
 
@@ -341,8 +345,11 @@
 
                         async function excluirMotorista() {
 
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
                             try {
-                                await axios.delete('http://localhost:3000/motorista/:id');
+                                await axios.delete(`http://localhost:3000/motorista/:${urlId}`);
 
                                 console.log('Resposta do servidor:', response.data);
 

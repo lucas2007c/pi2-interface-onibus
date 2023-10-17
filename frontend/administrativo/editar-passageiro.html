@@ -332,8 +332,12 @@
 
                     <script>
                         async function getPassageiro() {
+
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
                             try {
-                                const response = await axios.get('http://localhost:3000/passageiro/:id');
+                                const response = await axios.get(`http://localhost:3000/passageiro/:${urlId}`);
 
                                 const passageiro = response.data;
 
@@ -358,6 +362,9 @@
                         getPassageiro();
 
                         async function atualizarPassageiro() {
+
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
 
                             const form = document.querySelector("#form-passageiro")
 
@@ -384,7 +391,7 @@
                             };
 
                             try {
-                                await axios.put('http://localhost:3000/passageiro/:id', data);
+                                await axios.put(`http://localhost:3000/passageiro/:${urlId}`, data);
                                 console.log('Dados atualizados com sucesso!');
                             } catch (error) {
                                 console.error('Erro ao atualizar os dados:', error);

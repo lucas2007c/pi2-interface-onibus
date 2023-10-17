@@ -159,8 +159,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
                                                 <label for="placa">Placa do ônibus</label>
                                                 <input type="text" pattern="^[A-Z]{3}-\d{4}$" autocomplete="off"
-                                                    class="form-control" id="placa"
-                                                     value="" disabled>
+                                                    class="form-control" id="placa" value="" disabled>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
                                                 <a href="onibus.html"><button class="btn btn-danger"
@@ -221,12 +220,15 @@
                         <script>
                             $('#form').parsley();
                         </script>
-                       
+
 
                         <script>
                             async function getOnibus() {
+                                const url = window.location.href;
+                                const urlId = url.split("/").pop();
+
                                 try {
-                                    const response = await axios.get('http://localhost:3000/onibus/:id');
+                                    const response = await axios.get(`http://localhost:3000/onibus/:${urlId}`);
 
                                     const onibus = response.data;
 
@@ -242,7 +244,7 @@
                             async function excluirOnibus() {
 
                                 try {
-                                    await axios.delete('http://localhost:3000/onibus/:id');
+                                    await axios.delete(`http://localhost:3000/onibus/:${urlId}`);
 
                                     console.log('Resposta do servidor:', response.data);
 

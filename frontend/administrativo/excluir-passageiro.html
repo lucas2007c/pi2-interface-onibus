@@ -174,8 +174,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[\p{L}]+(?: [\p{L}]+)*$" autocomplete="off"
-                                                    class="form-control" id="nome"
-                                                     value="" disabled>
+                                                    class="form-control" id="nome" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -187,8 +186,8 @@
                                                 style="padding-top: 10px;">
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$"
-                                                    autocomplete="off"
-                                                    class="form-control" inlength="11" id="cpf" disabled>
+                                                    autocomplete="off" class="form-control" inlength="11" id="cpf"
+                                                    disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -200,8 +199,7 @@
                                                 style="padding-top: 10px;">
                                                 <label for="nascimento">Data nascimento</label>
                                                 <input type="date" autocomplete="off" class="form-control"
-                                                    id="nascimento"  value=""  min=""
-                                                    disabled>
+                                                    id="nascimento" value="" min="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -213,8 +211,7 @@
                                                 style="padding-top: 10px;">
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="^\d+$" minlength="9" autocomplete="off"
-                                                    class="form-control" id="numero"
-                                                     value="" disabled>
+                                                    class="form-control" id="numero" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -227,8 +224,8 @@
                                                 <label for="email">Email</label>
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                                    autocomplete="off" class="form-control" id="email"
-                                                     value="" disabled>
+                                                    autocomplete="off" class="form-control" id="email" value=""
+                                                    disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -299,7 +296,7 @@
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <!-- script da foto no foto -->
-            
+
                     <script>
                         $('#form').parsley();
                     </script>
@@ -326,8 +323,13 @@
 
                     <script>
                         async function getPassageiro() {
+
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
                             try {
-                                const response = await axios.get('http://localhost:3000/passageiro/:id');
+
+                                const response = await axios.get(`http://localhost:3000/passageiro/:${urlId}`);
 
                                 const passageiro = response.data;
 
@@ -353,9 +355,12 @@
 
                         async function excluirPassageiro() {
 
+                            const url = window.location.href;
+                            const urlId = url.split("/").pop();
+
 
                             try {
-                                await axios.delete('http://localhost:3000/passageiro/:id');
+                                await axios.delete(`http://localhost:3000/passageiro/:${urlId}`);
 
                                 console.log('Resposta do servidor:', response.data);
 
