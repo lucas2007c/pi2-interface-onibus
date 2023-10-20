@@ -8,19 +8,19 @@ datasource db {
 }
 
 model linha {
-  id          Int      @id @default(autoincrement())
-  inicio      DateTime @db.Time(0)
-  fim         DateTime @db.Time(0)
-  localinicio String   @db.VarChar(45)
-  localfim    String   @db.VarChar(45)
-  viagem      viagem[]
+  id             Int      @id @default(autoincrement())
+  nome           String   @db.VarChar(100)
+  origem         String   @db.VarChar(100)
+  destino        String   @db.VarChar(100)
+  horarioPartida DateTime @db.Time(0)
+  duracao        Int      @db.SmallInt
+  viagem         viagem[]
 }
 
 model motorista {
   id           Int      @id @default(autoincrement())
   cpf          String?  @db.VarChar(15)
   nome         String   @db.VarChar(200)
-  nascimento   DateTime @db.Date
   numero       String   @db.VarChar(15)
   email        String   @db.VarChar(200)
   foto_caminho String   @db.VarChar(200)
@@ -34,18 +34,17 @@ model onibus {
 }
 
 model passageiro {
-  id                    Int                     @unique @default(autoincrement())
-  nome                  String                  @db.VarChar(200)
-  saldo                 Decimal                 @db.Decimal(10, 2)
-  cpf                   String?                 @db.VarChar(15)
-  nascimento            DateTime                @db.Date
-  numero                String                  @db.VarChar(20)
-  email                 String                  @db.VarChar(200)
-  foto_caminho          String                  @db.VarChar(200)
-  tipo_cartao           String                  @db.VarChar(50)
-  usuario_id            Int
-  usuario               usuario                 @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
-  viagem_has_passageiro viagem_has_passageiro[]
+  id           Int        @unique @default(autoincrement())
+  nome         String     @db.VarChar(200)
+  saldo        Decimal    @db.Decimal(10, 2)
+  cpf          String?    @db.VarChar(15)
+  numero       String     @db.VarChar(20)
+  email        String     @db.VarChar(200)
+  foto_caminho String     @db.VarChar(200)
+  tipo_cartao  String     @db.VarChar(50)
+  usuario_id   Int
+  embarque     embarque[]
+  usuario      usuario    @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
 
   @@id([id, usuario_id])
   @@index([usuario_id], map: "fk_usuario_id")
@@ -62,15 +61,16 @@ model usuario {
 }
 
 model viagem {
-  id                    Int                     @unique @default(autoincrement())
-  data                  DateTime?               @db.DateTime(0)
-  onibus_id             Int
-  motorista_id          Int
-  linha_id              Int
-  motorista             motorista               @relation(fields: [motorista_id], references: [id], onUpdate: Restrict, map: "fk_motorista_id")
-  onibus                onibus                  @relation(fields: [onibus_id], references: [id], onUpdate: Restrict, map: "fk_onibus_id")
-  linha                 linha                   @relation(fields: [linha_id], references: [id], onUpdate: Restrict, map: "linha_id")
-  viagem_has_passageiro viagem_has_passageiro[]
+  id           Int        @unique @default(autoincrement())
+  dataPartida  DateTime?  @db.DateTime(0)
+  dataChegada  DateTime?  @db.DateTime(0)
+  onibus_id    Int
+  motorista_id Int
+  linha_id     Int
+  embarque     embarque[]
+  motorista    motorista  @relation(fields: [motorista_id], references: [id], onUpdate: Restrict, map: "fk_motorista_id")
+  onibus       onibus     @relation(fields: [onibus_id], references: [id], onUpdate: Restrict, map: "fk_onibus_id")
+  linha        linha      @relation(fields: [linha_id], references: [id], onUpdate: Restrict, map: "linha_id")
 
   @@id([id, onibus_id, motorista_id, linha_id])
   @@index([motorista_id], map: "fk_motorista_id")
@@ -78,7 +78,7 @@ model viagem {
   @@index([linha_id], map: "linha_id")
 }
 
-model viagem_has_passageiro {
+model embarque {
   tarifa        Decimal    @db.Decimal(10, 2)
   data          DateTime   @db.DateTime(0)
   passageiro_id Int
