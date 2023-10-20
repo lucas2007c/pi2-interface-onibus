@@ -599,7 +599,7 @@ app.post('/embarque', async (req, res) => {
         const embarque = await prisma.embarque.create({
             data: {
                 tarifa,
-                data: `${data}T00:00:00.000Z`,
+                data: `${data}.000Z`,
                 passageiro_id,
                 viagem_id
             }
