@@ -389,7 +389,7 @@ app.post('/usuario', async (req, res) => {
 
 }); // CADASTRAR
 
-app.put('/usuario/:id', async (req, res) => {
+app.patch('/usuario/:id', async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
@@ -610,6 +610,41 @@ app.post('/embarque', async (req, res) => {
         console.log(error)
     }
 }); // CADASTRAR
+
+app.get('/count/:tabela', async (req, res) => {
+    const { tabela } = req.params;
+    if (tabela == 'motorista') {
+        const countM = await prisma.motorista.count()
+        return res.status(200).json({ success: true, msg: `o numero de motoristas é ${countM}` });
+    }
+
+    if (tabela == 'passageiro') {
+        const countP = await prisma.passageiro.count()
+        return res.status(200).json({ success: true, msg: `o numero de passageiros é ${countP}` });
+    }
+
+    if (tabela == 'linha') {
+        const countL = await prisma.linha.count()
+        return res.status(200).json({ success: true, msg: `o numero de linhas é ${countL}` });
+    }
+
+    if (tabela == 'onibus') {
+        const countO = await prisma.onibus.count()
+        return res.status(200).json({ success: true, msg: `o numero de onibuss é ${countO}` });
+    }
+
+    if (tabela == 'viagem') {
+        const countV = await prisma.viagem.count()
+        return res.status(200).json({ success: true, msg: `o numero de viagens é ${countV}` });
+    }
+
+    if (tabela == 'embarque') {
+        const countE = await prisma.embarque.count()
+        return res.status(200).json({ success: true, msg: `o numero de embarques é ${countE}` });
+    }
+
+    res.status(404).json({ success: false, msg: 'tabela não encontrada' })
+});
 
 app.all('*', (req, res) => {
     res.status(501).json({ success: false, msg: 'Rota Não encontrada' });
