@@ -17,7 +17,7 @@
 
 
 <body>
-   
+
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -151,8 +151,8 @@
                         <!-- ============================================================== -->
                         <!-- validation form -->
                         <!-- ============================================================== -->
-                        
-                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <h5 class="card-header">Formulário de cadastro</h5>
                                 <div class="card-body">
@@ -160,7 +160,9 @@
                                         <div class="form-row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
                                                 <label for="placa">Placa do ônibus</label>
-                                                <input type="text" pattern="^[A-Z]{3}-\d{4}$" autocomplete="off" class="form-control" id="placa" placeholder="Informe a placa do ônibus" value="" required>
+                                                <input type="text" pattern="^[A-Z]{3}-\d{4}$" autocomplete="off"
+                                                    class="form-control" id="placa"
+                                                    placeholder="Informe a placa do ônibus" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -169,7 +171,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <a href="onibus.html"><button class="btn btn-danger" type="button">Cancelar</button></a>
+                                                <a href="onibus.html"><button class="btn btn-danger"
+                                                        type="button">Cancelar</button></a>
                                                 <button class="btn btn-primary ml-2" type="submit">Criar</button>
                                             </div>
                                         </div>
@@ -199,75 +202,13 @@
                     <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                     <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <!-- script da foto no foto -->
-                    
+                    <!-- Axios & script getAll -->
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <script src="/administrativo/js/linha/cadastrar.js"></script>
+
                     <script>
                         $('#form').parsley();
                     </script>
-                    <script>
-                        // Example starter JavaScript for disabling form submissions if there are invalid fields
-                        (function () {
-                            'use strict';
-                            window.addEventListener('load', function () {
-                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                var forms = document.getElementsByClassName('needs-validation');
-                                // Loop over them and prevent submission
-                                var validation = Array.prototype.filter.call(forms, function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (form.checkValidity() === false) {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                        }
-                                        form.classList.add('was-validated');
-                                    }, false);
-                                });
-                            }, false);
-                        })();
-                    </script>
-                    <script>
-                        (() => {
-                            const form = document.querySelector('#form-onibus');
-
-                            form.addEventListener('submit', async event => {
-                                event.preventDefault();
-
-                                if (!form.checkValidity()) {
-                                    event.stopPropagation();
-                                } else {
-                                    try {
-                                        const placa = document.getElementById('placa').value;
-                                        
-                                        const data = {
-                                            placa
-                                        };
-
-                                        console.log(data)
-                    
-                                        const response = await axios.post('http://localhost:3000/onibus', data);
-
-                                        console.log('Resposta do servidor:', response.data);
-
-                                        if (response.status === 200) {
-                                            localStorage.setItem('alert', JSON.stringify({
-                                                alertType: 'success',
-                                                alertMessage: 'Cadastro realizado com sucesso'
-                                            }));
-
-                                            window.location.href = 'http://localhost:3000/onibus';
-                                        } else {
-                                            console.error('Erro no servidor:', response.data);
-                                        }
-                                    } catch (error) {
-                                        console.error('Erro ao enviar a solicitação:', error);
-                                    }
-                                }
-
-                                form.classList.add('was-validated');
-                            });
-                        })();
-                    </script>
-
-
 </body>
 
 </html>

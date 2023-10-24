@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-br">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fast Travel | Excluir Passageiro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+</head>
+
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="/admin">Fast Travel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="/administrativo/assets/images/avatar-1.jpg" alt=""
+                                    class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="/admin">Página principal</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-1" aria-controls="submenu-1"><i
+                                        class="fas fa-clipboard"></i>Listar<span
+                                        class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu">
+                                    <ul class="nav flex-column">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/motorista">Motoristas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/passageiro">Passageiros</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/linha">Linhas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/onibus">Ônibus</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Excluir Passageiro</h2>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
+                                    vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Excluir Passageiro
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- validation form -->
+                        <!-- ============================================================== -->
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Informações do passageiro</h5>
+                                <div class="card-body">
+                                    <form class="needs-validation" novalidate id="form-passageiro">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="nome">Nome completo</label>
+                                                <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
+                                                    class="form-control" id="nome" placeholder="Informe o nome completo"
+                                                    value="" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas caracteres alfabéticos.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="cpf">CPF</label>
+                                                <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14"
+                                                    autocomplete="off" placeholder="Informe o CPF" class="form-control"
+                                                    id="cpf" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe um cpf válido.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="numero">Número de celular</label>
+                                                <input type="text" autocomplete="off" class="form-control" id="numero"
+                                                    placeholder="Informe o celular para contato" value="" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe apenas números.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="email">Email</label>
+                                                <input type="email"
+                                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                                    autocomplete="off" class="form-control" id="email"
+                                                    placeholder="Informe o email" value="" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe um email válido, ex: nome@exemplo.com
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="tipo_cartao">Tipo do cartão</label>
+                                                <input class="form-control" type="text" id="tipo_cartao" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Escolha um tipo válido.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="saldo">Saldo inicial do cartão</label>
+                                                <input type="number" autocomplete="off" class="form-control" id="saldo"
+                                                    placeholder="Informe o número em reais" value="" step="1" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe apenas números.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="foto_caminho" class="form-label">Foto</label>
+                                                <input class="form-control" type="text" id="foto_caminho" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Insira um arquivo.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                                                <a href="/admin/passageiro"><button class="btn btn-danger"
+                                                        type="button">Cancelar</button></a>
+                                                <button class="btn btn-primary ml-2" type="button" data-toggle="modal"
+                                                    data-target="#excluirModal">Excluir</button>
+                                                <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="excluirModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="excluirModalLabel">Tem
+                                                                    certeza que deseja excluir esse passageiro?</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-footer justify-content-start">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Cancelar</button>
+                                                                <button id="excluirBotao" type="button"
+                                                                    class="btn btn-primary">Excluir</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+                    <!-- bootstap bundle js -->
+                    <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                    <!-- slimscroll js -->
+                    <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                    <!-- main js -->
+                    <script src="/administrativo/assets/libs/js/main-js.js"></script>
+                    <!-- chart chartist js -->
+                    <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+                    <!-- sparkline js -->
+                    <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+                    <!-- morris js -->
+                    <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+                    <!-- chart c3 js -->
+                    <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+                    <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                    <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <!-- Axios & script getAll -->
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <script src="/administrativo/js/passageiro/excluir.js"></script>
+</body>
+
+</html>

@@ -271,7 +271,7 @@ app.post('/linha', async (req, res) => {
                 nome,
                 origem,
                 destino,
-                horarioPartida: `2023-01-01T${horarioPartida}.000Z`,
+                horarioPartida: `2023-01-01T${horarioPartida}:00.000Z`,
                 duracao
             }
         });
@@ -296,7 +296,7 @@ app.put('/linha/:id', async (req, res) => {
                 nome,
                 origem,
                 destino,
-                horarioPartida: `2023-01-01T${horarioPartida}.000Z`,
+                horarioPartida: `2023-01-01T${horarioPartida}:00.000Z`,
                 duracao
             }
         })

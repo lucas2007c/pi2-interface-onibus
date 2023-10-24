@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Fast Travel | Cadastrar Passageiro</title>
     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../administrativo/assets/libs/css/style.css">
@@ -17,21 +18,6 @@
 
 
 <body>
-    <style>
-        /* Media query formlulario - foto */
-        @media (max-width: 461px) {
-            .cardFoto {
-                width: 300px;
-            }
-        }
-
-
-        @media (max-width: 367px) {
-            .cardFoto {
-                width: 244px;
-            }
-        }
-    </style>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -174,9 +160,8 @@
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="usuario">ID do usuário</label>
-                                                <input type="text" autocomplete="off" class="form-control"
-                                                    id="usuario" placeholder="Informe seu ID" value=""
-                                                    required>
+                                                <input type="text" autocomplete="off" class="form-control" id="usuario"
+                                                    placeholder="Informe seu ID" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -186,9 +171,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Nome completo</label>
-                                                <input type="text" autocomplete="off" class="form-control"
-                                                    id="nome" placeholder="Informe seu nome completo"
-                                                    value="" required>
+                                                <input type="text" autocomplete="off" class="form-control" id="nome"
+                                                    placeholder="Informe seu nome completo" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -199,7 +183,8 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" autocomplete="off" required=""
-                                                    placeholder="Informe seu CPF" class="form-control" inlength="11" id="cpf">
+                                                    placeholder="Informe seu CPF" class="form-control" inlength="11"
+                                                    id="cpf">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -210,8 +195,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nascimento">Data nascimento</label>
                                                 <input type="date" autocomplete="off" class="form-control"
-                                                    id="nascimento" placeholder="dd/mm/yyyy" value="" required
-                                                    min="">
+                                                    id="nascimento" placeholder="dd/mm/yyyy" value="" required min="">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -222,8 +206,8 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" minlength="9" autocomplete="off" class="form-control"
-                                                    id="numero"
-                                                    placeholder="Informe seu celular para contato" value="" required>
+                                                    id="numero" placeholder="Informe seu celular para contato" value=""
+                                                    required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -246,7 +230,7 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="tipo_cartao">Tipo do cartão</label>
-                                                <select name="cartao" class="form-control" required id="tipo_cartao"> 
+                                                <select name="cartao" class="form-control" required id="tipo_cartao">
                                                     <option value="" selected disabled>Escolha uma opção</option>
                                                     <option value="comum">Comum</option>
                                                     <option value="idoso">Idoso</option>
@@ -261,9 +245,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="saldo">Saldo inicial do cartão</label>
-                                                <input type="number" autocomplete="off" class="form-control"
-                                                    id="saldo" placeholder="Informe um número válido"
-                                                    value="" step="1" required>
+                                                <input type="number" autocomplete="off" class="form-control" id="saldo"
+                                                    placeholder="Informe um número válido" value="" step="1" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -271,25 +254,19 @@
                                                     Informe apenas números.
                                                 </div>
                                             </div>
-                                            <div
-                                                class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <div class=" cardFoto">
-                                                    <h3 class="">Foto</h3>
-                                                    <div class="drop_box">
-                                                        <header>
-                                                            <h4>Selecione o arquivo</h4>
-                                                        </header>
-                                                        <p>Arquivos Suportados: JPG, PNG</p>
-                                                        <button class="btn upload-button" type="button">Escolha um
-                                                            arquivo</button>
-                                                        <input type="file" class="file-input" hidden
-                                                            accept=".jpeg, .jpg, .png" id="foto_caminho"
-                                                            style="display:none;" required>
-                                                    </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <label for="foto_caminho" class="form-label">Foto</label>
+                                                <input class="form-control" type="file" id="foto_caminho" accept="image/*" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Insira um arquivo.
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <a href="passageiros.html"><button class="btn btn-danger" type="button">Cancelar</button></a>
+                                                <a href="passageiros.html"><button class="btn btn-danger"
+                                                        type="button">Cancelar</button></a>
                                                 <button class="btn btn-primary ml-2" type="submit">Criar</button>
                                             </div>
                                         </div>
@@ -322,114 +299,13 @@
                     <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                     <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <!-- script da foto no foto -->
-                    <script>
-                        const dropArea = document.querySelector(".drop_box"),
-                            uploadButton = dropArea.querySelector(".upload-button"),
-                            fileInput = dropArea.querySelector(".file-input");
+                    <!-- Axios & script getAll -->
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <script src="/administrativo/js/motorista/cadastrar.js"></script>
 
-                        uploadButton.addEventListener("click", () => {
-                            fileInput.click();
-                        });
-
-                        fileInput.addEventListener("change", function (e) {
-                            const fileName = e.target.files[0].name;
-                            let filedata = `
-              
-                    <center> <h4 id="foto_caminho">${fileName}</h4> </center>
-                    <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
-                `;
-                            dropArea.innerHTML = filedata;
-                        });
-                    </script>
                     <script>
                         $('#form').parsley();
                     </script>
-                    <script>
-                        // Example starter JavaScript for disabling form submissions if there are invalid fields
-                        (function () {
-                            'use strict';
-                            window.addEventListener('load', function () {
-                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                var forms = document.getElementsByClassName('needs-validation');
-                                // Loop over them and prevent submission
-                                var validation = Array.prototype.filter.call(forms, function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (form.checkValidity() === false) {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                        }
-                                        form.classList.add('was-validated');
-                                    }, false);
-                                });
-                            }, false);
-                        })();
-                    </script>
-                    <script>
-                        (() => {
-                            const form = document.querySelector('#form-passageiro');
-
-                            form.addEventListener('submit', async event => {
-                                event.preventDefault();
-
-                                if (!form.checkValidity()) {
-                                    event.stopPropagation();
-                                } else {
-                                    try {
-                                        const nome = document.getElementById('nome').value;
-                                        const saldo = document.getElementById('saldo').value;
-                                        const cpf = document.getElementById('cpf').value;
-                                        const email = document.getElementById('email').value;
-                                        const nascimento = document.getElementById('nascimento').value;
-                                        const numero = document.getElementById('numero').value;
-                                        const foto_caminho = document.getElementById('foto_caminho').textContent;
-                                        const tipo_cartao = document.getElementById('tipo_cartao').value;
-                                        const usuario_id = document.getElementById('usuario').value;
-
-
-
-
-                                        const data = {
-                                            nome,
-                                            saldo,
-                                            cpf,
-                                            nascimento: `${nascimento}T00:00:00.000Z`,
-                                            numero,
-                                            email,
-                                            foto_caminho,
-                                            tipo_cartao,
-                                            usuario_id
-                                        };
-
-                                        console.log(data)
-
-
-
-                                        const response = await axios.post('http://localhost:3000/passageiro', data);
-
-                                        console.log('Resposta do servidor:', response.data);
-
-                                        if (response.status === 200) {
-                                            localStorage.setItem('alert', JSON.stringify({
-                                                alertType: 'success',
-                                                alertMessage: 'Cadastro realizado com sucesso'
-                                            }));
-
-                                            window.location.href = 'http://localhost:3000/passageiros';
-                                        } else {
-                                            console.error('Erro no servidor:', response.data);
-                                        }
-                                    } catch (error) {
-                                        console.error('Erro ao enviar a solicitação:', error);
-                                    }
-                                }
-
-                                form.classList.add('was-validated');
-                            });
-                        })();
-                    </script>
-
-
 </body>
 
 </html>

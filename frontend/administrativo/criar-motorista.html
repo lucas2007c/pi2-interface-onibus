@@ -282,106 +282,13 @@
                     <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
                     <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
                     <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <!-- Axios & script getAll -->
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <!-- script da foto no foto -->
-                    <script>
-                        const dropArea = document.querySelector(".drop_box"),
-                            uploadButton = dropArea.querySelector(".upload-button"),
-                            fileInput = dropArea.querySelector(".file-input");
+                    <script src="/administrativo/js/motorista/cadastrar.js"></script>
 
-                        uploadButton.addEventListener("click", () => {
-                            fileInput.click();
-                        });
-
-                        fileInput.addEventListener("change", function (e) {
-                            const fileName = e.target.files[0].name;
-                            let filedata = `
-              
-                    <center> <h4 id="foto_caminho">${fileName}</h4> </center>
-                    <center> <button class="btn upload-button" type="button">Mudar de foto</button> </center>
-                `;
-                            dropArea.innerHTML = filedata;
-                        });
-                    </script>
                     <script>
                         $('#form').parsley();
                     </script>
-                    <script>
-                        // Example starter JavaScript for disabling form submissions if there are invalid fields
-                        (function () {
-                            'use strict';
-                            window.addEventListener('load', function () {
-                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                var forms = document.getElementsByClassName('needs-validation');
-                                // Loop over them and prevent submission
-                                var validation = Array.prototype.filter.call(forms, function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (form.checkValidity() === false) {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                        }
-                                        form.classList.add('was-validated');
-                                    }, false);
-                                });
-                            }, false);
-                        })();
-                    </script>
-                    <script>
-                        (() => {
-                            const form = document.querySelector('#form-motorista');
-
-                            form.addEventListener('submit', async event => {
-                                event.preventDefault();
-
-                                if (!form.checkValidity()) {
-                                    event.stopPropagation();
-                                } else {
-                                    try {
-                                        const nome = document.getElementById('nome').value;
-                                        const cpf = document.getElementById('cpf').value;
-                                        const email = document.getElementById('email').value;
-                                        const nascimento = document.getElementById('nascimento').value;
-                                        const numero = document.getElementById('numero').value;
-                                        const foto_caminho = document.getElementById('foto_caminho').textContent;
-
-                                        const data = {
-                                            nome,
-                                            cpf,
-                                            nascimento: `${nascimento}T00:00:00.000Z`,
-                                            numero,
-                                            email,
-                                            foto_caminho
-                                        };
-
-                                        console.log(data)
-                    
-
-
-                                        const response = await axios.post('http://localhost:3000/motorista', data);
-
-                                        console.log('Resposta do servidor:', response.data);
-
-                                        if (response.status === 200) {
-                                            localStorage.setItem('alert', JSON.stringify({
-                                                alertType: 'success',
-                                                alertMessage: 'Cadastro realizado com sucesso'
-                                            }));
-
-                                            window.location.href = 'http://localhost:3000/motorista';
-                                        } else {
-                                            console.error('Erro no servidor:', response.data);
-                                        }
-                                    } catch (error) {
-                                        console.error('Erro ao enviar a solicitação:', error);
-                                    }
-                                }
-
-                                form.classList.add('was-validated');
-                            });
-                        })();
-                    </script>
-
-
 </body>
 
 </html>

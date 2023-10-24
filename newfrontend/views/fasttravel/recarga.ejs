@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Fast Travel - Recarga</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/FastTravel/assets/img/favicon.png" rel="icon">
+    <link href="/FastTravel/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/FastTravel/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/FastTravel/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/FastTravel/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/FastTravel/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/FastTravel/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/FastTravel/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/FastTravel/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/FastTravel/assets/css/style.css" rel="stylesheet">
+
+    <!-- css para formulario -->
+    <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+
+    <!-- =======================================================
+  * Template Name: Arsha
+  * Updated: Aug 30 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="/fasttravel">Fast Travel</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <ol>
+                    <li><a href="/fasttravel">Página inicial</a></li>
+                    <li>Recarga</li>
+                </ol>
+                <h2>Recarga</h2>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <section class="inner-page">
+            <div class="row d-flex justify-content-center">
+                <!-- ============================================================== -->
+                <!-- validation form -->
+                <!-- ============================================================== -->
+                <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 col-12"
+                    style="display: flex; justify-content: center;">
+                    <div class="card cartaoContainer">
+                        <center>
+                            <h3 class="card-header">Formulário de recarga</h3>
+                        </center>
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate>
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                        <label for="cpfRecarga">CPF</label>
+                                        <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" autocomplete="off"
+                                            required placeholder="Informe seu CPF" class="form-control" inlength="11"
+                                            id="cpfRecarga">
+                                        <div class="valid-feedback">
+                                            Tudo certo!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Informe no formato 111.111.111-11
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                        <label for="valorRecarga">Valor da recarga</label>
+                                        <input type="number" step="0.01" min="0.01" autocomplete="off" required
+                                            placeholder="Informe o valor da recarga" class="form-control"
+                                            id="valorRecarga">
+                                        <div class="valid-feedback">
+                                            Tudo certo!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Informe um valor acima de x reais.
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                        <label for="numeroCartao">Número do cartão</label>
+                                        <input type="text" autocomplete="off" required
+                                            placeholder="Informe o número do seu cartão" class="form-control"
+                                            inlength="11" id="numeroCartao">
+                                        <div class="valid-feedback">
+                                            Tudo certo!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Informe apenas numeros
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"
+                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                        <label for="dataValidade">Data de validade</label>
+                                        <input type="text" autocomplete="off" required
+                                            placeholder="Informe no formato MM/AA" class="form-control" inlength="11"
+                                            id="dataValidade">
+                                        <div class="valid-feedback">
+                                            Tudo certo!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Informe no formato MM/AA
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"
+                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                        <label for="codigoSeguranca">Código de segurança</label>
+                                        <input type="text" autocomplete="off" required placeholder="Informe o CVV"
+                                            class="form-control" inlength="11" id="codigoSeguranca">
+                                        <div class="valid-feedback">
+                                            Tudo certo!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Informe no apenas os três números
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                        <label for="enderecoCobranca">Endereço de cobrança</label>
+                                        <input type="text" autocomplete="off" required
+                                            placeholder="Informe estado/cidade/rua/numero" class="form-control"
+                                            inlength="11" id="enderecoCobranca">
+                                        <div class="valid-feedback">
+                                            Tudo certo!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Informe no formato exato: estado/cidade/rua/numero
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                        <button class="btn btn-primary botaoCpf" type="submit">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end validation form -->
+                <!-- ============================================================== -->
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>Fast Travel</h3>
+                        <p>
+                            Av. Bahia, 1739 - Indaiá<br>
+                            Caraguatatuba - SP, 11665-071<br>
+                            Brasil <br><br>
+                            <strong>Telefone:</strong> (12) 3885-2130<br>
+                            <strong>Email:</strong> FastTravel@gmail.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Links Úteis</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/fasttravel">Página inicial</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Termos De Serviço</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Política De Privacidade</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Nossas redes sociais</h4>
+                        <p>Fique por dentro das nossas redes sociais e acompanhe as últimas novidades, promoções e
+                            atualizações.</p>
+
+                        <div class="social-links mt-3">
+                            <a href="https://github.com/lucas2007c/pi2-interface-onibus" target="_blank"
+                                class="google-plus"><i class="bx bxl-github"></i></a>
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/FastTravel/assets/vendor/aos/aos.js"></script>
+    <script src="/FastTravel/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/FastTravel/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/FastTravel/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/FastTravel/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/FastTravel/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="/FastTravel/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/FastTravel/assets/js/main.js"></script>
+
+    <!-- JavaScript validador formulario -->
+    <script>
+        $('#form').parsley();
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+
+</html>

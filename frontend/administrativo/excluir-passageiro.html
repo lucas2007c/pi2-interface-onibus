@@ -8,30 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Fast Travel | Excluir Passageiro</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../administrativo/assets/libs/css/style.css">
-    <link rel="stylesheet" href="../administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="foto.css">
+    <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
 </head>
 
 
 <body>
-    <style>
-        /* Media query formlulario - foto */
-        @media (max-width: 461px) {
-            .cardFoto {
-                width: 300px;
-            }
-        }
-
-
-        @media (max-width: 367px) {
-            .cardFoto {
-                width: 244px;
-            }
-        }
-    </style>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -41,7 +25,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Fast Travel</a>
+                <a class="navbar-brand" href="/admin">Fast Travel</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -59,7 +43,7 @@
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="../administrativo/assets/images/avatar-1.jpg" alt=""
+                                    src="/administrativo/assets/images/avatar-1.jpg" alt=""
                                     class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
@@ -85,7 +69,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <a class="d-xl-none d-lg-none" href="/admin">Página principal</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -104,16 +88,16 @@
                                     <ul class="nav flex-column">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="motorista.html">Motoristas</a>
+                                            <a class="nav-link" href="/admin/motorista">Motoristas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="passageiros.html">Passageiros</a>
+                                            <a class="nav-link" href="/admin/passageiro">Passageiros</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="linhas.html">Linhas</a>
+                                            <a class="nav-link" href="/admin/linha">Linhas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="onibus.html">Ônibus</a>
+                                            <a class="nav-link" href="/admin/onibus">Ônibus</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -148,8 +132,8 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index.html"
-                                                    class="breadcrumb-link">Página Inicial</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Excluir Passageiro
                                             </li>
                                         </ol>
@@ -233,16 +217,20 @@
                                                     Informe um email válido, ex: nome@exemplo.com
                                                 </div>
                                             </div>
-                                            <div class="containerFoto col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                                style="padding-top: 10px;"">
-                                                <div class=" cardFoto">
-                                                <h3 class="">Foto</h3>
-                                                <img id="foto-passageiro" src="assets/images/avatar-4.jpg" alt="Avatar">
-
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="foto_caminho" class="form-label">Foto</label>
+                                                <input class="form-control" type="file" id="foto_caminho"
+                                                    accept="image/*" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Insira um arquivo.
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <a href="passageiros.html"><button class="btn btn-danger"
+                                            <a href="/admin/passageiro"><button class="btn btn-danger"
                                                     type="button">Cancelar</button></a>
                                             <button class="btn btn-primary ml-2" type="button" data-toggle="modal"
                                                 data-target="#excluirModal">Excluir</button>
@@ -268,126 +256,36 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </form>
                                 </div>
-                                </form>
                             </div>
                         </div>
                     </div>
-                    <script src="../administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+                    <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
                     <!-- bootstap bundle js -->
-                    <script src="../administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                    <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
                     <!-- slimscroll js -->
-                    <script src="../administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                    <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
                     <!-- main js -->
-                    <script src="../administrativo/assets/libs/js/main-js.js"></script>
+                    <script src="/administrativo/assets/libs/js/main-js.js"></script>
                     <!-- chart chartist js -->
-                    <script src="../administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
                     <!-- sparkline js -->
-                    <script src="../administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
                     <!-- morris js -->
-                    <script src="../administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-                    <script src="../administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
                     <!-- chart c3 js -->
-                    <script src="../administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
-                    <script src="../administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-                    <script src="../administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
-                    <script src="../administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
-                    <script src="../administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+                    <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                    <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <!-- script da foto no foto -->
-
-                    <script>
-                        $('#form').parsley();
-                    </script>
-                    <script>
-                        // Example starter JavaScript for disabling form submissions if there are invalid fields
-                        (function () {
-                            'use strict';
-                            window.addEventListener('load', function () {
-                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                var forms = document.getElementsByClassName('needs-validation');
-                                // Loop over them and prevent submission
-                                var validation = Array.prototype.filter.call(forms, function (form) {
-                                    form.addEventListener('submit', function (event) {
-                                        if (form.checkValidity() === false) {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                        }
-                                        form.classList.add('was-validated');
-                                    }, false);
-                                });
-                            }, false);
-                        })();
-                    </script>
-
-                    <script>
-                        async function getPassageiro() {
-
-                            const url = window.location.href;
-                            const urlId = url.split("/").pop();
-
-                            try {
-
-                                const response = await axios.get(`http://localhost:3000/passageiro/:${urlId}`);
-
-                                const passageiro = response.data;
-
-                                const form = document.querySelector('#form-passageiro');
-
-                                const nome = document.getElementById('nome').value = passageiro.nome;
-                                const cpf = document.getElementById('cpf').value = passageiro.cpf;
-                                const nascimento = document.getElementById('nascimento').value = passageiro.nascimento;
-                                const numero = document.getElementById('numero').value = passageiro.numero;
-                                const saldo = document.getElementById('saldo').value = passageiro.saldo;
-                                const email = document.getElementById('email').value = passageiro.email;
-                                const foto_caminho = document.getElementById('foto_caminho').textContent = passageiro.foto_caminho;
-                                const tipo_cartao = document.getElementById('tipo_cartao').value = passageiro.tipo_cartao;
-                                const usuario_id = document.getElementById('usuario').value = passageiro.usuario_id;
-
-
-                            } catch (error) {
-                                console.error('Erro ao buscar os dados:', error);
-                            }
-                        }
-
-                        getPassageiro();
-
-                        async function excluirPassageiro() {
-
-                            const url = window.location.href;
-                            const urlId = url.split("/").pop();
-
-
-                            try {
-                                await axios.delete(`http://localhost:3000/passageiro/:${urlId}`);
-
-                                console.log('Resposta do servidor:', response.data);
-
-                                if (response.status === 200) {
-                                    localStorage.setItem('alert', JSON.stringify({
-                                        alertType: 'success',
-                                        alertMessage: 'Passageiro deletado com sucesso.'
-                                    }));
-
-                                    window.location.href = 'http://localhost:3000/passageiros';
-                                } else {
-                                    console.error('Erro no servidor:', response.data);
-                                }
-                            } catch (error) {
-                                console.error('Erro ao atualizar os dados:', error);
-                            }
-                        }
-
-                        const botaoExcluir = document.querySelector("#excluirBotao")
-                        botaoExcluir.addEventListener('click', function () {
-                            excluirPassageiro();
-                        });
-
-                    </script>
-
-
-
+                    <!-- Axios & script getAll -->
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <script src="/administrativo/js/passageiro/excluir.js"></script>
 </body>
 
 </html>
