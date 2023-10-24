@@ -613,6 +613,8 @@ app.post('/embarque', async (req, res) => {
     }
 }); // CADASTRAR
 
+
+// COUNT ------------------------------------------------------------
 app.get('/count/:tabela', async (req, res) => {
     const { tabela } = req.params;
     if (tabela == 'motorista') {
@@ -646,6 +648,33 @@ app.get('/count/:tabela', async (req, res) => {
     }
 
     res.status(404).json({ success: false, msg: 'tabela não encontrada' })
+});
+
+// LOGIN --------------------------------------------------------------------
+app.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+
+    // verifica se o usuário existe
+    const usuarioExistente = await prisma.usuario.findUnique({
+        where: {
+            email: email
+        }
+    });
+
+    if (!usuarioExistente) {
+        return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+    }
+
+    // Verifica se a senha está correta
+    const SenhaValida = await bcrypt.compare(senha, usuarioExistente.senha)
+
+    if (!SenhaValida) {
+        return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+    }
+
+    //Gera token de autenticação
+    // const token = jwt.sign({ usuarioId: usuarioExistente.id }, env('Secret'))
+    // A SER INCREMENTADO
 });
 
 app.all('*', (req, res) => {
