@@ -274,9 +274,7 @@ label {
 input[type=file] {
     color: #71748d;
     background-color: #fff;
-    border-color: #a7a7f0;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(214, 214, 255, .75);
 }
 
 .col-form-label {
