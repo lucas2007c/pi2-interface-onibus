@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const { PrismaClient } = require('@prisma/client');
+const bcrypt = require('bcrypt');
 
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
 const port = 3000;
@@ -377,11 +378,12 @@ app.get('/usuario/busca/:nome', async (req, res) => {
 
 app.post('/usuario', async (req, res) => {
     try {
-        const data = req.body
+        let data = req.body
+        data.senha = await bcrypt.hash(data.senha, 10);
         const usuario = await prisma.usuario.create({
             data: data
         });
-        res.status(201).json(usuario);
+        res.status(201).json({ msg: 'Usuário cadastrado com sucesso', usuario });
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
         console.log(error)
