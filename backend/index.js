@@ -66,6 +66,17 @@ app.post('/passageiro', async (req, res) => {
     try {
         const data = req.body
         data.usuario_id = Number(data.usuario_id)
+
+        const passageiroExistente = await prisma.passageiro.findMany({
+            where: {
+                cpf: data.cpf
+            }
+        });
+
+        if (passageiroExistente.length > 0) {
+            return res.status(409).json({ success: false, msg: 'O passageiro ja está Cadastrado' })
+        }
+
         const passageiro = await prisma.passageiro.create({
             data: data
         });
@@ -166,6 +177,17 @@ app.get('/motorista/busca/:nome', async (req, res) => {
 app.post('/motorista', async (req, res) => {
     try {
         const data = req.body
+
+        const motoristaExistente = await prisma.motorista.findMany({
+            where: {
+                cpf: data.cpf
+            }
+        });
+
+        if (motoristaExistente.length > 0) {
+            return res.status(409).json({ success: false, msg: 'O motorista ja está cadastrado' })
+        }
+
         const motorista = await prisma.motorista.create({
             data: data
         });
@@ -266,6 +288,18 @@ app.post('/linha', async (req, res) => {
     // `2023-01-01T${inicio}:00.000Z`
     try {
         let { nome, origem, destino, horarioPartida, duracao } = req.body
+
+        const linhaExistente = await prisma.linha.findMany({
+            where: {
+                origem: origem,
+                destino: destino
+            }
+        });
+
+        if (linhaExistente.length > 0) {
+            return res.status(409).json({ success: false, msg: 'A linha ja está Cadastrada' })
+        }
+
         duracao = Number(duracao)
         const linha = await prisma.linha.create({
             data: {
@@ -378,7 +412,18 @@ app.get('/usuario/busca/:nome', async (req, res) => {
 
 app.post('/usuario', async (req, res) => {
     try {
-        let data = req.body
+        const data = req.body
+
+        const usuarioExistente = await prisma.usuario.findMany({
+            where: {
+                email: data.email
+            }
+        });
+
+        if (usuarioExistente.length > 0) {
+            return res.status(409).json({ success: false, msg: 'O usuário ja está cadastrado' })
+        }
+
         data.senha = await bcrypt.hash(data.senha, 10);
         const usuario = await prisma.usuario.create({
             data: data
@@ -479,6 +524,17 @@ app.get('/onibus/busca/:placa', async (req, res) => {
 app.post('/onibus', async (req, res) => {
     try {
         const data = req.body
+
+        const onibusExistente = await prisma.onibus.findMany({
+            where: {
+                placa: data.placa
+            }
+        });
+
+        if (onibusExistente.length > 0) {
+            return res.status(409).json({ success: false, msg: 'O ônibus ja está cadastrado' })
+        }
+
         const onibus = await prisma.onibus.create({
             data: data
         });
@@ -592,6 +648,28 @@ app.get('/embarque', async (req, res) => {
 
 }); // GERAL
 
+app.get('/embarque/:id', async (req, res) => {
+    try {
+        let { id } = req.params
+        id = Number(id)
+        const embarque = await prisma.embarque.findMany({
+            where: {
+                passageiro_id: id
+            }
+        });
+
+        if (!embarque) {
+            return res.status(404).json({ success: false, msg: 'embarque não encontrada' });
+        }
+
+        res.status(200).json(embarque);
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
+    }
+
+}); // POR ID
+
 app.post('/embarque', async (req, res) => {
     try {
         let { tarifa, data, passageiro_id, viagem_id } = req.body
@@ -652,29 +730,34 @@ app.get('/count/:tabela', async (req, res) => {
 
 // LOGIN --------------------------------------------------------------------
 app.post('/login', async (req, res) => {
-    const { email, senha } = req.body;
+    try {
+        const { email, senha } = req.body;
 
-    // verifica se o usuário existe
-    const usuarioExistente = await prisma.usuario.findUnique({
-        where: {
-            email: email
+        // verifica se o usuário existe
+        const usuarioExistente = await prisma.usuario.findUnique({
+            where: {
+                email: email
+            }
+        });
+
+        if (!usuarioExistente) {
+            return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
         }
-    });
 
-    if (!usuarioExistente) {
-        return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+        // Verifica se a senha está correta
+        const SenhaValida = await bcrypt.compare(senha, usuarioExistente.senha)
+
+        if (!SenhaValida) {
+            return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+        }
+
+        //Gera token de autenticação
+        // const token = jwt.sign({ usuarioId: usuarioExistente.id }, env('Secret'))
+        // A SER INCREMENTADO
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
-
-    // Verifica se a senha está correta
-    const SenhaValida = await bcrypt.compare(senha, usuarioExistente.senha)
-
-    if (!SenhaValida) {
-        return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
-    }
-
-    //Gera token de autenticação
-    // const token = jwt.sign({ usuarioId: usuarioExistente.id }, env('Secret'))
-    // A SER INCREMENTADO
 });
 
 app.all('*', (req, res) => {
