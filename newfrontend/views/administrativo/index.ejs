@@ -153,7 +153,7 @@
                                         <div class="card-body">
                                             <div class="d-inline-block">
                                                 <h5 class="text-muted">Motoristas</h5>
-                                                <h2 class="mb-0">12</h2>
+                                                <h2 class="mb-0" id="count-motorista"></h2>
                                             </div>
                                             <div
                                                 class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
@@ -169,7 +169,7 @@
                                         <div class="card-body">
                                             <div class="d-inline-block">
                                                 <h5 class="text-muted">Passageiros</h5>
-                                                <h2 class="mb-0">24</h2>
+                                                <h2 class="mb-0" id="count-passageiro"></h2>
                                             </div>
                                             <div
                                                 class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
@@ -185,7 +185,7 @@
                                         <div class="card-body">
                                             <div class="d-inline-block">
                                                 <h5 class="text-muted">Linhas</h5>
-                                                <h2 class="mb-0">87</h2>
+                                                <h2 class="mb-0" id="count-linha"></h2>
                                             </div>
                                             <div
                                                 class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
@@ -201,7 +201,7 @@
                                         <div class="card-body">
                                             <div class="d-inline-block">
                                                 <h5 class="text-muted">Ônibus</h5>
-                                                <h2 class="mb-0">15</h2>
+                                                <h2 class="mb-0" id="count-onibus"></h2>
                                             </div>
                                             <div
                                                 class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
@@ -318,6 +318,12 @@
                 <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
                 <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
                 <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                <!-- Axios & script getCount -->
+                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                <script src="/administrativo/js/onibus/count.js"></script>
+                <script src="/administrativo/js/linha/count.js"></script>
+                <script src="/administrativo/js/passageiro/count.js"></script>
+                <script src="/administrativo/js/motorista/count.js"></script>
 </body>
 
 </html>
