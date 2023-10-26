@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `fasttravel`.`usuario` (
   `nome` VARCHAR(200) NOT NULL,
   `email` VARCHAR(200) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
-  `token` VARCHAR(45) NOT NULL,
   `foto_caminho` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -46,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `fasttravel`.`passageiro` (
   `foto_caminho` VARCHAR(200) NOT NULL,
   `tipo_cartao` VARCHAR(50) NOT NULL,
   `usuario_id` INT(11) NOT NULL,
+  `inativado` DATE NULL,
   PRIMARY KEY (`id`, `usuario_id`),
   UNIQUE INDEX `passageiro_id_key` (`id` ASC),
   INDEX `fk_usuario_id` (`usuario_id` ASC),
@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `fasttravel`.`motorista` (
   `numero` VARCHAR(15) NOT NULL,
   `email` VARCHAR(200) NOT NULL,
   `foto_caminho` VARCHAR(200) NOT NULL,
+  `inativado` DATE NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -79,6 +80,7 @@ COLLATE = utf8mb4_unicode_ci;
 CREATE TABLE IF NOT EXISTS `fasttravel`.`onibus` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `placa` VARCHAR(8) NOT NULL,
+  `inativado` DATE NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -95,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `fasttravel`.`linha` (
   `destino` VARCHAR(100) NOT NULL,
   `horarioPartida` TIME NOT NULL,
   `duracao` SMALLINT(5) NOT NULL,
+  `inativado` DATE NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
