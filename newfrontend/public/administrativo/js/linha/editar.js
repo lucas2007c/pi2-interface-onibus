@@ -38,7 +38,7 @@
 //           const response = await axios.put(`http://localhost:3000/api/linhas/editar/${data.id}`, data);
 
 //           storeFlashMessage("success", "Edição realizada com sucesso");
-        
+
 //           const id = response.data.id;        
 //           window.location.href = `http://localhost:3001/linhas/exibir/${id}`;         
 //         } catch (error) {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       const data = { nome, origem, destino, horarioPartida, duracao };
 
       try {
-        const response = await axios.put(
+        const response = await axios.patch(
           `http://localhost:3000/linha/${urlId}`,
           data
         );

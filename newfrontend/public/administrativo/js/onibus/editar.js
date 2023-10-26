@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       const data = { placa };
 
       try {
-        const response = await axios.put(
+        const response = await axios.patch(
           `http://localhost:3000/onibus/${urlId}`,
           data
         );

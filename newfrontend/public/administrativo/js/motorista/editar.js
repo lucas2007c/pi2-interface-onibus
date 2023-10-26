@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       const data = { foto_caminho, nome, cpf, numero, email };
 
       try {
-        const response = await axios.put(
+        const response = await axios.patch(
           `http://localhost:3000/motorista/${urlId}`,
           data
         );

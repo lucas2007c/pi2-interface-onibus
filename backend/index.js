@@ -14,7 +14,11 @@ app.use(cors());
 // PASSAGEIRO --------------------------------------------------------------------------------
 app.get('/passageiro', async (req, res) => {
     try {
-        const passageiros = await prisma.passageiro.findMany()
+        const passageiros = await prisma.passageiro.findMany({
+            where: {
+                inativado: null
+            }
+        })
         res.status(200).json(passageiros);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
@@ -51,7 +55,8 @@ app.get('/passageiro/busca/:nome', async (req, res) => {
             where: {
                 nome: {
                     contains: nome
-                }
+                },
+                inativado: null
             }
         });
         console.log(passageiros)
@@ -69,7 +74,8 @@ app.post('/passageiro', async (req, res) => {
 
         const passageiroExistente = await prisma.passageiro.findMany({
             where: {
-                cpf: data.cpf
+                cpf: data.cpf,
+                inativado: null
             }
         });
 
@@ -88,7 +94,7 @@ app.post('/passageiro', async (req, res) => {
 
 }); // CADASTRAR
 
-app.put('/passageiro/:id', async (req, res) => {
+app.patch('/passageiro/:id', async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
@@ -111,9 +117,13 @@ app.put('/passageiro/:id', async (req, res) => {
 app.delete('/passageiro/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const passageiro = await prisma.passageiro.delete({
+        const dataAtual = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato 'YYYY-MM-DD'
+        const passageiro = await prisma.passageiro.update({
             where: {
                 id: parseInt(id)
+            },
+            data: {
+                inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
         res.status(200).json({ msg: 'passageiro deletado:', passageiro })
@@ -127,7 +137,11 @@ app.delete('/passageiro/:id', async (req, res) => {
 // MOTORISTA ------------------------------------------------------------------------------------------------
 app.get('/motorista', async (req, res) => {
     try {
-        const motoristas = await prisma.motorista.findMany()
+        const motoristas = await prisma.motorista.findMany({
+            where: {
+                inativado: null
+            }
+        })
         res.status(200).json(motoristas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
@@ -163,7 +177,8 @@ app.get('/motorista/busca/:nome', async (req, res) => {
             where: {
                 nome: {
                     contains: nome
-                }
+                },
+                inativado: null
             }
         });
         res.status(200).json(motoristas);
@@ -180,7 +195,8 @@ app.post('/motorista', async (req, res) => {
 
         const motoristaExistente = await prisma.motorista.findMany({
             where: {
-                cpf: data.cpf
+                cpf: data.cpf,
+                inativado: null
             }
         });
 
@@ -199,7 +215,7 @@ app.post('/motorista', async (req, res) => {
 
 }); // CADASTRAR
 
-app.put('/motorista/:id', async (req, res) => {
+app.patch('/motorista/:id', async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
@@ -220,9 +236,13 @@ app.put('/motorista/:id', async (req, res) => {
 app.delete('/motorista/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const motorista = await prisma.motorista.delete({
+        const dataAtual = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato 'YYYY-MM-DD'
+        const motorista = await prisma.motorista.update({
             where: {
                 id: parseInt(id)
+            },
+            data: {
+                inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
         res.status(200).json({ msg: 'motorista deletado:', motorista })
@@ -236,7 +256,11 @@ app.delete('/motorista/:id', async (req, res) => {
 // LINHA ------------------------------------------------------------------------------------------------
 app.get('/linha', async (req, res) => {
     try {
-        const linhas = await prisma.linha.findMany()
+        const linhas = await prisma.linha.findMany({
+            where: {
+                inativado: null
+            }
+        })
         res.status(200).json(linhas);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
@@ -273,7 +297,8 @@ app.get('/linha/busca/:localinicio', async (req, res) => {
             where: {
                 localinicio: {
                     contains: localinicio
-                }
+                },
+                inativado: null
             }
         });
         res.status(200).json(linhas);
@@ -292,7 +317,8 @@ app.post('/linha', async (req, res) => {
         const linhaExistente = await prisma.linha.findMany({
             where: {
                 origem: origem,
-                destino: destino
+                destino: destino,
+                inativado: null
             }
         });
 
@@ -318,7 +344,7 @@ app.post('/linha', async (req, res) => {
 
 }); // CADASTRAR
 
-app.put('/linha/:id', async (req, res) => {
+app.patch('/linha/:id', async (req, res) => {
     try {
         const { id } = req.params
         let { nome, origem, destino, horarioPartida, duracao } = req.body
@@ -346,9 +372,13 @@ app.put('/linha/:id', async (req, res) => {
 app.delete('/linha/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const linha = await prisma.linha.delete({
+        const dataAtual = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato 'YYYY-MM-DD'
+        const linha = await prisma.linha.update({
             where: {
                 id: parseInt(id)
+            },
+            data: {
+                inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
         res.status(200).json({ msg: 'linha deletada:', linha })
@@ -362,7 +392,11 @@ app.delete('/linha/:id', async (req, res) => {
 // usuario ------------------------------------------------------------------------------------------------
 app.get('/usuario', async (req, res) => {
     try {
-        const usuarios = await prisma.usuario.findMany()
+        const usuarios = await prisma.usuario.findMany({
+            where: {
+                inativado: null
+            }
+        })
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
@@ -399,7 +433,8 @@ app.get('/usuario/busca/:nome', async (req, res) => {
             where: {
                 nome: {
                     contains: nome
-                }
+                },
+                inativado: null
             }
         });
         res.status(200).json(usuarios);
@@ -416,7 +451,8 @@ app.post('/usuario', async (req, res) => {
 
         const usuarioExistente = await prisma.usuario.findMany({
             where: {
-                email: data.email
+                email: data.email,
+                inativado: null
             }
         });
 
@@ -457,9 +493,13 @@ app.patch('/usuario/:id', async (req, res) => {
 app.delete('/usuario/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const usuario = await prisma.usuario.delete({
+        const dataAtual = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato 'YYYY-MM-DD'
+        const usuario = await prisma.usuario.update({
             where: {
                 id: parseInt(id)
+            },
+            data: {
+                inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
         res.status(200).json({ msg: 'usuario deletado:', usuario })
@@ -473,7 +513,11 @@ app.delete('/usuario/:id', async (req, res) => {
 // ONIBUS ------------------------------------------------------------------------------------------------
 app.get('/onibus', async (req, res) => {
     try {
-        const onibus = await prisma.onibus.findMany()
+        const onibus = await prisma.onibus.findMany({
+            where: {
+                inativado: null
+            }
+        })
         res.status(200).json(onibus);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
@@ -510,7 +554,8 @@ app.get('/onibus/busca/:placa', async (req, res) => {
             where: {
                 placa: {
                     contains: placa
-                }
+                },
+                inativado: null
             }
         });
         res.status(200).json(onibus);
@@ -527,7 +572,8 @@ app.post('/onibus', async (req, res) => {
 
         const onibusExistente = await prisma.onibus.findMany({
             where: {
-                placa: data.placa
+                placa: data.placa,
+                inativado: null
             }
         });
 
@@ -547,7 +593,7 @@ app.post('/onibus', async (req, res) => {
 
 }); // CADASTRAR
 
-app.put('/onibus/:id', async (req, res) => {
+app.patch('/onibus/:id', async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
@@ -568,9 +614,13 @@ app.put('/onibus/:id', async (req, res) => {
 app.delete('/onibus/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const onibus = await prisma.onibus.delete({
+        const dataAtual = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato 'YYYY-MM-DD'
+        const onibus = await prisma.onibus.update({
             where: {
                 id: parseInt(id)
+            },
+            data: {
+                inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
         res.status(200).json({ msg: 'onibus deletado:', onibus })
@@ -694,38 +744,28 @@ app.post('/embarque', async (req, res) => {
 
 // COUNT ------------------------------------------------------------
 app.get('/count/:tabela', async (req, res) => {
-    const { tabela } = req.params;
-    if (tabela == 'motorista') {
-        const countM = await prisma.motorista.count()
-        return res.status(200).json({ success: true, msg: `${countM}` });
-    }
+    contar = async (tabela) => {
+        const resultado = await prisma[tabela].count({
+            where: {
+                inativado: null
+            }
+        })
+        return resultado
+    } // Função para count
 
-    if (tabela == 'passageiro') {
-        const countP = await prisma.passageiro.count()
-        return res.status(200).json({ success: true, msg: `${countP}` });
-    }
+    try {
+        const { tabela } = req.params;
+        const tabelasValidas = ['motorista', 'passageiro', 'linha', 'onibus', 'viagem', 'embarque'];
+        if (tabelasValidas.includes(tabela)) {
+            const countM = await contar(tabela)
+            return res.status(200).json({ success: true, msg: `${countM}` });
+        }
 
-    if (tabela == 'linha') {
-        const countL = await prisma.linha.count()
-        return res.status(200).json({ success: true, msg: `${countL}` });
+        res.status(404).json({ success: false, msg: 'tabela não encontrada' })
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
     }
-
-    if (tabela == 'onibus') {
-        const countO = await prisma.onibus.count()
-        return res.status(200).json({ success: true, msg: `${countO}` });
-    }
-
-    if (tabela == 'viagem') {
-        const countV = await prisma.viagem.count()
-        return res.status(200).json({ success: true, msg: `${countV}` });
-    }
-
-    if (tabela == 'embarque') {
-        const countE = await prisma.embarque.count()
-        return res.status(200).json({ success: true, msg: `${countE}` });
-    }
-
-    res.status(404).json({ success: false, msg: 'tabela não encontrada' })
 });
 
 // LOGIN --------------------------------------------------------------------
@@ -736,7 +776,8 @@ app.post('/login', async (req, res) => {
         // verifica se o usuário existe
         const usuarioExistente = await prisma.usuario.findUnique({
             where: {
-                email: email
+                email: email,
+                invalido: null
             }
         });
 
@@ -752,7 +793,7 @@ app.post('/login', async (req, res) => {
         }
 
         //Gera token de autenticação
-        // const token = jwt.sign({ usuarioId: usuarioExistente.id }, env('Secret'))
+        // const token = jwt.sign({ usuarioId: usuarioExistente.id }, process.env.SECRET)
         // A SER INCREMENTADO
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })

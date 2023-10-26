@@ -8,29 +8,32 @@ datasource db {
 }
 
 model linha {
-  id             Int      @id @default(autoincrement())
-  nome           String   @db.VarChar(100)
-  origem         String   @db.VarChar(100)
-  destino        String   @db.VarChar(100)
-  horarioPartida DateTime @db.Time(0)
-  duracao        Int      @db.SmallInt
+  id             Int       @id @default(autoincrement())
+  nome           String    @db.VarChar(100)
+  origem         String    @db.VarChar(100)
+  destino        String    @db.VarChar(100)
+  horarioPartida DateTime  @db.Time(0)
+  duracao        Int       @db.SmallInt
+  inativado      DateTime? @db.Date
   viagem         viagem[]
 }
 
 model motorista {
-  id           Int      @id @default(autoincrement())
-  cpf          String?  @db.VarChar(15)
-  nome         String   @db.VarChar(200)
-  numero       String   @db.VarChar(15)
-  email        String   @db.VarChar(200)
-  foto_caminho String   @db.VarChar(200)
+  id           Int       @id @default(autoincrement())
+  cpf          String?   @db.VarChar(15)
+  nome         String    @db.VarChar(200)
+  numero       String    @db.VarChar(15)
+  email        String    @db.VarChar(200)
+  foto_caminho String    @db.VarChar(200)
+  inativado    DateTime? @db.Date
   viagem       viagem[]
 }
 
 model onibus {
-  id     Int      @id @default(autoincrement())
-  placa  String   @db.VarChar(8)
-  viagem viagem[]
+  id        Int       @id @default(autoincrement())
+  placa     String    @db.VarChar(8)
+  inativado DateTime? @db.Date
+  viagem    viagem[]
 }
 
 model passageiro {
@@ -43,6 +46,7 @@ model passageiro {
   foto_caminho String     @db.VarChar(200)
   tipo_cartao  String     @db.VarChar(50)
   usuario_id   Int
+  inativado    DateTime?  @db.Date
   embarque     embarque[]
   usuario      usuario    @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
 
@@ -55,7 +59,6 @@ model usuario {
   nome         String       @db.VarChar(200)
   email        String       @db.VarChar(200)
   senha        String       @db.VarChar(45)
-  token        String       @db.VarChar(45)
   foto_caminho String       @db.VarChar(200)
   passageiro   passageiro[]
 }
