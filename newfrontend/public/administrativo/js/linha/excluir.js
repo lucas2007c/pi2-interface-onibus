@@ -10,7 +10,9 @@ async function getLinhas() {
     document.querySelector("#nome").value = linha.nome;
     document.querySelector("#origem").value = linha.origem;
     document.querySelector("#destino").value = linha.destino;
-    document.querySelector("#horarioPartida").value = formatarHorario(linha.horarioPartida);
+    document.querySelector("#horarioPartida").value = formatarHorario(
+      linha.horarioPartida
+    );
     document.querySelector("#duracao").value = linha.duracao;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
@@ -20,11 +22,10 @@ async function getLinhas() {
 getLinhas();
 
 async function excluirLinha() {
-  const url = window.location.href;
-  const urlId = url.split("/").pop();
-
   try {
-    await axios.delete(`http://localhost:3000/linha/${urlId}`);
+    const url = window.location.href;
+    const urlId = url.split("/").pop();
+    const response = await axios.delete(`http://localhost:3000/linha/${urlId}`);
 
     console.log("Resposta do servidor:", response.data);
 

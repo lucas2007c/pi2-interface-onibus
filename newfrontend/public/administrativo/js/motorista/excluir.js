@@ -22,11 +22,12 @@ async function getMotorista() {
 getMotorista();
 
 async function excluirMotorista() {
-  const url = window.location.href;
-  const urlId = url.split("/").pop();
-
   try {
-    await axios.delete(`http://localhost:3000/motorista/${urlId}`);
+    const url = window.location.href;
+    const urlId = url.split("/").pop();
+    const response = await axios.delete(
+      `http://localhost:3000/motorista/${urlId}`
+    );
 
     console.log("Resposta do servidor:", response.data);
 
@@ -40,7 +41,6 @@ async function excluirMotorista() {
       );
 
       window.location.href = "http://localhost:3001/admin/motorista";
-      console.log(window.location.href);
     } else {
       console.error("Erro no servidor:", response.data);
     }
