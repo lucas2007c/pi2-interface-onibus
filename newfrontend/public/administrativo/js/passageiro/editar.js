@@ -12,11 +12,12 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const passageiro = response.data;
 
     document.querySelector("#nome").value = passageiro.nome;
+    document.querySelector("#usuario").value = passageiro.usuario_id;
     document.querySelector("#cpf").value = passageiro.cpf;
     document.querySelector("#numero").value = passageiro.numero;
     document.querySelector("#saldo").value = passageiro.saldo;
     document.querySelector("#email").value = passageiro.email;
-    document.querySelector("#foto_caminho").value = passageiro.foto_caminho;
+    // document.querySelector("#foto_caminho").value = passageiro.foto_caminho;
     document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     event.preventDefault();
 
     if (form.checkValidity()) {
+      const usuario_id = document.querySelector("#usuario").value;
       const nome = document.querySelector("#nome").value;
       const cpf = document.querySelector("#cpf").value;
       const numero = document.querySelector("#numero").value;
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       const foto_caminho = document.querySelector("#foto_caminho").value;
       const tipo_cartao = document.querySelector("#tipo_cartao").value;
 
-      const data = { nome, cpf, numero, saldo, email, foto_caminho, tipo_cartao };
+      const data = { usuario_id, nome, cpf, numero, saldo, email, foto_caminho, tipo_cartao };
 
       try {
         const response = await axios.patch(

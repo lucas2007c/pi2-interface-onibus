@@ -158,6 +158,18 @@
                                     <form method="put" action="/passageiro/:id" class="needs-validation" novalidate
                                         id="form-passageiro">
                                         <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <label for="usuario">ID do usuário</label>
+                                                <input type="number" pattern="^[0-9]+$" autocomplete="off"
+                                                    class="form-control" id="usuario" placeholder="Informe seu ID"
+                                                    value="" disabled required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas numeros.
+                                                </div>
+                                            </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
@@ -184,7 +196,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="numero">Número de celular</label>
-                                                <input type="text" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15" autocomplete="off" class="form-control" id="numero"
+                                                <input type="text" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15"
+                                                    autocomplete="off" class="form-control" id="numero"
                                                     placeholder="Informe o celular para contato" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
