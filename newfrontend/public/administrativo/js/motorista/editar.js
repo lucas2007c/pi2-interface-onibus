@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     document.querySelector("#cpf").value = motorista.cpf;
     document.querySelector("#numero").value = motorista.numero;
     document.querySelector("#email").value = motorista.email;
-    document.querySelector("#foto_caminho").value = motorista.foto_caminho;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }
@@ -89,3 +88,24 @@ function updateNumero() {
 // Adicione um ouvinte de eventos para chamar a função updateNumero quando o campo é alterado
 const numeroInput = document.getElementById("numero");
 numeroInput.addEventListener("input", updateNumero);
+
+// CHECKBOX
+
+// Obtém uma referência para o elemento checkbox e o elemento de resultado
+const checkbox = document.getElementById("foto_checkbox");
+
+const inputFoto = document.querySelector("#foto_caminho");
+const newInputFoto = inputFoto.cloneNode(true);
+newInputFoto.removeAttribute("disabled");
+newInputFoto.setAttribute("required", "true");
+
+// Adiciona um ouvinte de evento "change" ao checkbox
+checkbox.addEventListener("change", function () {
+  if (checkbox.checked) {
+    console.log("oi");
+    inputFoto.replaceWith(newInputFoto);
+  } else {
+    console.log("tchau");
+    newInputFoto.replaceWith(inputFoto);
+  }
+});
