@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     document.querySelector("#usuario").value = passageiro.usuario_id;
     document.querySelector("#cpf").value = passageiro.cpf;
     document.querySelector("#numero").value = passageiro.numero;
-    document.querySelector("#saldo").value = passageiro.saldo;
     document.querySelector("#email").value = passageiro.email;
     // document.querySelector("#foto_caminho").value = passageiro.foto_caminho;
     document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
@@ -32,12 +31,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       const nome = document.querySelector("#nome").value;
       const cpf = document.querySelector("#cpf").value;
       const numero = document.querySelector("#numero").value;
-      const saldo = document.querySelector("#saldo").value;
       const email = document.querySelector("#email").value;
       const foto_caminho = document.querySelector("#foto_caminho").value;
       const tipo_cartao = document.querySelector("#tipo_cartao").value;
 
-      const data = { usuario_id, nome, cpf, numero, saldo, email, foto_caminho, tipo_cartao };
+      const data = { usuario_id, nome, cpf, numero, email, foto_caminho, tipo_cartao };
 
       try {
         const response = await axios.patch(
