@@ -233,10 +233,10 @@
                                                     Escolha um tipo válido.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
                                                 <input class="form-control" type="file" id="foto_caminho"
-                                                    accept="image/*" required>
+                                                    accept="image/*" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -244,7 +244,12 @@
                                                     Insira um arquivo.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                            <label
+                                                class="custom-control custom-checkbox custom-control-inline mt-2 ml-4">
+                                                <input id="foto_checkbox" type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-label">Trocar imagem</span>
+                                            </label>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
                                                 <a href="/admin/passageiro"><button class="btn btn-danger"
                                                         type="button">Cancelar</button></a>
                                                 <button class="btn btn-primary ml-2" type="submit">Salvar</button>
@@ -277,6 +282,10 @@
                         <!-- Axios & script getAll -->
                         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                         <script src="/administrativo/js/passageiro/editar.js"></script>
+                        <!-- Script formatação && checkbox -->
+                        <script src="/administrativo/js/checkbox.js"></script>
+                        <script src="/administrativo/js/formatarCpf.js"></script>
+                        <script src="/administrativo/js/formatarNumero.js"></script>
 
                         <script>
                             $('#form').parsley();
