@@ -72,32 +72,20 @@
 
             </div>
         </section><!-- End Breadcrumbs -->
+        
+        <section id="faq" class="faq section-bg">
+            <div class="section-title">
+                <h2>Todas linhas de ônibus</h2>
+                <p>Confira nossa lista completa de linhas de ônibus para encontrar a que melhor atende às suas necessidades de
+                  transporte.</p>
+              </div>
 
-        <div class="container my-5 w-75">
-            <div class="">
-                <h5 class="card-header pl-2">Lista de linhas</h5>
+            <div class="container">
+                <div class="faq-list">
+                    <ul id="tabela-linhas">
+                    </ul>
+                </div>
             </div>
-
-            <table class="table table-hover">
-                <thead class="table-light">
-                    <tr class="border-0">
-                        <th class="border-0">Nome</th>
-                        <th class="border-0">Origem</th>
-                        <th class="border-0">Destino</th>
-
-                        <th class="border-0">Horário Partida</th>
-                        <th class="border-0">Duração (em minutos)</th>
-                    </tr>
-                </thead>
-
-                <tbody id="tabela-linhas">
-                </tbody>
-            </table>
-        </div>
-        </div>
-        </div>
-
-        </div>
         </section>
 
     </main><!-- End #main -->
@@ -176,33 +164,13 @@
     <script src="/FastTravel/assets/vendor/php-email-form/validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/fasttravel/ListarLinhas.js"></script>
+
     <!-- Template Main JS File -->
     <script src="/FastTravel/assets/js/main.js"></script>
 
-    <!-- JavaScript validador formulario -->
-    <script>
-        $('#form').parsley();
-    </script>
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
+    <!-- Axios && Script para listar linhas -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/FastTravel/js/listarTodasLinhas.js"></script>
 </body>
 
 </html>
