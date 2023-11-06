@@ -31,6 +31,8 @@
     <link href="/FastTravel/assets/css/style.css" rel="stylesheet">
 
     <!-- css para formulario -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
@@ -78,21 +80,16 @@
                 <!-- ============================================================== -->
                 <!-- validation form -->
                 <!-- ============================================================== -->
-                <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 col-12"
-                    style="display: flex; justify-content: center;">
-                    <div class="card cartaoContainer">
-                        <center>
-                            <h3 class="card-header">Formulário de recarga</h3>
-                        </center>
+                <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 col-12 d-flex justify-content-center">
+                    <div class="card">
+                        <h3 class="card-header text-center">Formulário de recarga</h3>
                         <div class="card-body">
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" novalidate id="form-recarga">
                                 <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2 mb-2">
                                         <label for="cpfRecarga">CPF</label>
                                         <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" autocomplete="off"
-                                            required placeholder="Informe seu CPF" class="form-control" inlength="11"
-                                            id="cpfRecarga">
+                                            required placeholder="Informe seu CPF" class="form-control" id="cpfRecarga">
                                         <div class="valid-feedback">
                                             Tudo certo!
                                         </div>
@@ -100,8 +97,7 @@
                                             Informe no formato 111.111.111-11
                                         </div>
                                     </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                        style="padding-top: 10px; padding-bottom: 15px;">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2 mb-3">
                                         <label for="valorRecarga">Valor da recarga</label>
                                         <input type="number" step="0.01" min="0.01" autocomplete="off" required
                                             placeholder="Informe o valor da recarga" class="form-control"
@@ -113,59 +109,8 @@
                                             Informe um valor acima de x reais.
                                         </div>
                                     </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                        style="padding-top: 10px; padding-bottom: 15px;">
-                                        <label for="numeroCartao">Número do cartão</label>
-                                        <input type="text" autocomplete="off" required
-                                            placeholder="Informe o número do seu cartão" class="form-control"
-                                            inlength="11" id="numeroCartao">
-                                        <div class="valid-feedback">
-                                            Tudo certo!
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Informe apenas numeros
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"
-                                        style="padding-top: 10px; padding-bottom: 15px;">
-                                        <label for="dataValidade">Data de validade</label>
-                                        <input type="text" autocomplete="off" required
-                                            placeholder="Informe no formato MM/AA" class="form-control" inlength="11"
-                                            id="dataValidade">
-                                        <div class="valid-feedback">
-                                            Tudo certo!
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Informe no formato MM/AA
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"
-                                        style="padding-top: 10px; padding-bottom: 15px;">
-                                        <label for="codigoSeguranca">Código de segurança</label>
-                                        <input type="text" autocomplete="off" required placeholder="Informe o CVV"
-                                            class="form-control" inlength="11" id="codigoSeguranca">
-                                        <div class="valid-feedback">
-                                            Tudo certo!
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Informe no apenas os três números
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
-                                        style="padding-top: 10px; padding-bottom: 15px;">
-                                        <label for="enderecoCobranca">Endereço de cobrança</label>
-                                        <input type="text" autocomplete="off" required
-                                            placeholder="Informe estado/cidade/rua/numero" class="form-control"
-                                            inlength="11" id="enderecoCobranca">
-                                        <div class="valid-feedback">
-                                            Tudo certo!
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Informe no formato exato: estado/cidade/rua/numero
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                        <button class="btn btn-primary botaoCpf" type="submit">Enviar</button>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <button class="btn btn-primary" type="submit">Enviar</button>
                                     </div>
                                 </div>
                             </form>
@@ -240,46 +185,33 @@
         </div>
     </footer><!-- End Footer -->
 
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="/FastTravel/assets/vendor/aos/aos.js"></script>
-    <script src="/FastTravel/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/FastTravel/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="/FastTravel/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="/FastTravel/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/FastTravel/assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="/FastTravel/assets/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="/FastTravel/assets/js/main.js"></script>
+    <!-- Axios & script getAll -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/administrativo/js/passageiro/cadastrar.js"></script> -->
 
     <!-- JavaScript validador formulario -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script>
-        $('#form').parsley();
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const form = document.querySelector("#form-recarga");
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                if (form.checkValidity()) {
+                    alert("form valido")
+                }
+
+                form.classList.add("was-validated");
+            });
+        });
     </script>
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
+    <!-- Axios & script getAll -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/fasttravel/js/recarga.js"></script>
 </body>
 
 </html>
