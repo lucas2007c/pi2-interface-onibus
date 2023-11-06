@@ -801,6 +801,40 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// RECARGA ---------------------------------------------------------------------------------------------------------------
+app.patch('/recarga/', async (req, res) => {
+    try {
+        const { cpf, valor } = req.body
+
+        // verifica se o passageiro existe
+        const passageiroExistente = await prisma.passageiro.findMany({
+            where: {
+                cpf: cpf,
+                inativado: null
+            }
+        });
+
+        if (passageiroExistente.length === 0) {
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' })
+        };
+
+        const saldo = Number(passageiroExistente[0].saldo) + Number(valor)
+        const usuario_id = Number(passageiroExistente[0].usuario_id)
+
+        const passageiro = await prisma.passageiro.update({
+            where: {
+                id: passageiroExistente[0].id,
+                inativado: null
+            },
+            data: { saldo, usuario_id }
+        })
+        res.status(200).json({ msg: 'Recarga realizada com sucesso', passageiro });
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
+    }
+});
+
 app.all('*', (req, res) => {
     res.status(501).json({ success: false, msg: 'Rota Não encontrada' });
 })
