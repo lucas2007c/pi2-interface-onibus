@@ -37,18 +37,19 @@ model onibus {
 }
 
 model passageiro {
-  id           Int        @unique @default(autoincrement())
-  nome         String     @db.VarChar(200)
-  saldo        Decimal    @db.Decimal(10, 2)
-  cpf          String?    @db.VarChar(15)
-  numero       String     @db.VarChar(20)
-  email        String     @db.VarChar(200)
-  foto_caminho String     @db.VarChar(200)
-  tipo_cartao  String     @db.VarChar(50)
-  usuario_id   Int
-  inativado    DateTime?  @db.Date
-  embarque     embarque[]
-  usuario      usuario    @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
+  id            Int        @unique @default(autoincrement())
+  nome          String     @db.VarChar(200)
+  saldo         Decimal    @db.Decimal(10, 2)
+  cpf           String?    @db.VarChar(15)
+  numero        String     @db.VarChar(20)
+  email         String     @db.VarChar(200)
+  foto_caminho  String     @db.VarChar(200)
+  tipo_cartao   String     @db.VarChar(50)
+  usuario_id    Int
+  inativado     DateTime?  @db.Date
+  codigo_cartao String     @db.VarChar(50)
+  embarque      embarque[]
+  usuario       usuario    @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
 
   @@id([id, usuario_id])
   @@index([usuario_id], map: "fk_usuario_id")

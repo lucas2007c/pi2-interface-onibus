@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `fasttravel`.`passageiro` (
   `email` VARCHAR(200) NOT NULL,
   `foto_caminho` VARCHAR(200) NOT NULL,
   `tipo_cartao` VARCHAR(50) NOT NULL,
+  `codigo_cartao` VARCHAR(50) NOT NULL,
   `usuario_id` INT(11) NOT NULL,
   `inativado` DATE NULL,
   PRIMARY KEY (`id`, `usuario_id`),

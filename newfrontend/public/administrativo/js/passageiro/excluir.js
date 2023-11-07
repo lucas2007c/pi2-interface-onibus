@@ -15,6 +15,7 @@ async function getPassageiro() {
     document.querySelector("#saldo").value = passageiro.saldo;
     document.querySelector("#email").value = passageiro.email;
     document.querySelector("#foto_caminho").value = passageiro.foto_caminho;
+    document.querySelector("#codigo_cartao").value = passageiro.codigo_cartao;
     document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);

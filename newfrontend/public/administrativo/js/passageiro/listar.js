@@ -17,6 +17,7 @@ async function fetchPassageiros() {
         <td>${passageiro.email}</td>
         <td>${passageiro.tipo_cartao}</td>
         <td>${passageiro.saldo}</td>
+        <td>${passageiro.codigo_cartao}</td>
         <td>
             <a href="/admin/passageiro/excluir/${passageiro.id}" class="btn btn-sm btn-outline-danger">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
