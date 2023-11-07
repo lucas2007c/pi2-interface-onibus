@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (form.checkValidity()) {
       const cpf = document.querySelector("#cpfRecarga").value;
-      const recarga = document.querySelector("#valorRecarga").value;
+      const valor = document.querySelector("#valorRecarga").value;
 
       const data = {
         cpf,
-        recarga,
+        valor
       };
 
       try {
