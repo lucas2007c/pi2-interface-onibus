@@ -17,7 +17,7 @@ router.get('/count/:tabela', async (req, res) => {
 
     try {
         const { tabela } = req.params;
-        const tabelasValidas = ['motorista', 'passageiro', 'linha', 'onibus', 'viagem', 'embarque'];
+        const tabelasValidas = ['motorista', 'passageiro', 'linha', 'onibus', 'viagem', 'embarque', 'usuario'];
         if (tabelasValidas.includes(tabela)) {
             const countM = await contar(tabela)
             return res.status(200).json({ success: true, msg: `${countM}` });

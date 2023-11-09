@@ -6,8 +6,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Excluir Ônibus - Fast Travel</title>
+    <title>Editar Usuário - Fast Travel</title>
     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
@@ -33,7 +35,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                
+                    
 
 
                         <li class="nav-item dropdown nav-user">
@@ -65,7 +67,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="/admin">Página inicial</a>
+                    <a class="d-xl-none d-lg-none" href="/admin">Página principal</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -95,7 +97,7 @@
                                             <a class="nav-link" href="/admin/linha">Linhas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/admin/linha">Ônibus</a>
+                                            <a class="nav-link" href="/admin/onibus">Ônibus</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -124,13 +126,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Excluir Ônibus</h2>
+                                <h2 class="pageheader-title">Editar Usuário</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/onibus" class="breadcrumb-link">Ônibus cadastrados</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Excluir Ônibus
+                                            <li class="breadcrumb-item"><a href="/admin/usuario" class="breadcrumb-link">Usuários cadastrados</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Editar Usuário
                                             </li>
                                         </ol>
                                     </nav>
@@ -147,68 +149,106 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Informações do Ônibus</h5>
+                                <h5 class="card-header">Formulário de edição</h5>
                                 <div class="card-body">
-                                    <form id="form-onibus" class="needs-validation" novalidate>
-                                        <div class="form-row">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
-                                                <label for="placa">Placa do ônibus</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="placa" disabled>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
-                                                <a href="/admin/onibus"><button class="btn btn-danger" type="button">Cancelar</button></a>
-                                                <button class="btn btn-primary ml-2" type="button" data-toggle="modal"
-                                                    data-target="#excluirModal">Excluir</button>
-                                                <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="excluirModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="excluirModalLabel">Tem
-                                                                    certeza que deseja excluir esse ônibus?</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-footer justify-content-start">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Cancelar</button>
-                                                                <button id="excluirBotao" type="button" class="btn btn-primary">
-                                                                    Excluir
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                    <form method="put" action="/usuario/:id" class="needs-validation" novalidate
+                                        id="form-usuario">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <label for="nome">Nome completo</label>
+                                                <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
+                                                    class="form-control" id="nome"
+                                                    placeholder="Informe seu nome completo" value="" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas caracteres alfabéticos.
                                                 </div>
                                             </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="email">Email</label>
+                                                <input type="email"
+                                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                                    autocomplete="off" class="form-control" id="email"
+                                                    placeholder="Informe seu email" value="" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Informe um email válido, ex: nome@exemplo.com
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="nome">Senha</label>
+                                                <input type="text" autocomplete="off"
+                                                    class="form-control" id="senha"
+                                                    placeholder="Informe sua senha" value="" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas caracteres alfabéticos.
+                                                </div>
+                                            </div> 
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="foto_caminho" class="form-label">Foto</label>
+                                                <input class="form-control" type="file" id="foto_caminho"
+                                                    accept="image/*" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Insira um arquivo.
+                                                </div>
+                                            </div>
+                                            <label class="custom-control custom-checkbox custom-control-inline mt-2 ml-4">
+                                                <input id="foto_checkbox" type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-label">Trocar imagem</span>
+                                            </label>
+                                        </div>
+                                        <div class="mt-3">
+                                            <a href="/admin/usuario"><button class="btn btn-danger"
+                                                    type="button">Cancelar</button></a>
+                                            <button class="btn btn-primary ml-2" type="submit">Salvar</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-                        <!-- bootstap bundle js -->
-                        <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-                        <!-- slimscroll js -->
-                        <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-                        <!-- main js -->
-                        <script src="/administrativo/assets/libs/js/main-js.js"></script>
-                        <!-- chart chartist js -->
-                        <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-                        <!-- sparkline js -->
-                        <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-                        <!-- morris js -->
-                        <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-                        <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
-                        <!-- chart c3 js -->
-                        <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
-                        <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-                        <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
-                        <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
-                        <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
-                        <!-- Axios & script getAll -->
-                        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                        <script src="/administrativo/js/onibus/excluir.js"></script>
+                    </div>
+                </div>
+                <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+                <!-- bootstap bundle js -->
+                <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                <!-- slimscroll js -->
+                <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                <!-- main js -->
+                <script src="/administrativo/assets/libs/js/main-js.js"></script>
+                <!-- chart chartist js -->
+                <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+                <!-- sparkline js -->
+                <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+                <!-- morris js -->
+                <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+                <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+                <!-- chart c3 js -->
+                <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+                <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+                <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+                <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
+                <!-- Axios & script getAll -->
+                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                <script src="/administrativo/js/usuario/editar.js"></script>
+                <!-- Script formatação && checkbox -->
+                <script src="/administrativo/js/checkbox.js"></script>
+                <script src="/administrativo/js/formatarCpf.js"></script>
+                <script src="/administrativo/js/formatarNumero.js"></script>
+
+                <script>
+                    $('#form').parsley();
+                </script>
 </body>
 
 </html>

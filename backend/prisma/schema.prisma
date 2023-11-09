@@ -61,6 +61,7 @@ model usuario {
   email        String       @db.VarChar(200)
   senha        String       @db.VarChar(45)
   foto_caminho String       @db.VarChar(200)
+  inativado    DateTime?    @db.Date
   passageiro   passageiro[]
 }
 

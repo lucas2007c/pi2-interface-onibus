@@ -7,6 +7,24 @@ router.get('/', (req, res) => {
   res.render('administrativo/index'); // Exemplo de renderização de uma página
 });
 
+// Rotas usuario
+
+router.get('/usuario', (req, res) => {
+  res.render('administrativo/usuario/listar');
+});
+
+router.get('/usuario/cadastrar', (req, res) => {
+  res.render('administrativo/usuario/cadastrar');
+});
+
+router.get('/usuario/editar/:id', (req, res) => {
+  res.render('administrativo/usuario/editar');
+});
+
+router.get('/usuario/excluir/:id', (req, res) => {
+  res.render('administrativo/usuario/excluir');
+});
+
 // Rotas motoristas
 
 router.get('/motorista', (req, res) => {
@@ -86,13 +104,5 @@ router.get('/onibus/excluir/:id', (req, res) => {
 });
 
 // End rotas onibus ---
-
-// router.get('/', (req, res) => {
-//   res.render('administrativo/index');
-// });
-
-// router.get('/', (req, res) => {
-//   res.render('administrativo/index');
-// });
 
 module.exports = router;

@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="pt-br">
 
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Excluir Ônibus - Fast Travel</title>
+    <title>Usuários - Fast Travel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
 </head>
-
 
 <body>
     <!-- ============================================================== -->
@@ -33,8 +31,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                
-
+                      
 
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
@@ -65,7 +62,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="/admin">Página inicial</a>
+                    <a class="d-xl-none d-lg-none" href="/admin">Página principal</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -95,15 +92,11 @@
                                             <a class="nav-link" href="/admin/linha">Linhas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/admin/linha">Ônibus</a>
+                                            <a class="nav-link" href="/admin/onibus">Ônibus</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-
-
-
-
                         </ul>
                     </div>
                 </nav>
@@ -124,13 +117,14 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Excluir Ônibus</h2>
+                                <h2 class="pageheader-title">Usuários cadastrados</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/onibus" class="breadcrumb-link">Ônibus cadastrados</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Excluir Ônibus
+                                            <li class="breadcrumb-item"><a href="/admin"
+                                                    class="breadcrumb-link">Página Inicial</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Usuários
+                                                cadastrados
                                             </li>
                                         </ol>
                                     </nav>
@@ -142,73 +136,70 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- validation form -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Informações do Ônibus</h5>
-                                <div class="card-body">
-                                    <form id="form-onibus" class="needs-validation" novalidate>
-                                        <div class="form-row">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
-                                                <label for="placa">Placa do ônibus</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="placa" disabled>
-                                            </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
-                                                <a href="/admin/onibus"><button class="btn btn-danger" type="button">Cancelar</button></a>
-                                                <button class="btn btn-primary ml-2" type="button" data-toggle="modal"
-                                                    data-target="#excluirModal">Excluir</button>
-                                                <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="excluirModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="excluirModalLabel">Tem
-                                                                    certeza que deseja excluir esse ônibus?</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-footer justify-content-start">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Cancelar</button>
-                                                                <button id="excluirBotao" type="button" class="btn btn-primary">
-                                                                    Excluir
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+
+                    </div>
+
+                    <!-- ============================================================== -->
+                    <!-- table Usuários -->
+                    <!-- ============================================================== -->
+
+                    <div>
+                        <div class="card">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-header pl-2">Lista de Usuários</h5>
+                                <a href="/admin/usuario/cadastrar" class="btn btn-primary m-2 align-self-center">Registrar novo</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table table-hover table-responsive">
+                                    <table class="table">
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                                <th class="border-0">Foto</th>
+                                                <th class="border-0">Nome</th>
+                                                <th class="border-0">Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabela-usuarios">
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-                        <!-- bootstap bundle js -->
-                        <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-                        <!-- slimscroll js -->
-                        <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-                        <!-- main js -->
-                        <script src="/administrativo/assets/libs/js/main-js.js"></script>
-                        <!-- chart chartist js -->
-                        <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-                        <!-- sparkline js -->
-                        <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-                        <!-- morris js -->
-                        <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-                        <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
-                        <!-- chart c3 js -->
-                        <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
-                        <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-                        <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
-                        <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
-                        <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
-                        <!-- Axios & script getAll -->
-                        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                        <script src="/administrativo/js/onibus/excluir.js"></script>
+                    </div> <!-- End lista -->
+                    <!-- ============================================================== -->
+                    <!-- end table usuario -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end wrapper  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end main wrapper  -->
+                    <!-- ============================================================== -->
+                    <!-- Optional JavaScript -->
+                    <!-- jquery 3.3.1 -->
+                    <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+                    <!-- bootstap bundle js -->
+                    <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                    <!-- slimscroll js -->
+                    <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                    <!-- main js -->
+                    <script src="/administrativo/assets/libs/js/main-js.js"></script>
+                    <!-- chart chartist js -->
+                    <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+                    <!-- sparkline js -->
+                    <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+                    <!-- morris js -->
+                    <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+                    <!-- chart c3 js -->
+                    <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+                    <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+                    <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                    <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
+                    <!-- Axios & script getAll -->
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <script src="/administrativo/js/usuario/listar.js"></script>
 </body>
 
 </html>
