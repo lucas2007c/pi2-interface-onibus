@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `fasttravel`.`usuario` (
   `email` VARCHAR(200) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   `foto_caminho` VARCHAR(200) NOT NULL,
+  `inativado` DATE NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
