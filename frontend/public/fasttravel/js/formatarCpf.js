@@ -13,11 +13,11 @@ function formatarCPF(cpf) {
   
   // Função para atualizar o valor do campo de CPF formatado
   function updateCPF() {
-    const cpfInput = document.getElementById("cpf");
+    const cpfInput = document.getElementById("cpfRecarga");
     cpfInput.value = formatarCPF(cpfInput.value);
   }
   
   // Adicione um ouvinte de eventos para chamar a função updateCPF quando o campo é alterado
-  const cpfInput = document.getElementById("cpf");
+  const cpfInput = document.getElementById("cpfRecarga");
   cpfInput.addEventListener("input", updateCPF);
   
