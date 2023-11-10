@@ -11,6 +11,7 @@ const othersRouter = require("./routes/others");
 const passageiroRouter = require("./routes/passageiro");
 const usuarioRouter = require("./routes/usuario");
 const viagemRouter = require("./routes/viagem");
+const authRouter = require("./routes/auth");
 
 app.use(cors());
 app.use(express.json());
@@ -24,5 +25,6 @@ app.use("/", othersRouter);
 app.use("/", passageiroRouter);
 app.use("/", usuarioRouter);
 app.use("/", viagemRouter);
+app.use("/auth", authRouter);
 
 module.exports = app;

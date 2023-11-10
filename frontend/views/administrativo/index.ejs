@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet"
+        href="/administrativo/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <title>Fast Travel</title>
@@ -36,12 +37,13 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                      
+
 
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="/administrativo/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                                    src="/administrativo/assets/images/avatar-1.jpg" alt=""
+                                    class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
@@ -339,6 +341,29 @@
                 <script src="/administrativo/js/passageiro/count.js"></script>
                 <script src="/administrativo/js/motorista/count.js"></script>
                 <script src="/administrativo/js/usuario/count.js"></script>
+                <script src="/administrativo/js/auth.js"></script>
+                <!-- <script>
+                    document.addEventListener("DOMContentLoaded", async function () {
+                        try {
+                            // primeira etapa
+                            await verifyToken();
+                            console.log("Está autorizadodsadsadsa a ver esta página");
+
+                            // segunda etapa
+                            const token = localStorage.getItem("token");
+                            const response = await axios.get("http://localhost:3001/admin", {
+                                headers: {
+                                    Authorization: token,
+                                }
+                            });
+                            const msg = response.data.msg;
+                            alert(msg);
+                        } catch (error) {
+                            console.error("Erro ao verificar o token:", error);
+                            window.location.replace("/login");
+                        }
+                    });
+                </script> -->
 </body>
 
 </html>
