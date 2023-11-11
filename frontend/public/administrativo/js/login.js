@@ -1,24 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("#form-linhas");
+    const form = document.querySelector("#form-login");
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         if (form.checkValidity()) {
-            const nome = document.querySelector("#nome").value;
-            const origem = document.querySelector("#origem").value;
-            const destino = document.querySelector("#destino").value;
-            const horarioPartida = document.querySelector("#horarioPartida").value;
-            const duracao = document.querySelector("#duracao").value;
+            const email = document.querySelector("#email").value;
+            const senha = document.querySelector("#senha").value;
 
-            const data = { nome, origem, destino, horarioPartida, duracao };
+            const data = { email, senha };
 
             try {
-                const response = await axios.post("http://localhost:3000/linha", data);
+                const response = await axios.post("http://localhost:3000/auth/login", data);
 
-                console.log("success", "Cadastro realizado sucesso");
+                console.log(response.data.msg);
 
-                window.location.href = `http://localhost:3001/admin/linha`;
+                window.location.href = `http://localhost:3001/admin`;
             } catch (error) {
                 console.error("danger", error.message);
             }

@@ -11,26 +11,26 @@ router.post('/login', async (req, res) => {
         const { email, senha } = req.body;
 
         // verifica se o usuário existe
-        const usuarioExistente = await prisma.usuario.findFirst({
+        const usuarioExistente = await prisma.usuario.findMany({
             where: {
                 email: email,
-                invalido: null
+                inativado: null
             }
         });
 
-        if (!usuarioExistente) {
-            return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+        if (usuarioExistente.length === 0) {
+            return res.status(400).json({ success: false, msg: 'Credenciais Inválidas' })
         }
 
         // Verifica se a senha está correta
-        const SenhaValida = await bcrypt.compare(senha, usuarioExistente.senha)
-
+        const SenhaValida = await bcrypt.compare(senha, usuarioExistente[0].senha)
+        // msm a senha estando certa retorna falso
         if (!SenhaValida) {
             return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
         }
 
         // Gera token de autenticação
-        const token = jwt.sign({ usuarioId: usuarioExistente.id }, process.env.SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ email }, process.env.SECRET, { expiresIn: '1h' });
         return res.json({ token });
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
