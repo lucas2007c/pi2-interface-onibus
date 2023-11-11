@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <title>Formulário de cadastro - Fast Travel</title>
 
     <link rel="stylesheet" href="../administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -43,7 +43,7 @@
 
 
 
-    <form class="splash-container">
+    <form method="post" action="/usuario" class="splash-container needs-validation" novalidate id="form-usuario">
         <div class="card">
             <div class="card-header">
                 <h3 class="mb-1">Bem vindo a nossa empresa!</h3>
@@ -51,36 +51,47 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" name="nick" required=""
-                        placeholder="Username" autocomplete="off">
+                    <input class="form-control form-control-lg" type="text" id="nome" name="nick" required=""
+                        placeholder="Nome Completo" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off">
+                    <div class="valid-feedback">
+                        Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        Utilize apenas caracteres alfabéticos.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="email" name="email" required=""
-                        placeholder="E-mail" autocomplete="off">
+                    <input class="form-control form-control-lg" type="email" id="email" name="email" required=""
+                        placeholder="Email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        autocomplete="off">
+                    <div class="valid-feedback">
+                        Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        Informe um email válido, ex: nome@exemplo.com
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="pass1" type="password" required=""
-                        placeholder="Password">
+                    <input class="form-control form-control-lg" id="senha" type="text" required="" placeholder="Senha">
+                    <div class="valid-feedback">
+                        Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        A senha é obrigatória
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" required="" placeholder="Confirm">
+                    <label for="foto_caminho" class="form-label">Foto</label>
+                    <input class="form-control form-control-lg" type="file" id="foto_caminho" accept="image/*" required>
+                    <div class="valid-feedback">
+                        Tudo certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        Insira um arquivo.
+                    </div>
                 </div>
                 <div class="form-group pt-2">
-                    <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
-                </div>
-                <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By
-                            creating an account, you agree the <a href="#">terms and conditions</a></span>
-                    </label>
-                </div>
-                <div class="form-group row pt-0">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                        <button class="btn btn-block btn-social btn-facebook " type="button">Facebook</button>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <button class="btn  btn-block btn-social btn-twitter" type="button">Twitter</button>
-                    </div>
+                    <button class="btn btn-block btn-primary" type="submit">Cadastrar</button>
                 </div>
             </div>
             <div class="card-footer bg-white">
@@ -103,6 +114,10 @@
         data-cf-beacon="{&quot;rayId&quot;:&quot;82423ea82fcb0f88&quot;,&quot;version&quot;:&quot;2023.10.0&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;}"
         crossorigin="anonymous"></script>
 
+    <!-- Axios & script getAll -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/administrativo/js/usuario/cadastrar.js"></script>
+    <!-- Script formatação -->
 </body>
 
 </html>

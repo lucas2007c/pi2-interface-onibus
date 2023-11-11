@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         console.log("success", "Cadastro realizado sucesso");
-
-        window.location.href = `http://localhost:3001/admin/usuario`;
+        if (location.href == 'http://localhost:3001/admin/cadastro') {
+          location.href = `http://localhost:3001/admin/login`;
+        } else {
+          location.href = `http://localhost:3001/admin/usuario`;
+        }
       } catch (error) {
         console.error("danger", error.message);
       }
