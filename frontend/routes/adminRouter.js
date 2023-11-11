@@ -105,4 +105,14 @@ router.get('/onibus/excluir/:id', (req, res) => {
 
 // End rotas onibus ---
 
+// rota de login
+router.get('/login', (req, res) => {
+  res.render('administrativo/login');
+});
+
+// rota de cadastro
+router.get('/cadastro', (req, res) => {
+  res.render('administrativo/cadastro');
+});
+
 module.exports = router;
