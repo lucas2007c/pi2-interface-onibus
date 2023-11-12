@@ -19,12 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
           data
         );
 
-        console.log("success", "Cadastro realizado sucesso");
+        console.log(response.data.msg);
       } catch (error) {
         console.error(error.message);
       }
+      const inputCpf = document.querySelector("#cpfRecarga");
+      const inputValor = document.querySelector("#valorRecarga");
+      setTimeout(() => {
+        inputCpf.value = ''
+        inputValor.value = ''
+        form.classList.remove("was-validated");
+      }, 1000);
     }
-
     form.classList.add("was-validated");
   });
 });
