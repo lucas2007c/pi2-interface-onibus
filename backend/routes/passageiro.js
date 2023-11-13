@@ -22,7 +22,8 @@ router.get('/passageiro/:id', async (req, res) => {
         const { id } = req.params
         const passageiro = await prisma.passageiro.findUnique({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                inativado: null
             }
         });
 

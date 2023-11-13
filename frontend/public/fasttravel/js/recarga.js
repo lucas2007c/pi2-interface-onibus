@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (error) {
         console.error(error.message);
       }
+      
       const inputCpf = document.querySelector("#cpfRecarga");
       const inputValor = document.querySelector("#valorRecarga");
       setTimeout(() => {
