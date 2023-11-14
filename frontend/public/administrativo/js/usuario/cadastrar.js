@@ -5,25 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (form.checkValidity()) {
-      const nome = document.querySelector("#nome").value;
-      const email = document.querySelector("#email").value;
-      const senha = document.querySelector("#senha").value;
-      const foto_caminho = document.querySelector("#foto_caminho").value;
-
-      const data = {
-        nome,
-        email,
-        senha,
-        foto_caminho,
-      };
+      const formData = new FormData(form)
 
       try {
         const response = await axios.post(
           "http://localhost:3000/usuario",
-          data
+          formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
         );
 
-        console.log("success", "Cadastro realizado sucesso");
+        console.log(response.data.msg);
         if (location.href == 'http://localhost:3001/admin/cadastro') {
           location.href = `http://localhost:3001/admin/login`;
         } else {

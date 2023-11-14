@@ -43,7 +43,8 @@
 
 
 
-    <form method="post" action="/usuario" class="splash-container needs-validation" novalidate id="form-usuario">
+    <form method="post" action="/usuario" class="splash-container needs-validation" novalidate id="form-usuario"
+        enctype="multipart/form-data">
         <div class="card">
             <div class="card-header">
                 <h3 class="mb-1">Bem vindo a nossa empresa!</h3>
@@ -51,7 +52,7 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <input class="form-control form-control-lg" type="text" id="nome" name="nick" required=""
+                    <input class="form-control form-control-lg" type="text" id="nome" name="nome" required=""
                         placeholder="Nome Completo" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off" maxlength="200">
                     <div class="valid-feedback">
                         Tudo certo!
@@ -73,7 +74,7 @@
                 </div>
                 <div class="form-group">
                     <input class="form-control form-control-lg" id="senha" type="text" required="" placeholder="Senha"
-                        maxlength="45">
+                        maxlength="200" name="senha">
                     <div class="valid-feedback">
                         Tudo certo!
                     </div>
@@ -83,7 +84,8 @@
                 </div>
                 <div class="form-group">
                     <label for="foto_caminho" class="form-label">Foto</label>
-                    <input class="form-control form-control-lg" type="file" id="foto_caminho" accept="image/*" required>
+                    <input class="form-control form-control-lg" type="file" id="foto_caminho" accept="image/*"
+                        name="foto_caminho" required>
                     <div class="valid-feedback">
                         Tudo certo!
                     </div>

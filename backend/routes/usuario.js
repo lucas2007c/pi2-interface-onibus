@@ -3,6 +3,8 @@ const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcrypt');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
 const router = express.Router();
+const fs = require('fs')
+const upload = require("../middlewares/fileUpload");
 
 router.get('/usuario', async (req, res) => {
     try {
@@ -59,9 +61,11 @@ router.get('/usuario/busca/:nome', async (req, res) => {
 
 }); // LIKE
 
-router.post('/usuario', async (req, res) => {
+router.post('/usuario', upload.single('foto_caminho'), async (req, res) => {
     try {
         const data = req.body
+        const foto = req.file?.path;
+        data.foto_caminho = foto
 
         const usuarioExistente = await prisma.usuario.findMany({
             where: {
@@ -116,6 +120,7 @@ router.delete('/usuario/:id', async (req, res) => {
                 inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
+        fs.unlinkSync(usuario.foto_caminho)
         res.status(200).json({ msg: 'Usuário deletado com sucesso', usuario })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
