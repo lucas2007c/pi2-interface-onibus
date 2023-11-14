@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } catch (error) {
         Swal.fire({
-          text: "Ocorreu um erro.",
+          text: "Ocorreu um erro, tente novamente.",
           icon: "error"
         });
         console.error(error.message);
