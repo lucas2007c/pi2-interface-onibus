@@ -1,4 +1,7 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
+
   const form = document.querySelector("#form-recarga");
 
   form.addEventListener("submit", async (event) => {
@@ -19,11 +22,23 @@ document.addEventListener("DOMContentLoaded", () => {
           data
         );
 
+        if (response) {
+          Swal.fire({
+            text: "Recarga realizada com sucesso!",
+            icon: "success"
+          });
+        } 
+
         console.log(response.data.msg);
+
       } catch (error) {
+        Swal.fire({
+          text: "Ocorreu um erro.",
+          icon: "error"
+        });
         console.error(error.message);
       }
-      
+
       const inputCpf = document.querySelector("#cpfRecarga");
       const inputValor = document.querySelector("#valorRecarga");
       setTimeout(() => {
