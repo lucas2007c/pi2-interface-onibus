@@ -100,7 +100,7 @@ router.post('/catraca', async (req, res) => {
             const embarques = await prisma.embarque.findMany({
                 where: {
                     data: {
-                        equals: new Date(), // ou use o método correto para obter a data atual
+                        equals: new Date(),
                         mode: 'day',
                     },
                 },
@@ -128,8 +128,21 @@ router.post('/catraca', async (req, res) => {
             return res.status(200)
         }
 
-        res.status(200).json({ tarifa: tarifa, passageiro_id: passageiro[0].id, viagem_id: 1 })
-        // precisa ver com o professor como vai funcionar o id da viagem
+
+        const agora = new Date(); // Obtém a data e hora atuais
+
+        const viagemAtual = await prisma.viagem.findFirst({
+            where: {
+                dataPartida: {
+                    lte: agora, // A partida já ocorreu ou está ocorrendo
+                },
+                dataChegada: {
+                    gte: agora, // A chegada ainda não ocorreu
+                },
+            },
+        });
+
+        res.status(200).json({ tarifa: tarifa, passageiro_id: passageiro[0].id, viagem_id: viagemAtual.id })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
         console.log(error)
