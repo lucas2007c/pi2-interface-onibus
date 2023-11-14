@@ -100,10 +100,13 @@ router.patch('/motorista/:id', upload.single('foto_caminho'), async (req, res) =
             }
         });
 
-        if (motoristaExistente[0].foto_caminho !== foto) {
-            fs.unlinkSync(motoristaExistente[0].foto_caminho);
+        if (foto) {
+            if (motoristaExistente[0].foto_caminho !== foto) {
+                console.log('entrou no fi');
+                fs.unlinkSync(motoristaExistente[0].foto_caminho);
+            }
         }
-        
+
         const motorista = await prisma.motorista.update({
             where: {
                 id: parseInt(id)

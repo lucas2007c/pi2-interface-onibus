@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
     document.querySelector("#nome").value = usuario.nome;
     document.querySelector("#email").value = usuario.email;
-    document.querySelector("#senha").value = usuario.senha;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }
@@ -29,23 +28,23 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         console.log(formData.get("foto_caminho"));
       }
 
-      // try {
-      //   const response = await axios.patch(
-      //     `http://localhost:3000/usuario/${urlId}`,
-      //     formData,
-      //     {
-      //       headers: {
-      //         "Content-Type": "multipart/form-data",
-      //       },
-      //     }
-      //   );
+      try {
+        const response = await axios.patch(
+          `http://localhost:3000/usuario/${urlId}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
 
-      //   console.log("Dados atualizados com sucesso!");
+        console.log("Dados atualizados com sucesso!");
 
-      //   window.location.href = `http://localhost:3001/admin/usuario`;
-      // } catch (error) {
-      //   console.error("Erro ao atualizar os dados:", error);
-      // }
+        window.location.href = `http://localhost:3001/admin/usuario`;
+      } catch (error) {
+        console.error("Erro ao atualizar os dados:", error);
+      }
     }
 
     form.classList.add("was-validated");

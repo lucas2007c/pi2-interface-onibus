@@ -105,8 +105,10 @@ router.patch('/passageiro/:id', upload.single('foto_caminho'), async (req, res) 
             }
         });
 
-        if (passageiroExistente[0].foto_caminho !== foto) {
-            fs.unlinkSync(passageiroExistente[0].foto_caminho);
+        if (foto) {
+            if (passageiroExistente[0].foto_caminho !== foto) {
+                fs.unlinkSync(passageiroExistente[0].foto_caminho);
+            }
         }
 
         const passageiro = await prisma.passageiro.update({

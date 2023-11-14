@@ -95,8 +95,9 @@ router.patch('/usuario/:id', upload.single('foto_caminho'), async (req, res) => 
         const { id } = req.params
         const data = req.body
         const foto = req.file?.path;
-        console.log(req.file);
         data.foto_caminho = foto;
+        data.senha = await bcrypt.hash(data.senha, 10);
+        console.log(data.senha);
 
         const usuarioExistente = await prisma.usuario.findMany({
             where: {
@@ -105,8 +106,10 @@ router.patch('/usuario/:id', upload.single('foto_caminho'), async (req, res) => 
             }
         });
 
-        if (usuarioExistente[0].foto_caminho !== foto) {
-            fs.unlinkSync(usuarioExistente[0].foto_caminho);
+        if (foto) {
+            if (usuarioExistente[0].foto_caminho !== foto) {
+                fs.unlinkSync(usuarioExistente[0].foto_caminho);
+            }
         }
 
         const usuario = await prisma.usuario.update({
