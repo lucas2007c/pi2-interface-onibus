@@ -14,9 +14,11 @@ async function getPassageiro() {
     document.querySelector("#numero").value = passageiro.numero;
     document.querySelector("#saldo").value = passageiro.saldo;
     document.querySelector("#email").value = passageiro.email;
-    document.querySelector("#foto_caminho").value = passageiro.foto_caminho;
     document.querySelector("#codigo_cartao").value = passageiro.codigo_cartao;
     document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
+    document.querySelector(
+      "#src_foto"
+    ).src = `http://localhost:3000/${passageiro.foto_caminho}`;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }
@@ -29,7 +31,9 @@ async function excluirPassageiro() {
   const urlId = url.split("/").pop();
 
   try {
-    const response = await axios.delete(`http://localhost:3000/passageiro/${urlId}`);
+    const response = await axios.delete(
+      `http://localhost:3000/passageiro/${urlId}`
+    );
 
     console.log("Resposta do servidor:", response.data);
 

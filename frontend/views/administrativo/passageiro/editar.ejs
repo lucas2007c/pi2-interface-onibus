@@ -152,12 +152,12 @@
                                 <h5 class="card-header">Formulário de edição</h5>
                                 <div class="card-body">
                                     <form method="put" action="/passageiro/:id" class="needs-validation" novalidate
-                                        id="form-passageiro">
+                                        id="form-passageiro" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="usuario">ID do usuário</label>
                                                 <input type="number" pattern="^[0-9]+$" autocomplete="off"
-                                                    class="form-control" id="usuario" placeholder="Informe seu ID"
+                                                    class="form-control" id="usuario" name="usuario_id" placeholder="Informe seu ID"
                                                     value="" disabled required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -169,7 +169,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
-                                                    class="form-control" id="nome" placeholder="Informe o nome completo"
+                                                    class="form-control" id="nome" name="nome" placeholder="Informe o nome completo"
                                                     value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -182,7 +182,7 @@
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14"
                                                     autocomplete="off" placeholder="Informe o CPF" class="form-control"
-                                                    id="cpf" required>
+                                                    id="cpf" name="cpf" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -193,7 +193,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15"
-                                                    autocomplete="off" class="form-control" id="numero"
+                                                    autocomplete="off" class="form-control" id="numero" name="numero"
                                                     placeholder="Informe o celular para contato" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -206,7 +206,7 @@
                                                 <label for="email">Email</label>
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                                    autocomplete="off" class="form-control" id="email"
+                                                    autocomplete="off" class="form-control" id="email" name="email"
                                                     placeholder="Informe o email" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -217,7 +217,7 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="tipo_cartao">Tipo do cartão</label>
-                                                <select name="cartao" class="form-control" required id="tipo_cartao">
+                                                <select class="form-control" required id="tipo_cartao" name="tipo_cartao">
                                                     <option value="comum">Comum</option>
                                                     <option value="idoso">Idoso</option>
                                                     <option value="estudante">Estudante</option>
@@ -232,7 +232,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Código cartão</label>
                                                 <input type="text" autocomplete="off"
-                                                    class="form-control" id="codigo_cartao" placeholder="Realize a leitura do cartão"
+                                                    class="form-control" id="codigo_cartao" name="codigo_cartao" placeholder="Realize a leitura do cartão"
                                                     value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -243,7 +243,7 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
-                                                <input class="form-control" type="file" id="foto_caminho"
+                                                <input class="form-control" type="file" id="foto_caminho" name="foto_caminho"
                                                     accept="image/*" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!

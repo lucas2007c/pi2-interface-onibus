@@ -90,10 +90,25 @@ router.post('/usuario', upload.single('foto_caminho'), async (req, res) => {
 
 }); // CADASTRAR
 
-router.patch('/usuario/:id', async (req, res) => {
+router.patch('/usuario/:id', upload.single('foto_caminho'), async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
+        const foto = req.file?.path;
+        console.log(req.file);
+        data.foto_caminho = foto;
+
+        const usuarioExistente = await prisma.usuario.findMany({
+            where: {
+                email: data.email,
+                inativado: null
+            }
+        });
+
+        if (usuarioExistente[0].foto_caminho !== foto) {
+            fs.unlinkSync(usuarioExistente[0].foto_caminho);
+        }
+
         const usuario = await prisma.usuario.update({
             where: {
                 id: parseInt(id)

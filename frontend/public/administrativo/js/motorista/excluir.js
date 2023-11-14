@@ -13,7 +13,9 @@ async function getMotorista() {
     document.querySelector("#cpf").value = motorista.cpf;
     document.querySelector("#numero").value = motorista.numero;
     document.querySelector("#email").value = motorista.email;
-    document.querySelector("#foto_caminho").value = motorista.foto_caminho;
+    document.querySelector(
+      "#src_foto"
+    ).src = `http://localhost:3000/${motorista.foto_caminho}`;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }

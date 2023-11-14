@@ -66,7 +66,7 @@ router.post('/passageiro', upload.single('foto_caminho'), async (req, res) => {
         const data = req.body
         data.usuario_id = Number(data.usuario_id)
         const foto = req.file?.path;
-        data.foto_caminho = foto
+        data.foto_caminho = foto;
 
         const passageiroExistente = await prisma.passageiro.findMany({
             where: {
@@ -90,11 +90,24 @@ router.post('/passageiro', upload.single('foto_caminho'), async (req, res) => {
 
 }); // CADASTRAR
 
-router.patch('/passageiro/:id', async (req, res) => {
+router.patch('/passageiro/:id', upload.single('foto_caminho'), async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
         data.usuario_id = Number(data.usuario_id)
+        const foto = req.file?.path;
+        data.foto_caminho = foto;
+
+        const passageiroExistente = await prisma.passageiro.findMany({
+            where: {
+                cpf: data.cpf,
+                inativado: null
+            }
+        });
+
+        if (passageiroExistente[0].foto_caminho !== foto) {
+            fs.unlinkSync(passageiroExistente[0].foto_caminho);
+        }
 
         const passageiro = await prisma.passageiro.update({
             where: {

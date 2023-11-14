@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       `http://localhost:3000/motorista/${urlId}`
     );
     const motorista = response.data;
-    var fotoCaminho = motorista.foto_caminho;
+    var motoristaFotoCaminho = motorista.foto_caminho;
 
     document.querySelector("#nome").value = motorista.nome;
     document.querySelector("#cpf").value = motorista.cpf;
@@ -21,28 +21,28 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    const inputFoto = document.querySelector("#foto_checkbox");
+
     if (form.checkValidity()) {
-      let foto_caminho = "";
-      
-      const nome = document.querySelector("#nome").value;
-      const cpf = document.querySelector("#cpf").value;
-      const numero = document.querySelector("#numero").value;
-      const email = document.querySelector("#email").value;
+      const formData = new FormData(form);
 
-      const inputFoto = document.querySelector("#foto_checkbox");
-
-      if (inputFoto.checked) {
-        foto_caminho = document.querySelector("#foto_caminho").value;
-      } else {
-        foto_caminho = fotoCaminho;
+      if (!inputFoto.checked) {
+        const novoValor = motoristaFotoCaminho;
+        formData.set("foto_caminho", novoValor);
       }
 
-      const data = { foto_caminho, nome, cpf, numero, email };
+      const inputValue = formData.get("foto_caminho");
+      console.log(inputValue);
 
       try {
         const response = await axios.patch(
           `http://localhost:3000/motorista/${urlId}`,
-          data
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
         );
 
         console.log("Dados atualizados com sucesso!");

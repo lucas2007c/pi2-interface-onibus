@@ -152,13 +152,13 @@
                                 <h5 class="card-header">Formulário de edição</h5>
                                 <div class="card-body">
                                     <form method="put" action="/motorista/:id" class="needs-validation" novalidate
-                                        id="form-motorista">
+                                        id="form-motorista" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
                                                     class="form-control" id="nome"
-                                                    placeholder="Informe seu nome completo" value="" required>
+                                                    placeholder="Informe seu nome completo" name="nome" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -170,7 +170,7 @@
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14"
                                                     autocomplete="off" placeholder="Informe seu CPF"
-                                                    class="form-control" id="cpf" required>
+                                                    class="form-control" id="cpf" name="cpf" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -181,7 +181,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15"
-                                                    autocomplete="off" class="form-control" id="numero"
+                                                    autocomplete="off" class="form-control" id="numero" name="numero"
                                                     placeholder="Informe seu celular para contato" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -194,7 +194,7 @@
                                                 <label for="email">Email</label>
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                                    autocomplete="off" class="form-control" id="email"
+                                                    autocomplete="off" class="form-control" id="email" name="email"
                                                     placeholder="Informe seu email" value="" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -205,7 +205,7 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
-                                                <input class="form-control" type="file" id="foto_caminho"
+                                                <input class="form-control" type="file" id="foto_caminho" name="foto_caminho"
                                                     accept="image/*" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!

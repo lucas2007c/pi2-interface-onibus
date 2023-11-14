@@ -24,7 +24,8 @@ router.get('/motorista/:id', async (req, res) => {
         const { id } = req.params
         const motorista = await prisma.motorista.findUnique({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                inativado: null
             }
         });
 
@@ -85,10 +86,24 @@ router.post('/motorista', upload.single('foto_caminho'), async (req, res) => {
     }
 }); // CADASTRAR
 
-router.patch('/motorista/:id', async (req, res) => {
+router.patch('/motorista/:id', upload.single('foto_caminho'), async (req, res) => {
     try {
         const { id } = req.params
         const data = req.body
+        const foto = req.file?.path;
+        data.foto_caminho = foto;
+
+        const motoristaExistente = await prisma.motorista.findMany({
+            where: {
+                cpf: data.cpf,
+                inativado: null
+            }
+        });
+
+        if (motoristaExistente[0].foto_caminho !== foto) {
+            fs.unlinkSync(motoristaExistente[0].foto_caminho);
+        }
+        
         const motorista = await prisma.motorista.update({
             where: {
                 id: parseInt(id)
@@ -108,7 +123,8 @@ router.delete('/motorista/:id', async (req, res) => {
         const dataAtual = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato 'YYYY-MM-DD'
         const motorista = await prisma.motorista.update({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                inativado: null
             },
             data: {
                 inativado: `${dataAtual}T00:00:00.000Z`

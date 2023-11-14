@@ -5,16 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (form.checkValidity()) {
-      const formData = new FormData(form)
+      const formData = new FormData(form);
 
       try {
         const response = await axios.post(
           "http://localhost:3000/motorista",
-          formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
           }
-        }
         );
 
         console.log("success", "Cadastro realizado sucesso");

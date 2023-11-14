@@ -9,7 +9,7 @@ async function fetchPassageiros() {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>
-        <img src="http://localhost:3000/${passageiro.foto_caminho}" alt="foto-registro" style="height: 45px;">
+        <img src="http://localhost:3000/${passageiro.foto_caminho}" alt="foto-registro" style="height: 65px;">
         </td>
         <td>${passageiro.nome}</td>
         <td>${passageiro.cpf}</td>
