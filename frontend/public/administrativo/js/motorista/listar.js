@@ -8,7 +8,7 @@ async function fetchMotoristas() {
     motoristas.forEach((motorista) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-      <td><img src="${motorista.foto_caminho}" alt="foto-registro" style="height: 45px;"></td>
+      <td><img src="http://localhost:3000/${motorista.foto_caminho}" alt="foto-registro" style="height: 45px;"></td>
       <td>${motorista.nome}</td>
       <td>${motorista.cpf}</td>
       <td>${motorista.numero}</td>

@@ -2,6 +2,7 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
 const router = express.Router();
+const upload = require("../middlewares/fileUpload");
 
 router.get('/motorista', async (req, res) => {
     try {
@@ -56,9 +57,11 @@ router.get('/motorista/busca/:nome', async (req, res) => {
     }
 }); // LIKE
 
-router.post('/motorista', async (req, res) => {
+router.post('/motorista', upload.single('foto_caminho'), async (req, res) => {
     try {
         const data = req.body
+        const foto = req.file?.path;
+        data.foto_caminho = foto
 
         const motoristaExistente = await prisma.motorista.findMany({
             where: {

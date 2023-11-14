@@ -35,7 +35,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                       
+
 
 
                         <li class="nav-item dropdown nav-user">
@@ -130,8 +130,10 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/motorista" class="breadcrumb-link">Motoristas cadastrados</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin/motorista"
+                                                    class="breadcrumb-link">Motoristas cadastrados</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Cadastrar Motorista
                                             </li>
                                         </ol>
@@ -152,13 +154,14 @@
                                 <h5 class="card-header">Formulário de cadastro</h5>
                                 <div class="card-body">
                                     <form method="post" action="/motorista" class="needs-validation" novalidate
-                                        id="form-motorista">
+                                        id="form-motorista" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
                                                     class="form-control" id="nome"
-                                                    placeholder="Informe seu nome completo" value="" required>
+                                                    placeholder="Informe seu nome completo" value="" name="nome"
+                                                    required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -170,7 +173,7 @@
                                                 <label for="cpf">CPF</label>
                                                 <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14"
                                                     autocomplete="off" placeholder="Informe seu CPF"
-                                                    class="form-control" id="cpf" required>
+                                                    class="form-control" id="cpf" name="cpf" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -182,7 +185,8 @@
                                                 <label for="numero">Número de celular</label>
                                                 <input type="text" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15"
                                                     autocomplete="off" class="form-control" id="numero"
-                                                    placeholder="Informe seu celular para contato" value="" required>
+                                                    placeholder="Informe seu celular para contato" value=""
+                                                    name="numero" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -195,7 +199,7 @@
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                                     autocomplete="off" class="form-control" id="email"
-                                                    placeholder="Informe seu email" value="" required>
+                                                    placeholder="Informe seu email" value="" name="email" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -206,7 +210,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
                                                 <input class="form-control" type="file" id="foto_caminho"
-                                                    accept="image/*" required>
+                                                    accept="image/*" name="foto_caminho" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
