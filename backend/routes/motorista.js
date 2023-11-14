@@ -2,6 +2,7 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
 const router = express.Router();
+const fs = require('fs')
 const upload = require("../middlewares/fileUpload");
 
 router.get('/motorista', async (req, res) => {
@@ -113,6 +114,7 @@ router.delete('/motorista/:id', async (req, res) => {
                 inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
+        fs.unlinkSync(motorista.foto_caminho)
         res.status(200).json({ msg: 'motorista deletado com sucesso', motorista })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
