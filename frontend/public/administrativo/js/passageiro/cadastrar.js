@@ -5,35 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (form.checkValidity()) {
-      const nome = document.querySelector("#nome").value;
-      const saldo = 100;
-      const cpf = document.querySelector("#cpf").value;
-      const email = document.querySelector("#email").value;
-      const numero = document.querySelector("#numero").value;
-      const foto_caminho = document.querySelector("#foto_caminho").value;
-      const tipo_cartao = document.querySelector("#tipo_cartao").value;
-      const codigo_cartao = document.querySelector("#codigo_cartao").value;
-      const usuario_id = document.querySelector("#usuario").value;
-
-      const data = {
-        nome,
-        saldo,
-        cpf,
-        email,
-        numero,
-        foto_caminho,
-        tipo_cartao,
-        codigo_cartao,
-        usuario_id,
-      };
+      const formData = new FormData(form)
 
       try {
         const response = await axios.post(
           "http://localhost:3000/passageiro",
-          data
+          formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
         );
 
-        console.log("success", "Cadastro realizado sucesso");
+        console.log(response.data.msg);
 
         window.location.href = `http://localhost:3001/admin/passageiro`;
       } catch (error) {

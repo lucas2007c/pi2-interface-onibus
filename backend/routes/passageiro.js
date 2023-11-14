@@ -2,6 +2,8 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient({ errorFormat: 'minimal' });
 const router = express.Router();
+const fs = require('fs')
+const upload = require("../middlewares/fileUpload");
 
 router.get('/passageiro', async (req, res) => {
     try {
@@ -59,10 +61,12 @@ router.get('/passageiro/busca/:nome', async (req, res) => {
     }
 }); // LIKE
 
-router.post('/passageiro', async (req, res) => {
+router.post('/passageiro', upload.single('foto_caminho'), async (req, res) => {
     try {
         const data = req.body
         data.usuario_id = Number(data.usuario_id)
+        const foto = req.file?.path;
+        data.foto_caminho = foto
 
         const passageiroExistente = await prisma.passageiro.findMany({
             where: {
@@ -118,6 +122,7 @@ router.delete('/passageiro/:id', async (req, res) => {
                 inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
+        fs.unlinkSync(passageiro.foto_caminho)
         res.status(200).json({ msg: 'passageiro deletado com sucesso', passageiro })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
