@@ -22,18 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
           data
         );
 
-        if (response) {
+        if (response.status == 222) {
           Swal.fire({
-            text: "Recarga realizada com sucesso!",
+            text: response.data.msg,
+            icon: "error"
+          });
+        } else if (response) {
+          Swal.fire({
+            text: response.data.msg,
             icon: "success"
           });
-        } 
-
-        console.log(response.data.msg);
+        }
 
       } catch (error) {
         Swal.fire({
-          text: "Ocorreu um erro, tente novamente.",
+          text: response.data.msg,
           icon: "error"
         });
         console.error(error.message);

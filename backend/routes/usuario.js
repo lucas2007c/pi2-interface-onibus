@@ -26,12 +26,13 @@ router.get('/usuario/:id', async (req, res) => {
         const { id } = req.params
         const usuario = await prisma.usuario.findUnique({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                inativado: null
             }
         });
 
         if (!usuario) {
-            return res.status(404).json({ success: false, msg: 'usuario não encontrado' });
+            return res.status(222).json({ success: false, msg: 'usuario não encontrado' });
         }
         res.status(200).json(usuario);
 

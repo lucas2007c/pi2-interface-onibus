@@ -24,7 +24,7 @@ router.get('/viagem/:id', async (req, res) => {
         });
 
         if (!viagem) {
-            res.status(404).json({ success: false, msg: 'viagem não encontrada' });
+            res.status(222).json({ success: false, msg: 'viagem não encontrada' });
         } else {
             res.status(200).json(viagem);
         }

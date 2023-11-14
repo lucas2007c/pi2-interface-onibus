@@ -16,9 +16,7 @@ async function getPassageiro() {
     document.querySelector("#email").value = passageiro.email;
     document.querySelector("#codigo_cartao").value = passageiro.codigo_cartao;
     document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
-    document.querySelector(
-      "#src_foto"
-    ).src = `http://localhost:3000/${passageiro.foto_caminho}`;
+    document.querySelector("#src_foto").src = `http://localhost:3000/${passageiro.foto_caminho}`;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }

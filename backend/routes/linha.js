@@ -23,12 +23,13 @@ router.get('/linha/:id', async (req, res) => {
         const { id } = req.params
         const linha = await prisma.linha.findUnique({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                inativado: null
             }
         });
 
         if (!linha) {
-            res.status(404).json({ success: false, msg: 'linha não encontrado' });
+            res.status(222).json({ success: false, msg: 'linha não encontrada' });
         } else {
             res.status(200).json(linha);
         }

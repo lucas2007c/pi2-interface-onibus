@@ -23,12 +23,13 @@ router.get('/onibus/:id', async (req, res) => {
         const { id } = req.params
         const onibus = await prisma.onibus.findUnique({
             where: {
-                id: parseInt(id)
+                id: parseInt(id),
+                inativado: null
             }
         });
 
         if (!onibus) {
-            res.status(404).json({ success: false, msg: 'onibus não encontrado' });
+            res.status(222).json({ success: false, msg: 'onibus não encontrado' });
         } else {
             res.status(200).json(onibus);
         }

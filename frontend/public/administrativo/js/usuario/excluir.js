@@ -11,7 +11,7 @@ async function getUsuario() {
 
     document.querySelector("#nome").value = usuario.nome;
     document.querySelector("#email").value = usuario.email;
-    document.querySelector("#foto_caminho").value = usuario.foto_caminho;
+    document.querySelector("#src_foto").src = `http://localhost:3000/${usuario.foto_caminho}`;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }

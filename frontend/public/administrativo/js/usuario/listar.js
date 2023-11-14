@@ -8,7 +8,7 @@ async function fetchUsuarios() {
     usuarios.forEach((usuario) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-      <td><img src="http://localhost:3000/${usuario.foto_caminho}" alt="foto-registro" style="height: 45px;"></td>
+      <td><img src="http://localhost:3000/${usuario.foto_caminho}" alt="foto-registro" style="height: 65px;"></td>
       <td>${usuario.nome}</td>
       <td>${usuario.email}</td>
       <td>

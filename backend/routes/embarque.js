@@ -25,7 +25,7 @@ router.get('/embarque/:id', async (req, res) => {
         });
 
         if (!embarque) {
-            return res.status(404).json({ success: false, msg: 'embarque não encontrada' });
+            return res.status(222).json({ success: false, msg: 'embarque não encontrado' });
         }
 
         res.status(200).json(embarque);
