@@ -3,9 +3,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   const urlId = url.split("/").pop();
 
   try {
-    const response = await axios.get(`http://localhost:3000/passageiro/${urlId}`);
+    const response = await axios.get(
+      `http://localhost:3000/passageiro/${urlId}`
+    );
     const passageiro = response.data;
-    const nome = document.querySelector('#liberado');
+    const nome = document.querySelector("#liberado");
     const saldo = document.querySelector("#saldo");
 
     nome.innerHTML = `Liberado, ${passageiro.nome}`;

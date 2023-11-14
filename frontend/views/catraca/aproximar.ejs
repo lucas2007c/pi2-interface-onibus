@@ -10,7 +10,6 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            color: white;
         }
 
 
@@ -59,6 +58,7 @@
             text-align: center;
             font-size: 25px;
             font-family: Arial, Helvetica, sans-serif;
+            color: whitesmoke;
         }
 
 
@@ -66,6 +66,7 @@
             text-align: center;
             font-size: 15px;
             font-family: Arial, Helvetica, sans-serif;
+            color: whitesmoke;
         }
 
 
@@ -78,16 +79,23 @@
         #container-dados #aproximar {
             padding-top: 10px;
             font-size: 27px;
+            color: whitesmoke;
         }
 
 
         #container-dados #mensagem {
             font-size: 20px;
+            color: whitesmoke;
+        }
+
+        #form-escondido {
+            position: absolute;
+            left: -9999px;
         }
     </style>
 </head>
 
-<body id="index">
+<body>
     <div class="wrapper">
         <header>
             <div class="header">
@@ -116,10 +124,17 @@
                     <p id="aproximar">Aproxime seu cartão na tela.</p>
                 </div>
             </div>
+
+            <form id="form-escondido">
+                <input type="text" autocomplete="off" id="cartao_codigo" required autofocus>
+                <input type="submit" value="Enviar">
+            </form>
         </main>
     </div>
 
     <script src="/catraca/js/dataHora.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/catraca/js/aproximar.js"></script>
 </body>
 
 </html>
