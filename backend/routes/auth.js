@@ -21,7 +21,6 @@ router.post('/login', async (req, res) => {
         if (usuarioExistente.length === 0) {
             return res.status(222).json({ success: false, msg: 'Credenciais Inválidas 1' })
         }
-        console.log(usuarioExistente[0].senha);
         // Verifica se a senha está correta
         const SenhaValida = await bcrypt.compare(senha.trim(), usuarioExistente[0].senha.trim())
 
@@ -30,8 +29,9 @@ router.post('/login', async (req, res) => {
             return res.status(222).json({ success: false, msg: 'Credenciais Inválidas 2' })
         }
 
+        const userID = usuarioExistente[0].id
         // Gera token de autenticação
-        const token = jwt.sign({ email }, process.env.SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: userID }, process.env.SECRET, { expiresIn: '1h' });
         return res.json({ token });
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get("/verify-token", (req, res) => {
+router.get("/verify-token", async (req, res) => {
     const token = req.headers.authorization;
 
     if (!token) {
@@ -50,7 +50,8 @@ router.get("/verify-token", (req, res) => {
         if (err) {
             return res.status(401).json({ msg: "Token inválido. Acesso não autorizado." });
         }
-        return res.status(200).json({ msg: "Token válido. Acesso autorizado." });
+        const userId = decoded.id;
+        return res.status(200).json({ msg: "Token válido. Acesso autorizado.", userId });
     });
 });
 

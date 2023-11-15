@@ -359,16 +359,6 @@
                             // primeira etapa
                             await verifyToken();
                             console.log("Está autorizado a ver esta página");
-
-                            // // segunda etapa
-                            // const token = localStorage.getItem("token");
-                            // const response = await axios.get("http://localhost:3001/admin", {
-                            //     headers: {
-                            //         Authorization: token,
-                            //     }
-                            // });
-                            // const msg = response.data.msg;
-                            // alert(msg);
                         } catch (error) {
                             console.error("Erro ao verificar o token:", error);
                             window.location.replace("/admin/login");
