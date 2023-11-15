@@ -19,14 +19,15 @@ router.post('/login', async (req, res) => {
         });
 
         if (usuarioExistente.length === 0) {
-            return res.status(400).json({ success: false, msg: 'Credenciais Inválidas' })
+            return res.status(222).json({ success: false, msg: 'Credenciais Inválidas 1' })
         }
-
+        console.log(usuarioExistente[0].senha);
         // Verifica se a senha está correta
-        const SenhaValida = await bcrypt.compare(senha, usuarioExistente[0].senha)
+        const SenhaValida = await bcrypt.compare(senha.trim(), usuarioExistente[0].senha.trim())
+
         // msm a senha estando certa retorna falso
         if (!SenhaValida) {
-            return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+            return res.status(222).json({ success: false, msg: 'Credenciais Inválidas 2' })
         }
 
         // Gera token de autenticação
@@ -49,7 +50,7 @@ router.get("/verify-token", (req, res) => {
         if (err) {
             return res.status(401).json({ msg: "Token inválido. Acesso não autorizado." });
         }
-        return res.json({ msg: "Token válido. Acesso autorizado." });
+        return res.status(200).json({ msg: "Token válido. Acesso autorizado." });
     });
 });
 

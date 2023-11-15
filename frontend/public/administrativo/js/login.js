@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 const response = await axios.post("http://localhost:3000/auth/login", data);
+                const { token } = response.data;
 
-                console.log(response.data.msg);
+                localStorage.setItem('token', token);
 
                 window.location.href = `http://localhost:3001/admin`;
             } catch (error) {

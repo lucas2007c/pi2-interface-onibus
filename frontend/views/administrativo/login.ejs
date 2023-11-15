@@ -41,11 +41,11 @@
                     class="navbar-brand" href="index.html">Fast Travel</a><span class="splash-description">Insira suas
                     informações de usuário</span></div>
             <div class="card-body">
-                <form>
+                <form id="form-login">
                     <div class="form-row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
                             <label for="email">Email</label>
-                            <input type="text" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            <input type="text" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
                                 autocomplete="off" class="form-control" id="email" placeholder="Informe o seu email"
                                 value="" required>
                             <div class="valid-feedback">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
                             <label for="senha">Senha</label>
-                            <input type="text" pattern="^[a-zA-Z0-9-]+$" autocomplete="off" class="form-control"
+                            <input type="text" pattern="^[a-zA-Z0-9\-]+$" autocomplete="off" class="form-control"
                                 id="senha" placeholder="Informe a sua senha" value="" required>
                             <div class="valid-feedback">
                                 Tudo certo!
@@ -83,6 +83,8 @@
     <!-- Optional JavaScript -->
     <script src="../administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/administrativo/js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
