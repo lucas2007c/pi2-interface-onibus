@@ -15,7 +15,7 @@ router.get('/usuario', async (req, res) => {
         })
         res.status(200).json(usuarios);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -32,12 +32,12 @@ router.get('/usuario/:id', async (req, res) => {
         });
 
         if (!usuario) {
-            return res.status(404).json({ success: false, msg: 'usuario não encontrado' });
+            return res.status(404).json({ success: false, msg: 'Usuário não encontrado.' });
         }
         res.status(200).json(usuario);
 
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -56,7 +56,7 @@ router.get('/usuario/busca/:nome', async (req, res) => {
         });
         res.status(200).json(usuarios);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -76,16 +76,16 @@ router.post('/usuario', upload.single('foto_caminho'), async (req, res) => {
         });
 
         if (usuarioExistente.length > 0) {
-            return res.status(409).json({ success: false, msg: 'O usuário ja está cadastrado' })
+            return res.status(409).json({ success: false, msg: 'O usuário já está cadastrado.' })
         }
 
         data.senha = await bcrypt.hash(data.senha, 10);
         const usuario = await prisma.usuario.create({
             data: data
         });
-        res.status(201).json({ msg: 'Usuário cadastrado com sucesso', usuario });
+        res.status(201).json({ msg: 'Usuário cadastrado com sucesso!', usuario });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -123,9 +123,9 @@ router.patch('/usuario/:id', upload.single('foto_caminho'), async (req, res) => 
             },
             data: data
         })
-        res.status(200).json({ msg: 'Usuário atualizado com sucesso', usuario });
+        res.status(200).json({ msg: 'Usuário atualizado com sucesso!', usuario });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -144,9 +144,9 @@ router.delete('/usuario/:id', async (req, res) => {
             }
         })
         fs.unlinkSync(usuario.foto_caminho)
-        res.status(200).json({ msg: 'Usuário deletado com sucesso', usuario })
+        res.status(200).json({ msg: 'Usuário deletado com sucesso!', usuario })
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 

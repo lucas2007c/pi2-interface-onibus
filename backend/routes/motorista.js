@@ -14,7 +14,7 @@ router.get('/motorista', async (req, res) => {
         })
         res.status(200).json(motoristas);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 }); // GERAL
@@ -30,12 +30,12 @@ router.get('/motorista/:id', async (req, res) => {
         });
 
         if (!motorista) {
-            res.status(404).json({ success: false, msg: 'motorista não encontrado' });
+            res.status(404).json({ success: false, msg: 'Motorista não encontrado.' });
         } else {
             res.status(200).json(motorista);
         }
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -54,7 +54,7 @@ router.get('/motorista/busca/:nome', async (req, res) => {
         });
         res.status(200).json(motoristas);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 }); // LIKE
@@ -73,15 +73,15 @@ router.post('/motorista', upload.single('foto_caminho'), async (req, res) => {
         });
 
         if (motoristaExistente.length > 0) {
-            return res.status(409).json({ success: false, msg: 'O motorista ja está cadastrado' })
+            return res.status(409).json({ success: false, msg: 'O motorista já está cadastrado.' })
         }
 
         const motorista = await prisma.motorista.create({
             data: data
         });
-        res.status(201).json({ msg: 'motorista cadastrado com sucesso', motorista });
+        res.status(201).json({ msg: 'Motorista cadastrado com sucesso!', motorista });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 }); // CADASTRAR
@@ -113,9 +113,9 @@ router.patch('/motorista/:id', upload.single('foto_caminho'), async (req, res) =
             },
             data: data
         })
-        res.status(200).json({ msg: 'motorista atualizado com sucesso', motorista });
+        res.status(200).json({ msg: 'Motorista atualizado com sucesso!', motorista });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 }); // EDITAR
@@ -134,9 +134,9 @@ router.delete('/motorista/:id', async (req, res) => {
             }
         })
         fs.unlinkSync(motorista.foto_caminho)
-        res.status(200).json({ msg: 'motorista deletado com sucesso', motorista })
+        res.status(200).json({ msg: 'Motorista deletado com sucesso!', motorista })
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 

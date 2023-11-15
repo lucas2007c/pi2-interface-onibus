@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 window.location.href = `http://localhost:3001/admin`;
             } catch (error) {
+                Swal.fire({
+                    text: error.response.data.msg,
+                    icon: "error"
+                  });
                 console.error("danger", error.message);
             }
         }

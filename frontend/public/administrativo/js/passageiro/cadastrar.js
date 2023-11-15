@@ -17,10 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         );
 
+        if (response) {
+          Swal.fire({
+            text: response.data.msg,
+            icon: "success"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'http://localhost:3001/admin/passageiro';
+            }
+          });
+        }
+
         console.log(response.data.msg);
 
-        window.location.href = `http://localhost:3001/admin/passageiro`;
       } catch (error) {
+        Swal.fire({
+          text: error.response.data.msg,
+          icon: "error"
+        });
         console.error("danger", error.message);
       }
     }

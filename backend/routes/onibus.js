@@ -12,7 +12,7 @@ router.get('/onibus', async (req, res) => {
         })
         res.status(200).json(onibus);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -29,12 +29,12 @@ router.get('/onibus/:id', async (req, res) => {
         });
 
         if (!onibus) {
-            res.status(404).json({ success: false, msg: 'onibus não encontrado' });
+            res.status(404).json({ success: false, msg: 'Ônibus não encontrado.' });
         } else {
             res.status(200).json(onibus);
         }
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -53,7 +53,7 @@ router.get('/onibus/busca/:placa', async (req, res) => {
         });
         res.status(200).json(onibus);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -71,15 +71,15 @@ router.post('/onibus', async (req, res) => {
         });
 
         if (onibusExistente.length > 0) {
-            return res.status(409).json({ success: false, msg: 'O ônibus ja está cadastrado' })
+            return res.status(409).json({ success: false, msg: 'O ônibus já está cadastrado.' })
         }
 
         const onibus = await prisma.onibus.create({
             data: data
         });
-        res.status(201).json({ msg: 'ônibus cadastrado com sucesso', onibus });
+        res.status(201).json({ msg: 'Ônibus cadastrado com sucesso!', onibus });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -96,9 +96,9 @@ router.patch('/onibus/:id', async (req, res) => {
             },
             data: data
         })
-        res.status(200).json({ msg: 'ônibus cadastrado com sucesso', onibus });
+        res.status(200).json({ msg: 'Ônibus editado com sucesso!', onibus });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -116,9 +116,9 @@ router.delete('/onibus/:id', async (req, res) => {
                 inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
-        res.status(200).json({ msg: 'ônibus deletado sucesso', onibus })
+        res.status(200).json({ msg: 'Ônibus deletado com sucesso!', onibus })
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 

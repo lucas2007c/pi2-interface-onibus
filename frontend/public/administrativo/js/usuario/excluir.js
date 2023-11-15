@@ -29,25 +29,39 @@ async function excluirUsuario() {
 
     console.log("Resposta do servidor:", response.data);
 
-    if (response.status === 200) {
-      localStorage.setItem(
-        "alert",
-        JSON.stringify({
-          alertType: "success",
-          alertMessage: "Usuário deletado com sucesso.",
-        })
-      );
-
-      window.location.href = "http://localhost:3001/admin/usuario";
-    } else {
-      console.error("Erro no servidor:", response.data);
-    }
   } catch (error) {
+    Swal.fire({
+      text: error.response.data.msg,
+      icon: "error"
+    });
     console.error("Erro ao excluir o usuario:", error);
   }
 }
 
-const botaoExcluir = document.querySelector("#excluirBotao");
-botaoExcluir.addEventListener("click", function () {
-  excluirUsuario();
+const botaoConfirmar = document.querySelector("#excluir");
+botaoConfirmar.addEventListener("click", function () {
+  Swal.fire({
+    text: "Tem certeza que deseja excluir esse usuário?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Excluir"
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      excluirUsuario();
+
+      Swal.fire({
+        title: "Tudo certo.",
+        text: "Usuário excluído com sucesso!",
+        icon: "success"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "http://localhost:3001/admin/usuario";
+        }
+      });
+    }
+  });
 });

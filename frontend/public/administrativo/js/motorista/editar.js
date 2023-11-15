@@ -45,10 +45,26 @@ document.addEventListener("DOMContentLoaded", async (event) => {
           }
         );
 
+        if (response) {
+          Swal.fire({
+            text: response.data.msg,
+            icon: "success"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'http://localhost:3001/admin/motorista';
+            }
+          });
+        }
+
         console.log("Dados atualizados com sucesso!");
 
-        window.location.href = `http://localhost:3001/admin/motorista`;
       } catch (error) {
+
+        Swal.fire({
+          text: error.response.data.msg,
+          icon: "error"
+        });
+
         console.error("Erro ao atualizar os dados:", error);
       }
     }

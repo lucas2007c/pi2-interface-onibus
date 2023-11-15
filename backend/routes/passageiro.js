@@ -14,7 +14,7 @@ router.get('/passageiro', async (req, res) => {
         })
         res.status(200).json(passageiros);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 }); // GERAL
@@ -30,13 +30,13 @@ router.get('/passageiro/:id', async (req, res) => {
         });
 
         if (!passageiro) {
-            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado.' });
         }
 
         res.status(200).json(passageiro);
 
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -56,7 +56,7 @@ router.get('/passageiro/busca/:nome', async (req, res) => {
         console.log(passageiros)
         res.status(200).json(passageiros);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 }); // LIKE
@@ -76,15 +76,15 @@ router.post('/passageiro', upload.single('foto_caminho'), async (req, res) => {
         });
 
         if (passageiroExistente.length > 0) {
-            return res.status(409).json({ success: false, msg: 'O passageiro ja está Cadastrado' })
+            return res.status(409).json({ success: false, msg: 'O passageiro já está cadastrado.' })
         }
 
         const passageiro = await prisma.passageiro.create({
             data: data
         });
-        res.status(201).json({ msg: 'passageiro cadastrado com sucesso', passageiro });
+        res.status(201).json({ msg: 'Passageiro cadastrado com sucesso!', passageiro });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -117,9 +117,9 @@ router.patch('/passageiro/:id', upload.single('foto_caminho'), async (req, res) 
             },
             data: data
         })
-        res.status(200).json({ msg: 'passageiro atualizado com sucesso', passageiro });
+        res.status(200).json({ msg: 'Passageiro atualizado com sucesso!', passageiro });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -140,7 +140,7 @@ router.delete('/passageiro/:id', async (req, res) => {
         fs.unlinkSync(passageiro.foto_caminho)
         res.status(200).json({ msg: 'passageiro deletado com sucesso', passageiro })
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 

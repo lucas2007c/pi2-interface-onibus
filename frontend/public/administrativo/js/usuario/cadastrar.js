@@ -17,13 +17,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         );
 
-        console.log(response.data.msg);
-        if (location.href == 'http://localhost:3001/admin/cadastro') {
-          location.href = `http://localhost:3001/admin/login`;
-        } else {
-          location.href = `http://localhost:3001/admin/usuario`;
+        if (response) {
+          Swal.fire({
+            text: response.data.msg,
+            icon: "success"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              if (location.href == 'http://localhost:3001/admin/cadastro') {
+                location.href = `http://localhost:3001/admin/login`;
+              } else {
+                location.href = `http://localhost:3001/admin/usuario`;
+              }
+            }
+          });
         }
+
+        console.log(response.data.msg);
+       
       } catch (error) {
+        Swal.fire({
+          text: error.response.data.msg,
+          icon: "error"
+        });
         console.error("danger", error.message);
       }
     }

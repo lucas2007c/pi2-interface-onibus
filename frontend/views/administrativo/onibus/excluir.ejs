@@ -157,29 +157,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
                                                 <a href="/admin/onibus"><button class="btn btn-danger" type="button">Cancelar</button></a>
-                                                <button class="btn btn-primary ml-2" type="button" data-toggle="modal"
-                                                    data-target="#excluirModal">Excluir</button>
-                                                <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="excluirModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="excluirModalLabel">Tem
-                                                                    certeza que deseja excluir esse ônibus?</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-footer justify-content-start">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Cancelar</button>
-                                                                <button id="excluirBotao" type="button" class="btn btn-primary">
-                                                                    Excluir
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <button class="btn btn-primary ml-2" id="excluir" type="button" >Excluir</button>
+                                               
                                             </div>
                                         </div>
                                     </form>
@@ -209,6 +188,8 @@
                         <!-- Axios & script getAll -->
                         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                         <script src="/administrativo/js/onibus/excluir.js"></script>
+                        <!-- SweetAlert2 -->
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

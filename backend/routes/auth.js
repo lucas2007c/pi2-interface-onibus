@@ -19,14 +19,14 @@ router.post('/login', async (req, res) => {
         });
 
         if (usuarioExistente.length === 0) {
-            return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+            return res.status(401).json({ success: false, msg: 'Credenciais inválidas.' })
         }
         // Verifica se a senha está correta
         const SenhaValida = await bcrypt.compare(senha.trim(), usuarioExistente[0].senha.trim())
 
         // msm a senha estando certa retorna falso
         if (!SenhaValida) {
-            return res.status(401).json({ success: false, msg: 'Credenciais Inválidas' })
+            return res.status(401).json({ success: false, msg: 'Credenciais inválidas.' })
         }
 
         const userId = usuarioExistente[0].id

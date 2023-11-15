@@ -21,6 +21,7 @@ async function getLinhas() {
 
 getLinhas();
 
+
 async function excluirLinha() {
   try {
     const url = window.location.href;
@@ -29,28 +30,40 @@ async function excluirLinha() {
 
     console.log("Resposta do servidor:", response.data);
 
-    if (response.status === 200) {
-      localStorage.setItem(
-        "alert",
-        JSON.stringify({
-          alertType: "success",
-          alertMessage: "Linha deletada com sucesso.",
-        })
-      );
-
-      window.location.href = "http://localhost:3001/admin/linha";
-    } else {
-      console.error("Erro no servidor:", response.data);
-    }
   } catch (error) {
+
     console.error("Erro ao excluir a linha:", error);
   }
 }
 
-const botaoExcluir = document.querySelector("#excluirBotao");
-botaoExcluir.addEventListener("click", function () {
-  excluirLinha();
+const botaoConfirmar = document.querySelector("#excluir");
+botaoConfirmar.addEventListener("click", function () {
+  Swal.fire({
+    text: "Tem certeza que deseja excluir essa linha?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Excluir"
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      excluirLinha();
+
+      Swal.fire({
+        title: "Tudo certo.",
+        text: "A linha foi excluída.",
+        icon: "success"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = 'http://localhost:3001/admin/linha';
+        }
+      });
+    }
+  });
 });
+
 
 function formatarHorario(data) {
   const date = new Date(data);

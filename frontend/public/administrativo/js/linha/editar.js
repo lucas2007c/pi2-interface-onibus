@@ -91,10 +91,26 @@ document.addEventListener("DOMContentLoaded", async (event) => {
           data
         );
 
+        if (response) {
+          Swal.fire({
+            text: response.data.msg,
+            icon: "success"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'http://localhost:3001/admin/linha';
+            }
+          });
+        }
+
         console.log("Dados atualizados com sucesso!");
 
-        window.location.href = `http://localhost:3001/admin/linha`;
       } catch (error) {
+
+        Swal.fire({
+          text: error.response.data.msg,
+          icon: "error"
+        });
+        
         console.error("Erro ao atualizar os dados:", error);
       }
     }

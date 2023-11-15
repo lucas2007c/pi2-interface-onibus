@@ -29,12 +29,12 @@ router.get('/linha/:id', async (req, res) => {
         });
 
         if (!linha) {
-            res.status(404).json({ success: false, msg: 'linha não encontrada' });
+            res.status(404).json({ success: false, msg: 'Linha não encontrada.' });
         } else {
             res.status(200).json(linha);
         }
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -53,7 +53,7 @@ router.get('/linha/busca/:localinicio', async (req, res) => {
         });
         res.status(200).json(linhas);
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -73,7 +73,7 @@ router.post('/linha', async (req, res) => {
         });
 
         if (linhaExistente.length > 0) {
-            return res.status(409).json({ success: false, msg: 'A linha ja está Cadastrada' })
+            return res.status(409).json({ success: false, msg: 'A linha já está cadastrada.' })
         }
 
         duracao = Number(duracao)
@@ -86,9 +86,9 @@ router.post('/linha', async (req, res) => {
                 duracao
             }
         });
-        res.status(201).json({ msg: 'linha cadastrada com sucesso', linha });
+        res.status(201).json({ msg: 'Linha cadastrada com sucesso!', linha });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -111,9 +111,9 @@ router.patch('/linha/:id', async (req, res) => {
                 duracao
             }
         })
-        res.status(200).json({ msg: 'linha atualizada com sucesso', linha });
+        res.status(200).json({ msg: 'Linha atualizada com sucesso.', linha });
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
@@ -131,9 +131,9 @@ router.delete('/linha/:id', async (req, res) => {
                 inativado: `${dataAtual}T00:00:00.000Z`
             }
         })
-        res.status(200).json({ msg: 'linha deletada com sucesso', linha })
+        res.status(200).json({ msg: 'Linha deletada com sucesso!', linha })
     } catch (error) {
-        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)
     }
 
