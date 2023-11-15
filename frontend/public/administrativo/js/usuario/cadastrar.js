@@ -46,3 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
     form.classList.add("was-validated");
   });
 });
+
+function mostrarSenha() {
+  var x = document.getElementById("senha");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
