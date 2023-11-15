@@ -10,8 +10,8 @@ async function verifyToken() {
             Authorization: token,
         },
     })
-    console.log(response.data.userId);
     if (response.status === 401) {
         throw new Error(response.data.msg);
     }
+    return response.data.userId
 }

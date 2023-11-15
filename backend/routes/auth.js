@@ -29,9 +29,9 @@ router.post('/login', async (req, res) => {
             return res.status(222).json({ success: false, msg: 'Credenciais Inválidas 2' })
         }
 
-        const userID = usuarioExistente[0].id
+        const userId = usuarioExistente[0].id
         // Gera token de autenticação
-        const token = jwt.sign({ id: userID }, process.env.SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: userId }, process.env.SECRET, { expiresIn: '1h' });
         return res.json({ token });
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })

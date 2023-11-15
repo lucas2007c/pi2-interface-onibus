@@ -357,7 +357,8 @@
                     document.addEventListener("DOMContentLoaded", async function () {
                         try {
                             // primeira etapa
-                            await verifyToken();
+                            const userId = await verifyToken();
+                            console.log("ID do usuário:", userId);
                             console.log("Está autorizado a ver esta página");
                         } catch (error) {
                             console.error("Erro ao verificar o token:", error);
@@ -365,6 +366,7 @@
                         }
                     });
                 </script>
+
 </body>
 
 </html>
