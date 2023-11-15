@@ -29,7 +29,7 @@ router.get('/onibus/:id', async (req, res) => {
         });
 
         if (!onibus) {
-            res.status(222).json({ success: false, msg: 'onibus não encontrado' });
+            res.status(404).json({ success: false, msg: 'onibus não encontrado' });
         } else {
             res.status(200).json(onibus);
         }

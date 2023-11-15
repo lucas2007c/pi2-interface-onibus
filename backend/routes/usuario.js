@@ -32,7 +32,7 @@ router.get('/usuario/:id', async (req, res) => {
         });
 
         if (!usuario) {
-            return res.status(222).json({ success: false, msg: 'usuario não encontrado' });
+            return res.status(404).json({ success: false, msg: 'usuario não encontrado' });
         }
         res.status(200).json(usuario);
 

@@ -30,7 +30,7 @@ router.get('/motorista/:id', async (req, res) => {
         });
 
         if (!motorista) {
-            res.status(222).json({ success: false, msg: 'motorista não encontrado' });
+            res.status(404).json({ success: false, msg: 'motorista não encontrado' });
         } else {
             res.status(200).json(motorista);
         }

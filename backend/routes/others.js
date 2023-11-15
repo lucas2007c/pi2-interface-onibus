@@ -44,7 +44,7 @@ router.patch('/recarga/', async (req, res) => {
         });
 
         if (passageiroExistente.length === 0) {
-            return res.status(222).json({ success: false, msg: 'Passageiro não encontrado' })
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' })
         };
 
         const saldo = Number(passageiroExistente[0].saldo) + Number(valor)
@@ -77,7 +77,7 @@ router.post('/catraca', async (req, res) => {
         });
 
         if (passageiro.length === 0) {
-            return res.status(222).json({ success: false, msg: 'Passageiro não encontrado' });
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
         }
 
         if (passageiro[0].tipo_cartao == 'comum') {

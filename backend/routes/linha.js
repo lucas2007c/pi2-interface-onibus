@@ -29,7 +29,7 @@ router.get('/linha/:id', async (req, res) => {
         });
 
         if (!linha) {
-            res.status(222).json({ success: false, msg: 'linha não encontrada' });
+            res.status(404).json({ success: false, msg: 'linha não encontrada' });
         } else {
             res.status(200).json(linha);
         }

@@ -22,12 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
           data
         );
 
-        if (response.status == 222) {
-          Swal.fire({
-            text: response.data.msg,
-            icon: "error"
-          });
-        } else if (response) {
+        if (response) {
           Swal.fire({
             text: response.data.msg,
             icon: "success"
@@ -36,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } catch (error) {
         Swal.fire({
-          text: response.data.msg,
+          text: error.response.data.msg,
           icon: "error"
         });
         console.error(error.message);

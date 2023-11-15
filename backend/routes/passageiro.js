@@ -30,7 +30,7 @@ router.get('/passageiro/:id', async (req, res) => {
         });
 
         if (!passageiro) {
-            return res.status(222).json({ success: false, msg: 'Passageiro não encontrado' });
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
         }
 
         res.status(200).json(passageiro);
