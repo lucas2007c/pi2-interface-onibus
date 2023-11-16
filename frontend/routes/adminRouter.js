@@ -25,6 +25,10 @@ router.get('/usuario/excluir/:id', (req, res) => {
   res.render('administrativo/usuario/excluir');
 });
 
+router.get('/usuario/exibir/:id', (req, res) => {
+  res.render('administrativo/usuario/exibir');
+});
+
 // Rotas motoristas
 
 router.get('/motorista', (req, res) => {
