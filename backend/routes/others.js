@@ -71,7 +71,7 @@ router.post('/catraca', async (req, res) => {
         const cartao = req.body
         const passageiro = await prisma.passageiro.findMany({
             where: {
-                codigo_cartao: cartao,
+                codigo_cartao: cartao.codigo_cartao,
                 inativado: null
             }
         });
@@ -80,23 +80,25 @@ router.post('/catraca', async (req, res) => {
             return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
         }
 
-        if (passageiro[0].tipo_cartao == 'comum') {
+        if (passageiro[0].tipo_cartao == 'Comum') {
             const novoSaldo = passageiro[0].saldo - tarifa
             if (novoSaldo < 0) {
-                throw new Error("Saldo insuficente");
+                throw new Error("Saldo insuficente", passageiro[0]);
             }
 
             await prisma.passageiro.update({
                 where: {
                     id: Number(passageiro[0].id)
                 },
-                data: novoSaldo
+                data: {
+                    saldo: novoSaldo
+                }
             })
-            return res.status(200)
+            return res.status(200).json({ msg: 'Comum foi', passageiroId: passageiro[0] });
         } // COMUM ------------------
 
 
-        if (passageiro[0].tipo_cartao == 'estudante') {
+        if (passageiro[0].tipo_cartao == 'Estudante') {
             const embarques = await prisma.embarque.findMany({
                 where: {
                     data: {
@@ -121,11 +123,11 @@ router.post('/catraca', async (req, res) => {
                 throw new Error("Atingiu o limite de viagens diárias");
             }
 
-            return res.status(200)
+            return res.status(200).json({ msg: 'Estudante foi', passageiroId: passageiro[0] });
         } // ESTUDANTE -----------------
 
-        if (passageiro[0].tipo_cartao == 'idoso') {
-            return res.status(200)
+        if (passageiro[0].tipo_cartao == 'Idoso') {
+            return res.status(200).json({ msg: 'Idoso foi', passageiroId: passageiro[0] });
         }
 
 
