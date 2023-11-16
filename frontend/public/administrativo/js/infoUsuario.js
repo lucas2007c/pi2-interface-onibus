@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     ).src = `http://localhost:3000/${usuario.foto_caminho}`;
     document.querySelector("#nomeUsuario").textContent = usuario.nome;
     document.querySelector("#emailUsuario").textContent = usuario.email;
+    document.querySelector("#contaUsuario").href = `/admin/usuario/editar/${usuario.id}`;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }
