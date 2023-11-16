@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Excluir Usuário - Fast Travel</title>
+    <title>Exibir Usuário - Fast Travel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Excluir Usuário</h2>
+                                <h2 class="pageheader-title">Exibir Usuário</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -152,6 +152,17 @@
                                     <form class="needs-validation" novalidate id="form-usuario">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <label for="nome">Id</label>
+                                                <input type="text" autocomplete="off" class="form-control"
+                                                    id="usuarioID" value="" disabled>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Utilize apenas caracteres alfabéticos.
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
                                                     class="form-control" id="nome"

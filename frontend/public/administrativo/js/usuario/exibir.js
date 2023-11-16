@@ -9,6 +9,7 @@ async function getUsuario() {
 
         const usuario = response.data;
 
+        document.querySelector("#usuarioID").value = usuario.id;
         document.querySelector("#nome").value = usuario.nome;
         document.querySelector("#email").value = usuario.email;
         document.querySelector("#src_foto").src = `http://localhost:3000/${usuario.foto_caminho}`;
