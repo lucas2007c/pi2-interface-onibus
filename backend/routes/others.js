@@ -76,14 +76,35 @@ router.post('/catraca', async (req, res) => {
             }
         });
 
-        if (passageiro.length === 0) {
-            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' });
+        function addZero(numero) {
+            return numero < 10 ? `0${numero}` : numero;
+        }
+        const data = new Date(); // momento atual 
+        const horas = addZero(data.getHours());
+        const minutos = addZero(data.getMinutes());
+        const segundos = addZero(data.getSeconds());
+
+        const hhmmss = [horas, minutos, segundos].join(':');
+        const dataAtualFormatada = data.toISOString().split('T')[0];
+        const viagemAtual = await prisma.viagem.findFirst({
+            where: {
+                dataPartida: {
+                    lte: `${dataAtualFormatada}T${hhmmss}.000Z`, // A partida já ocorreu ou está ocorrendo
+                },
+                dataChegada: {
+                    gte: `${dataAtualFormatada}T${hhmmss}.000Z`, // A chegada ainda não ocorreu
+                },
+            },
+        });
+
+        if (passageiro.length == 0) {
+            return res.status(404).json({ msg: 'Passageiro não encontrado' });
         }
 
         if (passageiro[0].tipo_cartao == 'Comum') {
             const novoSaldo = passageiro[0].saldo - tarifa
             if (novoSaldo < 0) {
-                throw new Error("Saldo insuficente", passageiro[0]);
+                res.status(400).json({ msg: "Saldo insuficente", passageiroId: passageiro[0] });
             }
 
             await prisma.passageiro.update({
@@ -94,57 +115,29 @@ router.post('/catraca', async (req, res) => {
                     saldo: novoSaldo
                 }
             })
-            return res.status(200).json({ msg: 'Comum foi', passageiroId: passageiro[0] });
+            return res.status(200).json({ tarifa: tarifa, passageiroId: passageiro[0], viagemId: viagemAtual.id });
         } // COMUM ------------------
 
-
         if (passageiro[0].tipo_cartao == 'Estudante') {
-            const embarques = await prisma.embarque.findMany({
+            const total_embarques = await prisma.embarque.count({
                 where: {
-                    data: {
-                        equals: new Date(),
-                        mode: 'day',
-                    },
-                },
-                By: {
-                    passageiro_id: true,
-                },
-                having: {
-                    total_embarques: {
-                        equals: 2,
-                    },
-                },
-                select: {
-                    passageiro_id: true,
-                },
+                    AND: [
+                        { data: { lt: `${dataAtualFormatada}T23:59:59.000Z` } },
+                        { passageiro_id: passageiro[0].id }
+                    ]
+                }
             });
 
-            if (embarques.includes(passageiro[0].id)) {
-                throw new Error("Atingiu o limite de viagens diárias");
+            if (total_embarques == 2) {
+                res.status(400).json({ msg: "Atingiu o limite de viagens diárias" });
             }
 
-            return res.status(200).json({ msg: 'Estudante foi', passageiroId: passageiro[0] });
+            return res.status(200).json({ tarifa: 'Gratuito', passageiroId: passageiro[0], viagemId: viagemAtual.id });
         } // ESTUDANTE -----------------
 
         if (passageiro[0].tipo_cartao == 'Idoso') {
-            return res.status(200).json({ msg: 'Idoso foi', passageiroId: passageiro[0] });
+            return res.status(200).json({ tarifa: 'Gratuito', passageiroId: passageiro[0], viagemId: viagemAtual.id });
         }
-
-
-        const agora = new Date(); // Obtém a data e hora atuais
-
-        const viagemAtual = await prisma.viagem.findFirst({
-            where: {
-                dataPartida: {
-                    lte: agora, // A partida já ocorreu ou está ocorrendo
-                },
-                dataChegada: {
-                    gte: agora, // A chegada ainda não ocorreu
-                },
-            },
-        });
-
-        res.status(200).json({ tarifa: tarifa, passageiro_id: passageiro[0].id, viagem_id: viagemAtual.id })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
         console.log(error)

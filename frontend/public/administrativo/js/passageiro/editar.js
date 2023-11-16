@@ -15,7 +15,15 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     document.querySelector("#numero").value = passageiro.numero;
     document.querySelector("#email").value = passageiro.email;
     document.querySelector("#codigo_cartao").value = passageiro.codigo_cartao;
-    document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
+    if (passageiro.tipo_cartao == 'Comum') {
+      document.querySelector("#tipo_cartao").selectedIndex = 0
+    }
+    if (passageiro.tipo_cartao == 'Idoso') {
+      document.querySelector("#tipo_cartao").selectedIndex = 1
+    }
+    if (passageiro.tipo_cartao == 'Estudante') {
+      document.querySelector("#tipo_cartao").selectedIndex = 2
+    }
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }
@@ -60,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
         console.log("Dados atualizados com sucesso!");
 
-      
+
       } catch (error) {
         Swal.fire({
           text: error.response.data.msg,
