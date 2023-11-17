@@ -25,8 +25,12 @@ router.get('/usuario/excluir/:id', (req, res) => {
   res.render('administrativo/usuario/excluir');
 });
 
-router.get('/usuario/exibir/:id', (req, res) => {
+router.get('/usuario/conta/:id', (req, res) => {
   res.render('administrativo/usuario/exibir');
+});
+
+router.get('/usuario/editarConta/:id', (req, res) => {
+  res.render('administrativo/usuario/editarConta');
 });
 
 // Rotas motoristas

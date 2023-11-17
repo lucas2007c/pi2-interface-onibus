@@ -1,12 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const form = document.querySelector("#form-passageiro");
-
+  const usuarioId = await verifyToken();
+  document.querySelector('#usuario').value = usuarioId
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (form.checkValidity()) {
       const formData = new FormData(form)
-
+      formData.set("usuario_id", usuarioId);
       try {
         const response = await axios.post(
           "http://localhost:3000/passageiro",
