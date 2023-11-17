@@ -33,19 +33,21 @@
                     <ul class="navbar-nav ml-auto navbar-right-top">
 
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="/administrativo/assets/images/avatar-1.jpg" alt=""
+                            <a class="nav-link nav-user-img" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img id="fotoUsuario" src="" alt="foto do usuário"
                                     class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
+                                    <h5 class="mb-0 text-white nav-user-name" id="nomeUsuario"></h5>
+                                    <span class="" id="emailUsuario"></span>
                                 </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="#" id="contaUsuario"><i
+                                        class="fas fa-user mr-2"></i>Conta</a>
+                                <a class="dropdown-item" href="#" id="configUsuario"><i
+                                        class="fas fa-cog mr-2"></i>Configurações</a>
+                                <a class="dropdown-item" href="#" id="sairUsuario"><i
+                                        class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
                     </ul>
@@ -149,7 +151,8 @@
                         <div class="card">
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-header pl-2">Lista de passageiros</h5>
-                                <a href="/admin/passageiro/cadastrar" class="btn btn-primary m-2 align-self-center">Registrar novo</a>
+                                <a href="/admin/passageiro/cadastrar"
+                                    class="btn btn-primary m-2 align-self-center">Registrar novo</a>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table table-hover table-responsive">
@@ -212,6 +215,20 @@
                 <!-- Axios & script getAll -->
                 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                 <script src="/administrativo/js/passageiro/listar.js"></script>
+                <script src="/administrativo/js/auth.js"></script>
+                <script src="/administrativo/js/infoUsuario.js"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", async function () {
+                        try {
+                            // primeira etapa
+                            const userId = await verifyToken();
+                            console.log("Está autorizado a ver esta página");
+                        } catch (error) {
+                            console.error("Erro ao verificar o token:", error);
+                            window.location.replace("/admin/login");
+                        }
+                    });
+                </script>
                 <!-- SweetAlert2 -->
                 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

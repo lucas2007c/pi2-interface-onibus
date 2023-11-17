@@ -33,22 +33,24 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                      
+
 
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="/administrativo/assets/images/avatar-1.jpg" alt=""
+                            <a class="nav-link nav-user-img" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img id="fotoUsuario" src="" alt="foto do usuário"
                                     class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
+                                    <h5 class="mb-0 text-white nav-user-name" id="nomeUsuario"></h5>
+                                    <span class="" id="emailUsuario"></span>
                                 </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="#" id="contaUsuario"><i
+                                        class="fas fa-user mr-2"></i>Conta</a>
+                                <a class="dropdown-item" href="#" id="configUsuario"><i
+                                        class="fas fa-cog mr-2"></i>Configurações</a>
+                                <a class="dropdown-item" href="#" id="sairUsuario"><i
+                                        class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
                     </ul>
@@ -127,8 +129,10 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/linha" class="breadcrumb-link">Linhas cadastradas</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin/linha"
+                                                    class="breadcrumb-link">Linhas cadastradas</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Excluir Linha
                                             </li>
                                         </ol>
@@ -151,9 +155,9 @@
                                         <div class="form-row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="nome">Nome</label>
-                                                <input type="text" autocomplete="off" class="form-control"
-                                                    id="nome" placeholder="Informe o nome da linha"
-                                                    value="" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" disabled>
+                                                <input type="text" autocomplete="off" class="form-control" id="nome"
+                                                    placeholder="Informe o nome da linha" value=""
+                                                    pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -163,9 +167,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="origem">Origem</label>
-                                                <input type="text" autocomplete="off" class="form-control"
-                                                    id="origem" placeholder="Informe o local de partida"
-                                                    value="" disabled>
+                                                <input type="text" autocomplete="off" class="form-control" id="origem"
+                                                    placeholder="Informe o local de partida" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -175,9 +178,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="destino">Destino</label>
-                                                <input type="text" autocomplete="off" class="form-control"
-                                                    id="destino" placeholder="Informe o local de chegada"
-                                                    value="" disabled>
+                                                <input type="text" autocomplete="off" class="form-control" id="destino"
+                                                    placeholder="Informe o local de chegada" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -198,7 +200,8 @@
                                             <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="duracao">Duração</label>
                                                 <input type="number" autocomplete="off" class="form-control"
-                                                    id="duracao" placeholder="Informe o tempo entre origem e destino em minutos"
+                                                    id="duracao"
+                                                    placeholder="Informe o tempo entre origem e destino em minutos"
                                                     value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -210,8 +213,9 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
                                                 <a href="/admin/linha"><button class="btn btn-danger"
                                                         type="button">Cancelar</button></a>
-                                                <button class="btn btn-primary ml-2" type="button" id="excluir">Excluir</button>
-                                                
+                                                <button class="btn btn-primary ml-2" type="button"
+                                                    id="excluir">Excluir</button>
+
                                             </div>
                                         </div>
                                     </form>
@@ -245,6 +249,20 @@
                     <!-- Axios & script getAll -->
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
                     <script src="/administrativo/js/linha/excluir.js"></script>
+                    <script src="/administrativo/js/auth.js"></script>
+                    <script src="/administrativo/js/infoUsuario.js"></script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", async function () {
+                            try {
+                                // primeira etapa
+                                const userId = await verifyToken();
+                                console.log("Está autorizado a ver esta página");
+                            } catch (error) {
+                                console.error("Erro ao verificar o token:", error);
+                                window.location.replace("/admin/login");
+                            }
+                        });
+                    </script>
                     <!-- SweetAlert2 -->
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

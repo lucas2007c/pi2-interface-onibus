@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Excluir Passageiro - Fast Travel</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
@@ -34,23 +35,25 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                        
+
 
 
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="/administrativo/assets/images/avatar-1.jpg" alt=""
+                            <a class="nav-link nav-user-img" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img id="fotoUsuario" src="" alt="foto do usuário"
                                     class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
+                                    <h5 class="mb-0 text-white nav-user-name" id="nomeUsuario"></h5>
+                                    <span class="" id="emailUsuario"></span>
                                 </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="#" id="contaUsuario"><i
+                                        class="fas fa-user mr-2"></i>Conta</a>
+                                <a class="dropdown-item" href="#" id="configUsuario"><i
+                                        class="fas fa-cog mr-2"></i>Configurações</a>
+                                <a class="dropdown-item" href="#" id="sairUsuario"><i
+                                        class="fas fa-power-off mr-2"></i>Sair</a>
                             </div>
                         </li>
                     </ul>
@@ -129,8 +132,10 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/passageiro" class="breadcrumb-link">Passageiros cadastrados</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin/passageiro"
+                                                    class="breadcrumb-link">Passageiros cadastrados</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Excluir Passageiro
                                             </li>
                                         </ol>
@@ -223,8 +228,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Código cartão</label>
-                                                <input type="text" autocomplete="off"
-                                                    class="form-control" id="codigo_cartao" placeholder="Realize a leitura do cartão"
+                                                <input type="text" autocomplete="off" class="form-control"
+                                                    id="codigo_cartao" placeholder="Realize a leitura do cartão"
                                                     value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
@@ -235,7 +240,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
-                                                <img class="d-block" alt="foto-registro" id="src_foto" style="height: 120px;">
+                                                <img class="d-block" alt="foto-registro" id="src_foto"
+                                                    style="height: 120px;">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -246,8 +252,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
                                                 <a href="/admin/passageiro"><button class="btn btn-danger"
                                                         type="button">Cancelar</button></a>
-                                                <button class="btn btn-primary ml-2" id="excluir" type="button" 
-                                                    ">Excluir</button>
+                                                <button class="btn btn-primary ml-2" id="excluir" type="button" ">Excluir</button>
                                                 
                                         
                                             </div>
@@ -257,31 +262,57 @@
                             </div>
                         </div>
                     </div>
-                    <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-                    <!-- bootstap bundle js -->
-                    <script src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-                    <!-- slimscroll js -->
-                    <script src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-                    <!-- main js -->
-                    <script src="/administrativo/assets/libs/js/main-js.js"></script>
-                    <!-- chart chartist js -->
-                    <script src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-                    <!-- sparkline js -->
-                    <script src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-                    <!-- morris js -->
-                    <script src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-                    <script src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
-                    <!-- chart c3 js -->
-                    <script src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
-                    <script src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-                    <script src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
-                    <script src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
-                    <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
-                    <!-- Axios & script getAll -->
-                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <script src="/administrativo/js/passageiro/excluir.js"></script>
-                    <!-- SweetAlert2 -->
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script src=" /administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+                                                    <!-- bootstap bundle js -->
+                                                    <script
+                                                        src="/administrativo/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                                                    <!-- slimscroll js -->
+                                                    <script
+                                                        src="/administrativo/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                                                    <!-- main js -->
+                                                    <script src="/administrativo/assets/libs/js/main-js.js"></script>
+                                                    <!-- chart chartist js -->
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+                                                    <!-- sparkline js -->
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+                                                    <!-- morris js -->
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/morris-bundle/morris.js"></script>
+                                                    <!-- chart c3 js -->
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/c3charts/c3.min.js"></script>
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+                                                    <script
+                                                        src="/administrativo/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+                                                    <script
+                                                        src="/administrativo/assets/libs/js/dashboard-ecommerce.js"></script>
+                                                    <script
+                                                        src="/administrativo/assets/vendor/parsley/parsley.js"></script>
+                                                    <!-- Axios & script getAll -->
+                                                    <script
+                                                        src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                                                    <script src="/administrativo/js/passageiro/excluir.js"></script>
+                                                    <script src="/administrativo/js/auth.js"></script>
+                                                    <script src="/administrativo/js/infoUsuario.js"></script>
+                                                    <script>
+                                                        document.addEventListener("DOMContentLoaded", async function () {
+                                                            try {
+                                                                // primeira etapa
+                                                                const userId = await verifyToken();
+                                                                console.log("Está autorizado a ver esta página");
+                                                            } catch (error) {
+                                                                console.error("Erro ao verificar o token:", error);
+                                                                window.location.replace("/admin/login");
+                                                            }
+                                                        });
+                                                    </script>
+                                                    <!-- SweetAlert2 -->
+                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
