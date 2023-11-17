@@ -45,7 +45,7 @@ router.post('/embarque', async (req, res) => {
         const embarque = await prisma.embarque.create({
             data: {
                 tarifa,
-                data: `${data}.000Z`,
+                data: data,
                 passageiro_id,
                 viagem_id
             }

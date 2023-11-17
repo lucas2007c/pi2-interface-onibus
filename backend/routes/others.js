@@ -132,11 +132,11 @@ router.post('/catraca', async (req, res) => {
                 res.status(400).json({ msg: "Atingiu o limite de viagens diárias" });
             }
 
-            return res.status(200).json({ tarifa: 'Gratuito', passageiroId: passageiro[0], viagemId: viagemAtual.id });
+            return res.status(200).json({ tarifa: 0, passageiroId: passageiro[0], viagemId: viagemAtual.id });
         } // ESTUDANTE -----------------
 
         if (passageiro[0].tipo_cartao == 'Idoso') {
-            return res.status(200).json({ tarifa: 'Gratuito', passageiroId: passageiro[0], viagemId: viagemAtual.id });
+            return res.status(200).json({ tarifa: 0, passageiroId: passageiro[0], viagemId: viagemAtual.id });
         }
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })

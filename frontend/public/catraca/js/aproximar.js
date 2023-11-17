@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     try {
       const response = await axios.post("http://localhost:3000/catraca", data);
       const passageiroId = response.data.passageiroId.id;
+
       console.log("Cartão válido");
+
+      localStorage.setItem('viagemId', response.data.viagemId);
+      localStorage.setItem('tarifa', response.data.tarifa);
 
       window.location.href = `http://localhost:3001/catraca/true/${passageiroId}`;
     } catch (error) {

@@ -79,6 +79,10 @@ router.post('/passageiro', upload.single('foto_caminho'), async (req, res) => {
             return res.status(409).json({ success: false, msg: 'O passageiro já está cadastrado.' })
         }
 
+        if (data.tipo_cartao === 'Idoso' || data.tipo_cartao === 'Estudante') {
+            data.saldo = 0;
+        }
+
         const passageiro = await prisma.passageiro.create({
             data: data
         });
