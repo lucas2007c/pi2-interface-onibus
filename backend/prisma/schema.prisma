@@ -47,7 +47,7 @@ model passageiro {
   tipo_cartao   String     @db.VarChar(50)
   usuario_id    Int
   inativado     DateTime?  @db.Date
-  codigo_cartao String     @db.VarChar(50)
+  codigo_cartao String?    @db.VarChar(50)
   embarque      embarque[]
   usuario       usuario    @relation(fields: [usuario_id], references: [id], onUpdate: Restrict, map: "fk_usuario_id")
 
@@ -84,6 +84,7 @@ model viagem {
 }
 
 model embarque {
+  id            Int        @default(autoincrement())
   tarifa        Decimal    @db.Decimal(10, 2)
   data          DateTime   @db.DateTime(0)
   passageiro_id Int
@@ -91,6 +92,7 @@ model embarque {
   passageiro    passageiro @relation(fields: [passageiro_id], references: [id], onUpdate: Restrict, map: "fk_passageiro_id")
   viagem        viagem     @relation(fields: [viagem_id], references: [id], onUpdate: Restrict, map: "fk_viagem_id")
 
-  @@id([passageiro_id, viagem_id])
+  @@id([id, passageiro_id, viagem_id])
   @@index([viagem_id], map: "fk_viagem_id")
+  @@index([passageiro_id], map: "fk_passageiro_id")
 }

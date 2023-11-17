@@ -139,11 +139,12 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`embarque`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`embarque` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `tarifa` DECIMAL(10,2) NOT NULL,
   `data` DATETIME NOT NULL,
   `passageiro_id` INT(11) NOT NULL,
   `viagem_id` INT(11) NOT NULL,
-  PRIMARY KEY (`passageiro_id`, `viagem_id`),
+  PRIMARY KEY (`id`, `passageiro_id`, `viagem_id`),
   INDEX `fk_viagem_id` (`viagem_id` ASC),
   CONSTRAINT `fk_passageiro_id`
     FOREIGN KEY (`passageiro_id`)
