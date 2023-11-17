@@ -35,7 +35,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                    
+
 
 
                         <li class="nav-item dropdown nav-user">
@@ -130,8 +130,10 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/motorista" class="breadcrumb-link">Motoristas cadastrados</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin/motorista"
+                                                    class="breadcrumb-link">Motoristas cadastrados</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Editar Motorista
                                             </li>
                                         </ol>
@@ -158,7 +160,8 @@
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
                                                     class="form-control" id="nome"
-                                                    placeholder="Informe seu nome completo" name="nome" value="" required>
+                                                    placeholder="Informe seu nome completo" name="nome" value=""
+                                                    maxlength="200" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -195,7 +198,7 @@
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                                     autocomplete="off" class="form-control" id="email" name="email"
-                                                    placeholder="Informe seu email" value="" required>
+                                                    placeholder="Informe seu email" value="" maxlength="200" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -205,8 +208,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
-                                                <input class="form-control" type="file" id="foto_caminho" name="foto_caminho"
-                                                    accept="image/*" disabled>
+                                                <input class="form-control" type="file" id="foto_caminho"
+                                                    name="foto_caminho" accept="image/*" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -214,7 +217,8 @@
                                                     Insira um arquivo.
                                                 </div>
                                             </div>
-                                            <label class="custom-control custom-checkbox custom-control-inline mt-2 ml-4">
+                                            <label
+                                                class="custom-control custom-checkbox custom-control-inline mt-2 ml-4">
                                                 <input id="foto_checkbox" type="checkbox" class="custom-control-input">
                                                 <span class="custom-control-label">Trocar imagem</span>
                                             </label>

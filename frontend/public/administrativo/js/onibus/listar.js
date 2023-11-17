@@ -11,7 +11,7 @@ async function fetchOnibus() {
                 <td>${onibus.id}</td>
                 <td>${onibus.placa}</td>
     
-                <td>
+                <td style="white-space: nowrap;">
                     <a href="/admin/onibus/excluir/${onibus.id}" class="btn btn-sm btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" class="bi bi-trash-fill"

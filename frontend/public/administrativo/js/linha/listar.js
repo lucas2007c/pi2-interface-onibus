@@ -2,9 +2,8 @@ function formatarHorario(data) {
   const date = new Date(data);
   const horaLocal = date.getHours() + date.getTimezoneOffset() / 60;
   const minutos = date.getMinutes();
-  return `${horaLocal < 10 ? "0" + horaLocal : horaLocal}:${
-    minutos < 10 ? "0" + minutos : minutos
-  }`;
+  return `${horaLocal < 10 ? "0" + horaLocal : horaLocal}:${minutos < 10 ? "0" + minutos : minutos
+    }`;
 }
 
 
@@ -24,7 +23,7 @@ async function fetchLinhas() {
     <td>${linha.destino}</td>
     <td>${horarioPartida}</td>
     <td>${linha.duracao}</td>
-    <td>
+    <td style="white-space: nowrap;">
       <a href="/admin/linha/excluir/${linha.id}" class="btn btn-sm btn-outline-danger">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
           fill="currentColor" class="bi bi-trash-fill"

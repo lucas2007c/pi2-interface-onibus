@@ -47,7 +47,7 @@
                             <label for="email">Email</label>
                             <input type="text" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
                                 autocomplete="off" class="form-control" id="email" placeholder="Informe o seu email"
-                                value="" required>
+                                maxlength="200" required>
                             <div class="valid-feedback">
                                 Tudo certo!
                             </div>
@@ -58,7 +58,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pb-3">
                             <label for="senha">Senha</label>
                             <input type="password" pattern="^[a-zA-Z0-9\-]+$" autocomplete="off" class="form-control"
-                                id="senha" placeholder="Informe a sua senha" value="" required>
+                                id="senha" placeholder="Informe a sua senha" maxlength="200" required>
                             <input type="checkbox" class="checkbox mt-2" onclick="mostrarSenha()">
                             <label class="form-check-label"><small>Mostrar senha</small>
                             </label>

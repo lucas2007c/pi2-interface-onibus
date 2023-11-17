@@ -35,7 +35,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                       
+
 
 
                         <li class="nav-item dropdown nav-user">
@@ -130,8 +130,10 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/passageiro" class="breadcrumb-link">Passageiros cadastrados</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
+                                                    Inicial</a></li>
+                                            <li class="breadcrumb-item"><a href="/admin/passageiro"
+                                                    class="breadcrumb-link">Passageiros cadastrados</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Editar Passageiro
                                             </li>
                                         </ol>
@@ -157,8 +159,8 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <label for="usuario">ID do usuário</label>
                                                 <input type="number" pattern="^[0-9]+$" autocomplete="off"
-                                                    class="form-control" id="usuario" name="usuario_id" placeholder="Informe seu ID"
-                                                    value="" disabled required>
+                                                    class="form-control" id="usuario" name="usuario_id"
+                                                    placeholder="Informe seu ID" value="" disabled required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -169,8 +171,9 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Nome completo</label>
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
-                                                    class="form-control" id="nome" name="nome" placeholder="Informe o nome completo"
-                                                    value="" required>
+                                                    class="form-control" id="nome" name="nome"
+                                                    placeholder="Informe o nome completo" value="" maxlength="200"
+                                                    required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -207,7 +210,7 @@
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                                     autocomplete="off" class="form-control" id="email" name="email"
-                                                    placeholder="Informe o email" value="" required>
+                                                    placeholder="Informe o email" maxlength="200" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -217,7 +220,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="tipo_cartao">Tipo do cartão</label>
-                                                <select name="tipo_cartao" class="form-control" required id="tipo_cartao">
+                                                <select name="tipo_cartao" class="form-control" required
+                                                    id="tipo_cartao">
                                                     <option value="Comum">Comum</option>
                                                     <option value="Idoso">Idoso</option>
                                                     <option value="Estudante">Estudante</option>
@@ -231,9 +235,9 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="nome">Código cartão</label>
-                                                <input type="text" autocomplete="off"
-                                                    class="form-control" id="codigo_cartao" name="codigo_cartao" placeholder="Realize a leitura do cartão"
-                                                    value="" required>
+                                                <input type="text" autocomplete="off" class="form-control"
+                                                    id="codigo_cartao" name="codigo_cartao"
+                                                    placeholder="Realize a leitura do cartão" maxlength="50" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -243,8 +247,8 @@
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
-                                                <input class="form-control" type="file" id="foto_caminho" name="foto_caminho"
-                                                    accept="image/*" disabled>
+                                                <input class="form-control" type="file" id="foto_caminho"
+                                                    name="foto_caminho" accept="image/*" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>

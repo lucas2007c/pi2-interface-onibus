@@ -11,7 +11,7 @@ async function fetchUsuarios() {
       <td><img src="http://localhost:3000/${usuario.foto_caminho}" alt="foto-registro" style="height: 65px;"></td>
       <td>${usuario.nome}</td>
       <td>${usuario.email}</td>
-      <td>
+      <td style="white-space: nowrap;">
           <a href="/admin/usuario/excluir/${usuario.id}" class="btn btn-sm btn-outline-danger">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                   fill="currentColor" class="bi bi-trash-fill"

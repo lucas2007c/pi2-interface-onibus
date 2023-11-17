@@ -12,13 +12,13 @@ async function fetchPassageiros() {
         <img src="http://localhost:3000/${passageiro.foto_caminho}" alt="foto-registro" style="height: 65px;">
         </td>
         <td>${passageiro.nome}</td>
-        <td>${passageiro.cpf}</td>
-        <td>${passageiro.numero}</td>
-        <td>${passageiro.email}</td>
-        <td>${passageiro.tipo_cartao}</td>
-        <td>${passageiro.saldo}</td>
-        <td>${passageiro.codigo_cartao}</td>
-        <td>
+        <td style="white-space: nowrap;">${passageiro.cpf}</td>
+        <td style="white-space: nowrap;">${passageiro.numero}</td>
+        <td style="white-space: nowrap;">${passageiro.email}</td>
+        <td style="white-space: nowrap;">${passageiro.tipo_cartao}</td>
+        <td style="white-space: nowrap;">${passageiro.saldo}</td>
+        <td style="white-space: nowrap;">${passageiro.codigo_cartao}</td>
+        <td style="white-space: nowrap;">
             <a href="/admin/passageiro/excluir/${passageiro.id}" class="btn btn-sm btn-outline-danger">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
                     viewBox="0 0 16 16">

@@ -161,7 +161,7 @@
                                                 <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
                                                     class="form-control" id="nome"
                                                     placeholder="Informe seu nome completo" value="" name="nome"
-                                                    required>
+                                                    required maxlength="200">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -174,7 +174,8 @@
                                                 <input type="email"
                                                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                                                     autocomplete="off" class="form-control" id="email"
-                                                    placeholder="Informe seu email" value="" name="email" required>
+                                                    placeholder="Informe seu email" maxlength="200" name="email"
+                                                    required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -185,7 +186,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="senha">Senha</label>
                                                 <input type="text" autocomplete="off" class="form-control" id="senha"
-                                                    placeholder="Informe sua senha" value="" name="senha" required>
+                                                    placeholder="Informe sua senha" maxlength="200" name="senha" required>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>

@@ -10,10 +10,10 @@ async function fetchMotoristas() {
       row.innerHTML = `
       <td><img src="http://localhost:3000/${motorista.foto_caminho}" alt="foto-registro" style="height: 65px;"></td>
       <td>${motorista.nome}</td>
-      <td>${motorista.cpf}</td>
-      <td>${motorista.numero}</td>
-      <td>${motorista.email}</td>
-      <td>
+      <td style="white-space: nowrap;">${motorista.cpf}</td>
+      <td style="white-space: nowrap;">${motorista.numero}</td>
+      <td style="white-space: nowrap;">${motorista.email}</td>
+      <td style="white-space: nowrap;">
           <a href="/admin/motorista/excluir/${motorista.id}" class="btn btn-sm btn-outline-danger">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                   fill="currentColor" class="bi bi-trash-fill"
