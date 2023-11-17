@@ -52,6 +52,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     console.log(responsePost.data.msg);
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
-    window.location.href = `http://localhost:3001/catraca/error404/`;
+    window.location.href = `http://localhost:3001/catraca/errorServer`;
   }
 });

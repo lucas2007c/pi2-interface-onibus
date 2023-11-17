@@ -3,17 +3,20 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   const urlId = url.split("/").pop();
 
   try {
-    const response = await axios.get(
-      `http://localhost:3000/passageiro/${urlId}`
-    );
-    const passageiro = response.data;
-    const saldo = document.querySelector("#saldo");
-    const tarifa = document.querySelector("#valor-cobrado");
 
-    saldo.innerHTML = `Saldo atual: R$${passageiro.saldo}`;
-    tarifa.innerHTML = `Valor cobrado: R$5,00`;
+    const msg = document.querySelector("#msg");
+    const saldo = document.querySelector("#saldo");
+    const mensagem = localStorage.getItem('mensagem')
+    const passageiroSaldo = localStorage.getItem('passageiro')
+
+    msg.innerHTML = mensagem
+    console.log(mensagem);
+    if (mensagem == 'Saldo insuficiente') {
+      saldo.innerHTML = `seu saldo atual é de R$${passageiroSaldo}`
+    }
+    localStorage.removeItem('mensagem')
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
-    window.location.href = `http://localhost:3001/catraca/error404/`;
+    window.location.href = `http://localhost:3001/catraca/errorServer`;
   }
 });

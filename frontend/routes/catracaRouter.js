@@ -7,11 +7,11 @@ router.get('/', (req, res) => {
   res.render('catraca/aproximar'); // Exemplo de renderização de uma página
 });
 
-router.get('/error404/', (req, res) => {
+router.get('/errorServer', (req, res) => {
   res.render('catraca/valid_error404');
 });
 
-router.get('/error/:id', (req, res) => {
+router.get('/error', (req, res) => {
   res.render('catraca/valid_error');
 });
 

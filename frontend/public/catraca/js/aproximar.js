@@ -20,7 +20,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       window.location.href = `http://localhost:3001/catraca/true/${passageiroId}`;
     } catch (error) {
       console.error("danger", error.message);
-      window.location.href = `http://localhost:3001/catraca/error404`;
+      if (error.response.data.passageiroId) {
+        localStorage.setItem('passageiro', error.response.data.passageiroId.saldo);
+      }
+      localStorage.setItem('mensagem', error.response.data.msg);
+      window.location.href = `http://localhost:3001/catraca/error`;
     }
   });
 });

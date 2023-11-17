@@ -96,7 +96,6 @@ router.post('/catraca', async (req, res) => {
                 },
             },
         });
-
         if (passageiro.length == 0) {
             return res.status(404).json({ msg: 'Passageiro não encontrado' });
         }
@@ -104,17 +103,19 @@ router.post('/catraca', async (req, res) => {
         if (passageiro[0].tipo_cartao == 'Comum') {
             const novoSaldo = passageiro[0].saldo - tarifa
             if (novoSaldo < 0) {
-                res.status(400).json({ msg: "Saldo insuficente", passageiroId: passageiro[0] });
+                return res.status(400).json({ msg: "Saldo insuficiente", passageiroId: passageiro[0] });
             }
 
-            await prisma.passageiro.update({
-                where: {
-                    id: Number(passageiro[0].id)
-                },
-                data: {
-                    saldo: novoSaldo
-                }
-            })
+            if (novoSaldo >= 0) {
+                await prisma.passageiro.update({
+                    where: {
+                        id: Number(passageiro[0].id)
+                    },
+                    data: {
+                        saldo: novoSaldo
+                    }
+                })
+            }
             return res.status(200).json({ tarifa: tarifa, passageiroId: passageiro[0], viagemId: viagemAtual.id });
         } // COMUM ------------------
 
@@ -129,7 +130,7 @@ router.post('/catraca', async (req, res) => {
             });
 
             if (total_embarques == 2) {
-                res.status(400).json({ msg: "Atingiu o limite de viagens diárias" });
+                return res.status(400).json({ msg: "Atingiu o limite de viagens diárias" });
             }
 
             return res.status(200).json({ tarifa: 0, passageiroId: passageiro[0], viagemId: viagemAtual.id });
