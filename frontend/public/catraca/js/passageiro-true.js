@@ -13,10 +13,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const nome = document.querySelector("#liberado");
     const saldo = document.querySelector("#saldo");
     const tarifa = document.querySelector("#valor-cobrado");
+    const saldoFormatado = formatarDinheiro(passageiro.saldo);
 
     if (passageiro.tipo_cartao === "Comum") {
       nome.innerHTML = `Liberado, ${passageiro.nome}`;
-      saldo.innerHTML = `Saldo atual: R$${passageiro.saldo}`;
+      saldo.innerHTML = `Saldo atual: R$${saldoFormatado}`;
       tarifa.innerHTML = `Valor cobrado: R$5,00`;
     } else {
       nome.innerHTML = `Liberado, ${passageiro.nome}`;
@@ -45,9 +46,16 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       viagem_id: viagem_id,
     };
 
-    const responsePost = await axios.post("http://localhost:3000/embarque", data);
+    const responsePost = await axios.post(
+      "http://localhost:3000/embarque",
+      data
+    );
     localStorage.removeItem("tarifa");
     localStorage.removeItem("viagemId");
+
+    setTimeout(function () {
+      window.location.href = `http://localhost:3001/catraca/`;
+    }, 5000);
 
     console.log(responsePost.data.msg);
   } catch (error) {
@@ -55,3 +63,16 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     window.location.href = `http://localhost:3001/catraca/errorServer`;
   }
 });
+
+function formatarDinheiro(valor) {
+  // Arredonda o valor para duas casas decimais
+  valor = Math.round(valor * 100) / 100;
+
+  // Converte o valor para uma string com duas casas decimais
+  let valorFormatado = valor.toFixed(2);
+
+  // Substitui o ponto por vírgula, se necessário
+  valorFormatado = valorFormatado.replace(".", ",");
+
+  return valorFormatado;
+}

@@ -17,6 +17,10 @@ router.get('/usuario/cadastrar', (req, res) => {
   res.render('administrativo/usuario/cadastrar');
 });
 
+router.get('/usuario/exibir/:id', (req, res) => {
+  res.render('administrativo/usuario/exibir');
+});
+
 router.get('/usuario/editar/:id', (req, res) => {
   res.render('administrativo/usuario/editar');
 });
@@ -26,7 +30,7 @@ router.get('/usuario/excluir/:id', (req, res) => {
 });
 
 router.get('/usuario/conta/:id', (req, res) => {
-  res.render('administrativo/usuario/exibir');
+  res.render('administrativo/usuario/minhaConta');
 });
 
 router.get('/usuario/editarConta/:id', (req, res) => {
@@ -41,6 +45,10 @@ router.get('/motorista', (req, res) => {
 
 router.get('/motorista/cadastrar', (req, res) => {
   res.render('administrativo/motorista/cadastrar');
+});
+
+router.get('/motorista/exibir/:id', (req, res) => {
+  res.render('administrativo/motorista/exibir');
 });
 
 router.get('/motorista/editar/:id', (req, res) => {
@@ -63,6 +71,10 @@ router.get('/passageiro/cadastrar', (req, res) => {
   res.render('administrativo/passageiro/cadastrar');
 });
 
+router.get('/passageiro/exibir/:id', (req, res) => {
+  res.render('administrativo/passageiro/exibir');
+});
+
 router.get('/passageiro/editar/:id', (req, res) => {
   res.render('administrativo/passageiro/editar');
 });
@@ -83,6 +95,10 @@ router.get('/linha/cadastrar', (req, res) => {
   res.render('administrativo/linha/cadastrar');
 });
 
+router.get('/linha/exibir/:id', (req, res) => {
+  res.render('administrativo/linha/exibir');
+});
+
 router.get('/linha/editar/:id', (req, res) => {
   res.render('administrativo/linha/editar');
 });
@@ -101,6 +117,10 @@ router.get('/onibus', (req, res) => {
 
 router.get('/onibus/cadastrar', (req, res) => {
   res.render('administrativo/onibus/cadastrar');
+});
+
+router.get('/onibus/exibir/:id', (req, res) => {
+  res.render('administrativo/onibus/exibir');
 });
 
 router.get('/onibus/editar/:id', (req, res) => {

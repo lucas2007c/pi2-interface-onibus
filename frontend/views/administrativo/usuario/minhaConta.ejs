@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Exibir Linha - Fast Travel</title>
+    <title>Minha Conta - Fast Travel</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/administrativo/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -33,6 +33,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
+
 
 
                         <li class="nav-item dropdown nav-user">
@@ -66,7 +67,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="/admin">Página Principal</a>
+                    <a class="d-xl-none d-lg-none" href="/admin">Página principal</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -125,15 +126,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Exibir Linha</h2>
+                                <h2 class="pageheader-title">Minha Conta</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Página
                                                     Inicial</a></li>
-                                            <li class="breadcrumb-item"><a href="/admin/linha"
-                                                    class="breadcrumb-link">Linhas cadastradas</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Exibir Linha
+                                            <li class="breadcrumb-item active" aria-current="page"> Minha Conta
                                             </li>
                                         </ol>
                                     </nav>
@@ -145,18 +144,19 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
-                        <!-- form edicao -->
+                        <!-- ============================================================== -->
+                        <!-- validation form -->
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Formulário de edição</h5>
+                                <h5 class="card-header">Informações do Usuário</h5>
                                 <div class="card-body">
-                                    <form id="form-linhas" class="needs-validation" novalidate>
-                                        <div class="form-row">
+                                    <form class="needs-validation" novalidate id="form-usuario">
+                                        <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <label for="nome">Nome</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="nome"
-                                                    value="" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" disabled>
+                                                <label for="nome">Id</label>
+                                                <input type="text" autocomplete="off" class="form-control"
+                                                    id="usuarioID" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -165,9 +165,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="origem">Origem</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="origem"
-                                                    value="" disabled>
+                                                <label for="nome">Nome completo</label>
+                                                <input type="text" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$" autocomplete="off"
+                                                    class="form-control" id="nome"
+                                                    placeholder="Informe seu nome completo" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
@@ -176,49 +177,41 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="destino">Destino</label>
-                                                <input type="text" autocomplete="off" class="form-control" id="destino"
-                                                    value="" disabled>
+                                                <label for="email">Email</label>
+                                                <input type="email"
+                                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                                    autocomplete="off" class="form-control" id="email"
+                                                    placeholder="Informe seu email" value="" disabled>
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                    Utilize apenas caracteres alfabéticos.
+                                                    Informe um email válido, ex: nome@exemplo.com
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="horarioPartida">Horário partida</label>
-                                                <input type="text" class="form-control" id="horarioPartida" disabled>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="foto_caminho" class="form-label">Foto</label>
+                                                <img class="d-block" alt="foto-registro" id="src_foto"
+                                                    style="height: 120px;">
                                                 <div class="valid-feedback">
                                                     Tudo certo!
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                    Informe um horário válido.
+                                                    Insira um arquivo.
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                                                <label for="duracao">Duração</label>
-                                                <input type="number" autocomplete="off" class="form-control"
-                                                    id="duracao" value="" disabled>
-                                                <div class="valid-feedback">
-                                                    Tudo certo!
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Utilize apenas numeros.
-                                                </div>
+                                        </div>
+                                        <div>
+                                            <div class="mt-3">
+                                                <a><button class="btn btn-primary" type="button"
+                                                        onclick="voltarPagina()">Voltar</button></a>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
-                                                <a href="/admin/linha"><button class="btn btn-primary"
-                                                        type="button">Voltar</button></a>
-                                            </div>
+
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- end validation form -->
-                        <!-- ============================================================== -->
                     </div>
                     <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
                     <!-- bootstap bundle js -->
@@ -242,7 +235,7 @@
                     <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
                     <!-- Axios & script getAll -->
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <script src="/administrativo/js/linha/exibir.js"></script>
+                    <script src="/administrativo/js/usuario/exibir.js"></script>
                     <script src="/administrativo/js/auth.js"></script>
                     <script src="/administrativo/js/infoUsuario.js"></script>
                     <script>
@@ -256,6 +249,9 @@
                                 window.location.replace("/admin/login");
                             }
                         });
+                        function voltarPagina() {
+                            window.history.back();
+                        }
                     </script>
                     <!-- SweetAlert2 -->
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
