@@ -79,13 +79,18 @@ router.post('/catraca', async (req, res) => {
         function addZero(numero) {
             return numero < 10 ? `0${numero}` : numero;
         }
-        const data = new Date(); // momento atual 
+        const data = new Date();
+
+        const dia = String(data.getDate()).padStart(2, '0');
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const ano = data.getFullYear();
         const horas = addZero(data.getHours());
         const minutos = addZero(data.getMinutes());
         const segundos = addZero(data.getSeconds());
 
         const hhmmss = [horas, minutos, segundos].join(':');
-        const dataAtualFormatada = data.toISOString().split('T')[0];
+        const dataAtualFormatada = `${ano}-${mes}-${dia}`
+        console.log(`${dataAtualFormatada}T${hhmmss}.000Z`);
         const viagemAtual = await prisma.viagem.findFirst({
             where: {
                 dataPartida: {
@@ -128,7 +133,8 @@ router.post('/catraca', async (req, res) => {
                     ]
                 }
             });
-
+            console.log(`${dataAtualFormatada}T23:59:59.000Z`);
+            console.log(total_embarques);
             if (total_embarques == 2) {
                 return res.status(400).json({ msg: "Atingiu o limite de viagens diárias" });
             }

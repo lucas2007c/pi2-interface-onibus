@@ -28,14 +28,18 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const tarifaEmbarque = localStorage.getItem("tarifa");
 
     // Formatando a data atual para o formato ISO 8601.
-    const dataAtual = new Date();
-    const horas = String(dataAtual.getHours()).padStart(2, "0");
-    const minutos = String(dataAtual.getMinutes()).padStart(2, "0");
-    const segundos = String(dataAtual.getSeconds()).padStart(2, "0");
+    const dataErrada = new Date();
 
-    const dataIso = new Date().toISOString().split("T")[0];
+    const dia = String(dataErrada.getDate()).padStart(2, '0');
+    const mes = String(dataErrada.getMonth() + 1).padStart(2, '0');
+    const ano = dataErrada.getFullYear();
+    const horas = String(dataErrada.getHours()).padStart(2, '0');;
+    const minutos = String(dataErrada.getMinutes()).padStart(2, '0');;
+    const segundos = String(dataErrada.getSeconds()).padStart(2, '0');;
 
-    const dataFormatada = `${dataIso}T${horas}:${minutos}:${segundos}.000Z`;
+    const hhmmss = [horas, minutos, segundos].join(':');
+    const dataAtualFormatada = `${ano}-${mes}-${dia}`
+    const dataFormatada = `${dataAtualFormatada}T${hhmmss}.000Z`
 
     const viagem_id = localStorage.getItem("viagemId");
     const passageiro_id = passageiro.id;
