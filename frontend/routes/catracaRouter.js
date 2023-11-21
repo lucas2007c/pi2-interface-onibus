@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/errorServer', (req, res) => {
-  res.render('catraca/valid_error404');
+  res.render('catraca/valid_errorServer');
 });
 
 router.get('/error', (req, res) => {

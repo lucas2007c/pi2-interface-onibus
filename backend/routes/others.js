@@ -90,7 +90,6 @@ router.post('/catraca', async (req, res) => {
 
         const hhmmss = [horas, minutos, segundos].join(':');
         const dataAtualFormatada = `${ano}-${mes}-${dia}`
-        console.log(`${dataAtualFormatada}T${hhmmss}.000Z`);
         const viagemAtual = await prisma.viagem.findFirst({
             where: {
                 dataPartida: {
@@ -129,12 +128,11 @@ router.post('/catraca', async (req, res) => {
                 where: {
                     AND: [
                         { data: { lt: `${dataAtualFormatada}T23:59:59.000Z` } },
+                        { data: { gt: `${dataAtualFormatada}T00:00:00.000Z` } },
                         { passageiro_id: passageiro[0].id }
                     ]
                 }
             });
-            console.log(`${dataAtualFormatada}T23:59:59.000Z`);
-            console.log(total_embarques);
             if (total_embarques == 2) {
                 return res.status(400).json({ msg: "Atingiu o limite de viagens diárias" });
             }
