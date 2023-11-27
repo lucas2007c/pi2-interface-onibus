@@ -14,5 +14,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   }
 
   // Chame a função para atualizar o número a cada intervalo de milissegundos determinado (1000 milissegundos = 1 segundo).
+  atualizarNumero()
   setInterval(atualizarNumero, 1000); // Altere o intervalo conforme necessário.
 });

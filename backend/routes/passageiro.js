@@ -42,6 +42,36 @@ router.get('/passageiro/:id', async (req, res) => {
 
 }); // POR ID
 
+router.get('/passageiro/saldo/:cpf', async (req, res) => {
+    try {
+        const { cpf } = req.params
+        const passageiro = await prisma.passageiro.findFirst({
+            where: {
+                cpf: cpf,
+                inativado: null
+            }
+        });
+        if (!passageiro) {
+            return res.status(404).json({ success: false, msg: 'Passageiro não encontrado.' });
+        }
+
+        let msg = `Seu saldo é de R$${passageiro.saldo}`
+        if (passageiro.tipo_cartao == 'Idoso') {
+            msg = `Cartões do tipo ${passageiro.tipo_cartao} possuem saldo ilimitado`
+        }
+        if (passageiro.tipo_cartao == 'Estudante') {
+            msg = `Cartões do tipo ${passageiro.tipo_cartao} possuem saldo ilimitado, mas com acesso a duas viagens diárias`
+        }
+
+        res.status(200).json({ passageiro, msg });
+
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
+        console.log(error)
+    }
+
+}); // POR ID
+
 router.get('/passageiro/busca/:nome', async (req, res) => {
     try {
         const { nome } = req.params;
