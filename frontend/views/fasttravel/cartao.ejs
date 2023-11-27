@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Fast Travel - Recarga</title>
+    <title>Fast Travel - Meu cartão</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -68,60 +68,55 @@
 
                 <ol>
                     <li><a href="/fasttravel">Página inicial</a></li>
-                    <li><a href="/fasttravel/cartao">Meu cartão</a></li>
-                    <li>Recarga</li>
+                    <li>Meu cartão</li>
                 </ol>
-                <h2>Recarga</h2>
+                <h2>Meu cartão</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->
 
         <section class="inner-page">
-            <div class="row d-flex justify-content-center">
-                <!-- ============================================================== -->
-                <!-- validation form -->
-                <!-- ============================================================== -->
-                <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 col-12 d-flex justify-content-center">
-                    <div class="card">
-                        <h3 class="card-header text-center">Formulário de recarga</h3>
-                        <div class="card-body">
-                            <form class="needs-validation" novalidate id="form-recarga">
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2 mb-2">
-                                        <label for="cpfRecarga">CPF</label>
-                                        <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" autocomplete="off"
-                                            required placeholder="Informe seu CPF" class="form-control" id="cpfRecarga"
-                                            pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14">
-                                        <div class="valid-feedback">
-                                            Tudo certo!
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Informe no formato 111.111.111-11
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-2 mb-3">
-                                        <label for="valorRecarga">Valor da recarga</label>
-                                        <input type="number" step="0.01" min="0.01" autocomplete="off" required
-                                            placeholder="Informe o valor da recarga" class="form-control"
-                                            id="valorRecarga">
-                                        <div class="valid-feedback">
-                                            Tudo certo!
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            Informe um valor acima de x reais.
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <button class="btn btn-primary" type="submit">Enviar</button>
-                                    </div>
-                                </div>
-                            </form>
+            <div class="container">
+                <div class="d-flex flex-column align-items-center">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Recarregar cartão</h3>
+                                <p class="card-text">Ao recarregar o seu cartão, lembre-se de que passageiros com
+                                    cartões do tipo estudante e idoso não precisam se preocupar com esse processo. A
+                                    empresa automaticamente cuida da recarga para vocês, tornando a experiência de
+                                    transporte ainda mais conveniente.</p>
+                                <a href="/fasttravel/recarga" class="btn btn-primary">Recarregar Agora</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Conferir saldo</h3>
+                                <p class="card-text">Ao conferir o saldo do seu cartão, saiba que os passageiros com
+                                    cartões do tipo estudante e idoso desfrutam de passagens ilimitadas. Uma única regra
+                                    adicional para estudantes: eles podem utilizar o cartão apenas duas vezes por dia.
+                                    Mantenha o controle e aproveite os benefícios do transporte facilitado.</p>
+                                <a href="/fasttravel/saldo" class="btn btn-primary">Verificar Saldo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Conferir embarques</h3>
+                                <p class="card-text">Ao conferir seus embarques, você terá acesso à lista completa de
+                                    entradas em todos os ônibus pelos quais seu cartão passou. A transparência oferecida
+                                    aqui permite que você acompanhe seu histórico de viagens e esteja sempre informado
+                                    sobre seus embarques anteriores.</p>
+                                <a href="/fasttravel/embarques" class="btn btn-primary">Verificar Embarques</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- end validation form -->
-                <!-- ============================================================== -->
             </div>
         </section>
 
@@ -186,24 +181,6 @@
             </div>
         </div>
     </footer><!-- End Footer -->
-
-    <!-- Axios & script getAll -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/administrativo/js/passageiro/cadastrar.js"></script> -->
-
-    <!-- JavaScript validador formulario -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <!-- Axios & script getAll -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/fasttravel/js/recarga.js"></script>
-    <script src="/fasttravel/js/formatarCpf.js"></script>
-    <script src="/fasttravel/js/formatarValor.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    
-   
 </body>
 
 </html>
