@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response) {
                     Swal.fire({
                         text: response.data.msg,
-                        icon: "success"
+                        icon: "info"
                     });
                 }
 

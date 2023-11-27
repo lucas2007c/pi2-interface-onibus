@@ -16,18 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
         valor
       };
 
-      try {
-        const response = await axios.patch(
-          "http://localhost:3000/recarga/",
-          data
-        );
 
-        if (response) {
-          Swal.fire({
-            text: response.data.msg,
-            icon: "success"
-          });
+      try {
+        const passageiro = await axios.get(`http://localhost:3000/passageiro/saldo/${cpf}`);
+
+        if (passageiro.data.passageiro.tipo_cartao == 'Comum') {
+          const response = await axios.patch(
+            "http://localhost:3000/recarga/",
+            data
+          );
+
+          if (response) {
+            Swal.fire({
+              text: response.data.msg,
+              icon: "success"
+            });
+          }
         }
+
+        if (passageiro.data.passageiro.tipo_cartao == 'Idoso' || passageiro.data.passageiro.tipo_cartao == 'Estudante')
+          Swal.fire({
+            text: 'passageiros com cartões do tipo estudante e idoso não precisam se preocupar com o saldo.',
+            icon: "info"
+          });
 
       } catch (error) {
         Swal.fire({
