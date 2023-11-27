@@ -40,6 +40,7 @@ botaoConfirmar.addEventListener("click", function () {
     text: "Tem certeza que deseja excluir esse ônibus?",
     icon: "warning",
     showCancelButton: true,
+    reverseButtons: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     cancelButtonText: "Cancelar",

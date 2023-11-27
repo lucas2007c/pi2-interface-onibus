@@ -35,7 +35,7 @@ async function excluirPassageiro() {
 
     console.log("Resposta do servidor:", response.data);
 
-    
+
   } catch (error) {
     Swal.fire({
       text: error.response.data.msg,
@@ -51,6 +51,7 @@ botaoConfirmar.addEventListener("click", function () {
     text: "Tem certeza que deseja excluir esse passageiro?",
     icon: "warning",
     showCancelButton: true,
+    reverseButtons: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     cancelButtonText: "Cancelar",

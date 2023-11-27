@@ -42,6 +42,7 @@ botaoConfirmar.addEventListener("click", function () {
     text: "Tem certeza que deseja excluir essa linha?",
     icon: "warning",
     showCancelButton: true,
+    reverseButtons: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     cancelButtonText: "Cancelar",
@@ -69,7 +70,6 @@ function formatarHorario(data) {
   const date = new Date(data);
   const horaLocal = date.getHours() + date.getTimezoneOffset() / 60;
   const minutos = date.getMinutes();
-  return `${horaLocal < 10 ? "0" + horaLocal : horaLocal}:${
-    minutos < 10 ? "0" + minutos : minutos
-  }`;
+  return `${horaLocal < 10 ? "0" + horaLocal : horaLocal}:${minutos < 10 ? "0" + minutos : minutos
+    }`;
 }
