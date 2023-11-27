@@ -11,6 +11,9 @@
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+
+    <!-- DataTable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -153,18 +156,15 @@
                                 <h5 class="card-header pl-2">Lista de ônibus</h5>
                                 <a href="/admin/onibus/cadastrar" class="btn btn-primary m-2">Registrar novo</a>
                             </div>
-                            <div class="card-body p-0">
-                                <table class="table table-hover">
+                            <div class="card-body p-0 m-2">
+                                <table class="table table-hover" id="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Placa</th>
-                                            <th></th>
+                                            <th scope="col">Config</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tabela-onibus">
-
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -204,7 +204,6 @@
             <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
             <!-- Axios & script getAll -->
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-            <script src="/administrativo/js/onibus/listar.js"></script>
             <script src="/administrativo/js/auth.js"></script>
             <script src="/administrativo/js/infoUsuario.js"></script>
             <script>
@@ -221,6 +220,12 @@
             </script>
             <!-- SweetAlert2 -->
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <!-- DataTable -->
+            <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+            <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+            <script src="/administrativo/js/onibus/listar.js"></script>
 </body>
 
 </html>

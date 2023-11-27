@@ -11,6 +11,9 @@
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+
+    <!-- DataTable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -151,10 +154,9 @@
                                 <h5 class="card-header pl-2">Lista de linhas</h5>
                                 <a href="/admin/linha/cadastrar" class="btn btn-primary m-2">Registrar novo</a>
                             </div>
-                            <div class="card-body p-0">
-
+                            <div class="card-body m-2">
                                 <div class="table table-hover table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="table">
                                         <thead class="bg-light">
                                             <tr class="border-0">
                                                 <th class="border-0">Nome</th>
@@ -163,12 +165,9 @@
 
                                                 <th class="border-0">Horário Partida</th>
                                                 <th class="border-0">Duração (em minutos)</th>
-                                                <th></th>
+                                                <th class="border-0">Config</th>
                                             </tr>
                                         </thead>
-
-                                        <tbody id="tabela-linhas">
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -222,6 +221,11 @@
                 </script>
                 <!-- Axios & script getAll -->
                 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+                <!-- DataTable -->
+                <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+                <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
                 <script src="/administrativo/js/linha/listar.js"></script>
 
 </body>

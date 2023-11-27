@@ -11,6 +11,9 @@
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
+
+    <!-- DataTable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -152,9 +155,9 @@
                                 <a href="/admin/motorista/cadastrar"
                                     class="btn btn-primary m-2 align-self-center">Registrar novo</a>
                             </div>
-                            <div class="card-body p-0">
+                            <div class="card-body m-2">
                                 <div class="table table-hover table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="table">
                                         <thead class="bg-light">
                                             <tr class="border-0">
                                                 <th class="border-0">Foto</th>
@@ -162,10 +165,9 @@
                                                 <th class="border-0">CPF</th>
                                                 <th class="border-0">Número</th>
                                                 <th class="border-0">Email</th>
+                                                <th class="border-0">Config</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tabela-motoristas">
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -204,7 +206,6 @@
                     <script src="/administrativo/assets/vendor/parsley/parsley.js"></script>
                     <!-- Axios & script getAll -->
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                    <script src="/administrativo/js/motorista/listar.js"></script>
                     <script src="/administrativo/js/auth.js"></script>
                     <script src="/administrativo/js/infoUsuario.js"></script>
                     <script>
@@ -221,6 +222,12 @@
                     </script>
                     <!-- SweetAlert2 -->
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                    <!-- DataTable -->
+                    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+                    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+                    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+                    <script src="/administrativo/js/motorista/listar.js"></script>
 </body>
 
 </html>
