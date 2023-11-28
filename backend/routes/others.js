@@ -177,5 +177,76 @@ router.post('/catraca', async (req, res) => {
     }
 });
 
+router.get('/criar-viagens', async (req, res) => {
+    try {
+        const data = new Date();
+        const dia = String(data.getDate()).padStart(2, '0');
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const ano = data.getFullYear();
+
+        const dataAtualFormatada = `${ano}-${mes}-${dia}`
+
+        const viagensdehoje = await prisma.viagem.findMany({
+            where: {
+                dataPartida: {
+                    lte: `${dataAtualFormatada}T23:59:59.999Z`,
+                },
+                dataChegada: {
+                    gt: `${dataAtualFormatada}T00:00:00.000Z`,
+                },
+            },
+        });
+
+        if (viagensdehoje.length > 0) {
+            return res.status(400).json({ msg: 'as viagens de hoje ja foram criadas' })
+        }
+
+        // Criar tabela temporária
+        await prisma.$executeRaw`CREATE TEMPORARY TABLE IF NOT EXISTS numeros (numero INT);`;
+
+        // Inserir valores na tabela temporária
+        await prisma.$executeRaw`
+      INSERT INTO numeros (numero) VALUES 
+        (0),(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19),(20),(21),(22),(23);
+    `;
+
+        // Inserir viagens usando valores da tabela temporária
+        const viagens = await prisma.$executeRaw`
+      INSERT INTO fasttravel.viagem (dataPartida, dataChegada, onibus_id, motorista_id, linha_id)
+      SELECT
+        TIMESTAMP(DATE(NOW()), '00:00:00') + INTERVAL numero HOUR AS dataPartida,
+        TIMESTAMP(DATE(NOW()), '00:00:00') + INTERVAL numero + 1 HOUR AS dataChegada,
+        (
+          SELECT id FROM fasttravel.onibus WHERE inativado IS NULL ORDER BY RAND() LIMIT 1
+        ) AS onibus_id,
+        (
+          SELECT id FROM fasttravel.motorista WHERE inativado IS NULL ORDER BY RAND() LIMIT 1
+        ) AS motorista_id,
+        (
+          SELECT id FROM fasttravel.linha WHERE inativado IS NULL ORDER BY RAND() LIMIT 1
+        ) AS linha_id
+      FROM numeros;
+    `;
+
+        // Excluir a tabela temporária
+        await prisma.$executeRaw`DROP TEMPORARY TABLE IF EXISTS numeros;`;
+
+        const viagenscriadas = await prisma.viagem.findMany({
+            where: {
+                dataPartida: {
+                    lte: `${dataAtualFormatada}T23:59:59.999Z`,
+                },
+                dataChegada: {
+                    gte: `${dataAtualFormatada}T00:00:00.000Z`,
+                },
+            },
+        });
+
+        res.status(200).json(viagenscriadas);
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
+    }
+});
 
 module.exports = router;
