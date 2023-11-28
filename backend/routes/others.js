@@ -29,6 +29,34 @@ router.get('/count/:tabela', async (req, res) => {
     }
 });
 
+router.get('/count-tipos', async (req, res) => {
+    try {
+        const comum = await prisma.passageiro.count({
+            where: {
+                inativado: null,
+                tipo_cartao: 'Comum'
+            }
+        })
+
+        const idoso = await prisma.passageiro.count({
+            where: {
+                inativado: null,
+                tipo_cartao: 'idoso'
+            }
+        })
+
+        const estudante = await prisma.passageiro.count({
+            where: {
+                inativado: null,
+                tipo_cartao: 'Estudante'
+            }
+        })
+        res.status(200).json({ tipos: [comum, estudante, idoso] });
+    } catch (error) {
+        res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
+        console.log(error)
+    }
+});
 
 // RECARGA ---------------------------------------------------------------------------------------------------------------
 router.patch('/recarga/', async (req, res) => {
