@@ -14,21 +14,32 @@ router.get('/embarque', async (req, res) => {
 
 }); // GERAL
 
-router.get('/embarque/:id', async (req, res) => {
+router.get('/embarque/:cpf', async (req, res) => {
     try {
-        let { id } = req.params
-        id = Number(id)
-        const embarque = await prisma.embarque.findMany({
+        let { cpf } = req.params
+
+        const passageiro = await prisma.passageiro.findFirst({
             where: {
-                passageiro_id: id
+                cpf: cpf,
+                inativado: null
             }
         });
 
-        if (!embarque) {
-            return res.status(404).json({ success: false, msg: 'embarque não encontrado' });
+        if (!passageiro) {
+            return res.status(404).json({ success: false, msg: 'passageiro não encontrado' });
         }
 
-        res.status(200).json(embarque);
+        const embarques = await prisma.embarque.findMany({
+            where: {
+                passageiro_id: Number(passageiro.id)
+            }
+        });
+
+        if (!embarques) {
+            return res.status(404).json({ success: false, msg: 'Não há embarques registrados' });
+        }
+
+        res.status(200).json(embarques);
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
         console.log(error)
