@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Fast Travel - Saldo</title>
+    <title>Fast Travel - Embarques</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -82,7 +82,7 @@
                 <!-- validation form -->
                 <!-- ============================================================== -->
                 <div class="col-xl-6 col-lg-7 col-md-12 col-sm-12 col-12 d-flex justify-content-center">
-                    <div class="card">
+                    <div id="card" class="card">
                         <h3 class="card-header text-center">Verifique seus embarques</h3>
                         <div class="card-body">
                             <form class="needs-validation" novalidate id="form-embarque">
@@ -107,14 +107,19 @@
                             </form>
                         </div>
                     </div>
+                    <h2 class="titulo"></h2>
+                    <ul id="lista-embarque" style="display: none; list-style: none;">
+                        <div id="tabelaEmbarques">
+
+                        </div>
+                    </ul>
                 </div>
                 <!-- ============================================================== -->
                 <!-- end validation form -->
                 <!-- ============================================================== -->
-                <div>
-                    <ul id="tabela-embarques">
-                    </ul>
-                </div>
+
+
+
             </div>
         </section>
 
