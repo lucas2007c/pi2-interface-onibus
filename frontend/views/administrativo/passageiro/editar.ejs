@@ -248,6 +248,17 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
+                                                <label for="saldo">Depositar</label>
+                                                <input type="number" min="0" step="0.01" autocomplete="off" class="form-control" id="saldo"
+                                                placeholder="Informe o valor da recarga" value="0" name="saldo" required>
+                                                <div class="valid-feedback">
+                                                    Tudo certo!
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Insira um valor maior que R$0
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
                                                 <label for="foto_caminho" class="form-label">Foto</label>
                                                 <input class="form-control" type="file" id="foto_caminho"
                                                     name="foto_caminho" accept="image/*" disabled>

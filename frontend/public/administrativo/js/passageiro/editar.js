@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const response = await axios.get(
       `http://localhost:3000/passageiro/${urlId}`
     );
-    const passageiro = response.data;
+    var passageiro = response.data;
     var passageiroFotoCaminho = passageiro.foto_caminho;
 
     document.querySelector("#nome").value = passageiro.nome;
@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     console.error("Erro ao buscar os dados:", error);
   }
 
+  if(passageiro.tipo_cartao == 'Idoso' || passageiro.tipo_cartao == 'Estudante'){
+    document.querySelector("#saldo").disabled = true;
+  }
+
   const form = document.querySelector("#form-passageiro");
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -43,6 +47,18 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         const novoValor = passageiroFotoCaminho;
         formData.set("foto_caminho", novoValor);
       }
+      
+      
+      const saldo = formData.get('saldo')
+
+      if(saldo > 0 && passageiro.tipo_cartao == 'Comum'){
+        const cpf = document.querySelector("#cpf").value;
+        const valor = document.querySelector("#saldo").value;
+        const dataRecarga = {cpf, valor}
+        await axios.patch("http://localhost:3000/recarga/", dataRecarga)
+      }
+
+      formData.delete('saldo')
 
       try {
         const response = await axios.patch(
