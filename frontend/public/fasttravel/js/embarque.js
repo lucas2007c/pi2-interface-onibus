@@ -11,26 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         if (form.checkValidity()) {
-            const cpf = document.querySelector("#cpfEmbarque").value;
+            const cpf = document.querySelector("#cpfRecarga").value;
+
             try {
                 const response = await axios.get(`http://localhost:3000/embarque/${cpf}`);
+
                 const idViagem = response.data[0].viagem_id;
+
                 const viagem = await axios.get(`http://localhost:3000/viagem/${idViagem}`);
+
                 const idLinha = viagem.data.linha_id;
-                console.log(idViagem)
-                console.log(idLinha)
 
                 const linha = await axios.get(`http://localhost:3000/linha/${idLinha}`);
-                const embarques = response.data;
-                console.log(embarques)
-                console.log(linha)
-                console.log(response)
 
+                const embarques = response.data;
 
                 if (response) {
+
                     card.remove();
+
                     tabelaContainer.style.display = 'block';
+
                     for (let i = 0; i < embarques.length; i++) {
+                        
                         const embarque = embarques[i];
 
                         const dataObj = new Date(embarque.data);
@@ -83,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error(error.message);
             }
 
-            const inputCpf = document.querySelector("#cpfEmbarque");
+            const inputCpf = document.querySelector("#cpfRecarga");
             setTimeout(() => {
                 inputCpf.value = ''
                 form.classList.remove("was-validated");
