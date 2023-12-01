@@ -35,7 +35,7 @@ router.get('/embarque/:cpf', async (req, res) => {
             }
         });
 
-        if (!embarques) {
+        if (embarques.length == 0) {
             return res.status(404).json({ success: false, msg: 'Não há embarques registrados' });
         }
 
