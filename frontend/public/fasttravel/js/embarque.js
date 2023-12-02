@@ -16,14 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 const response = await axios.get(`http://localhost:3000/embarque/${cpf}`);
 
-                const idViagem = response.data[0].viagem_id;
-
-                const viagem = await axios.get(`http://localhost:3000/viagem/${idViagem}`);
-
-                const idLinha = viagem.data.linha_id;
-
-                const linha = await axios.get(`http://localhost:3000/linha/${idLinha}`);
-
                 const embarques = response.data;
 
                 if (response) {
@@ -33,8 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     tabelaContainer.style.display = 'block';
 
                     for (let i = 0; i < embarques.length; i++) {
-                        
+
                         const embarque = embarques[i];
+
+                        const idViagem = embarque.viagem_id;
+
+                        const viagem = await axios.get(`http://localhost:3000/viagem/${idViagem}`);
+
+                        const idLinha = viagem.data.linha_id;
+
+                        const linha = await axios.get(`http://localhost:3000/linha/${idLinha}`);
 
                         const dataObj = new Date(embarque.data);
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const minuto = String(dataObj.getMinutes()).padStart(2, '0')
                         const segundos = String(dataObj.getSeconds()).padStart(2, '0');
                         const horarioFormatado = `${hora}:${minuto}:${segundos}`;
-                        
+
                         titulo.innerHTML = `Embarques encontrados:`
 
                         const row = document.createElement("li");
@@ -76,13 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
                           `;
                         divEmbarque.appendChild(row);
                     }
+                } else {
+                    Swal.fire({
+                        text: error.response.data.msg,
+                        icon: "error"
+                    });
                 }
 
             } catch (error) {
-                Swal.fire({
-                    text: error.response.data.msg,
-                    icon: "error"
-                });
                 console.error(error.message);
             }
 
