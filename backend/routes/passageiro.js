@@ -172,7 +172,7 @@ router.delete('/passageiro/:id', async (req, res) => {
             }
         })
         fs.unlinkSync(passageiro.foto_caminho)
-        res.status(200).json({ msg: 'passageiro deletado com sucesso', passageiro })
+        res.status(200).json({ msg: 'Passageiro deletado com sucesso', passageiro })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu um erro no servidor.', error: error })
         console.log(error)

@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (passageiro.data.passageiro.tipo_cartao == 'Idoso' || passageiro.data.passageiro.tipo_cartao == 'Estudante')
           Swal.fire({
-            text: 'passageiros com cartões do tipo estudante e idoso não precisam se preocupar com o saldo.',
+            text: 'Passageiros com cartões do tipo estudante e idoso não precisam se preocupar com o saldo.',
             icon: "info"
           });
 

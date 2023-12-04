@@ -22,7 +22,7 @@ router.get('/count/:tabela', async (req, res) => {
             return res.status(200).json({ success: true, msg: `${countM}` });
         }
 
-        res.status(404).json({ success: false, msg: 'tabela não encontrada' })
+        res.status(404).json({ success: false, msg: 'Tabela não encontrada' })
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
         console.log(error)
@@ -41,7 +41,7 @@ router.get('/count-tipos', async (req, res) => {
         const idoso = await prisma.passageiro.count({
             where: {
                 inativado: null,
-                tipo_cartao: 'idoso'
+                tipo_cartao: 'Idoso'
             }
         })
 
@@ -198,7 +198,7 @@ router.get('/criar-viagens', async (req, res) => {
         });
 
         if (viagensdehoje.length > 0) {
-            return res.status(400).json({ msg: 'as viagens de hoje ja foram criadas' })
+            return res.status(400).json({ msg: 'As viagens de hoje já foram criadas' })
         }
 
         // Criar tabela temporária

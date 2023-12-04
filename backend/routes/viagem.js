@@ -24,7 +24,7 @@ router.get('/viagem/:id', async (req, res) => {
         });
 
         if (!viagem) {
-            res.status(404).json({ success: false, msg: 'viagem não encontrada' });
+            res.status(404).json({ success: false, msg: 'Viagem não encontrada' });
         } else {
             res.status(200).json(viagem);
         }
@@ -50,7 +50,7 @@ router.post('/viagem', async (req, res) => {
                 linha_id
             }
         });
-        res.status(201).json({ msg: 'viagem cadastrada com sucesso', viagem });
+        res.status(201).json({ msg: 'Viagem cadastrada com sucesso', viagem });
     } catch (error) {
         res.status(500).json({ success: false, msg: 'Ocorreu Um Erro no Servidor', error: error })
         console.log(error)
