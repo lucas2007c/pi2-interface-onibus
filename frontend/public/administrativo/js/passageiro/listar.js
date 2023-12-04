@@ -47,5 +47,13 @@ $(document).ready(function () {
         },
       },
     ],
+    "columnDefs": [
+      {
+        "targets": 6,
+        "render": function (data, type, row) {
+          return `R$${parseFloat(data).toLocaleString('pt-BR', {minimumFractionDigits:2})}`;
+        }
+      }
+    ],
   });
 });
