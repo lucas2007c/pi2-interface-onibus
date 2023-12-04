@@ -1,61 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#form-embarque");
-  const card = document.querySelector("#card");
-  const titulo = document.querySelector("#titulo");
-  const tabelaContainer = document.getElementById("lista-embarque");
-  const divEmbarque = document.getElementById("tabelaEmbarques");
+    const form = document.querySelector("#form-embarque");
+    const card = document.querySelector("#card");
+    const titulo = document.querySelector("#titulo");
+    const tabelaContainer = document.getElementById("lista-embarque");
+    const divEmbarque = document.getElementById("tabelaEmbarques");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    if (form.checkValidity()) {
-      const cpf = document.querySelector("#cpfRecarga").value;
+        if (form.checkValidity()) {
+            const cpf = document.querySelector("#cpfRecarga").value;
 
-      try {
-        const response = await axios.get(
-          `http://localhost:3000/embarque/${cpf}`
-        );
+            try {
+                const response = await axios.get(`http://localhost:3000/embarque/${cpf}`);
 
-        const embarques = response.data;
+                const embarques = response.data;
 
-        if (response) {
-          card.remove();
+                card.remove();
 
-          tabelaContainer.style.display = "block";
+                tabelaContainer.style.display = "block";
 
-          for (let i = 0; i < embarques.length; i++) {
-            const embarque = embarques[i];
+                for (let i = 0; i < embarques.length; i++) {
+                    const embarque = embarques[i];
 
-            const idViagem = embarque.viagem_id;
+                    const linha = embarque.viagem.linha
 
-            const viagem = await axios.get(
-              `http://localhost:3000/viagem/${idViagem}`
-            );
+                    const dataObj = new Date(embarque.data);
 
-            const idLinha = viagem.data.linha_id;
+                    const dia = String(dataObj.getDate()).padStart(2, "0");
+                    const mes = String(dataObj.getMonth() + 1).padStart(2, "0");
+                    const ano = dataObj.getFullYear();
 
-            const linha = await axios.get(
-              `http://localhost:3000/linha/${idLinha}`
-            );
+                    const dataFormatada = `${dia}/${mes}/${ano}`;
 
-            const dataObj = new Date(embarque.data);
+                    const hora = String(dataObj.getUTCHours()).padStart(2, "0");
+                    const minuto = String(dataObj.getMinutes()).padStart(2, "0");
+                    const segundos = String(dataObj.getSeconds()).padStart(2, "0");
+                    const horarioFormatado = `${hora}:${minuto}:${segundos}`;
 
-            const dia = String(dataObj.getDate()).padStart(2, "0");
-            const mes = String(dataObj.getMonth() + 1).padStart(2, "0");
-            const ano = dataObj.getFullYear();
+                    titulo.innerHTML = `Embarques encontrados:`;
 
-            const dataFormatada = `${dia}/${mes}/${ano}`;
-
-            const hora = String(dataObj.getUTCHours()).padStart(2, "0");
-            const minuto = String(dataObj.getMinutes()).padStart(2, "0");
-            const segundos = String(dataObj.getSeconds()).padStart(2, "0");
-            const horarioFormatado = `${hora}:${minuto}:${segundos}`;
-
-            titulo.innerHTML = `Embarques encontrados:`;
-
-            const row = document.createElement("li");
-            row.classList.add("mt-2");
-            row.innerHTML = `
+                    const row = document.createElement("li");
+                    row.classList.add("mt-2");
+                    row.innerHTML = `
                             
                           <table class="table table-hover table-condensed">
                               <thead>
@@ -69,35 +56,30 @@ document.addEventListener("DOMContentLoaded", () => {
                               <tbody>
                                   <tr class="cor-cabecalho">
                                       <th scope="row"></th>
-                                      <td>${linha.data.nome}</td>
+                                      <td>${linha.nome}</td>
                                       <td>${dataFormatada}</td>
                                       <td>${horarioFormatado}</td>
                                   </tr>
                               </tbody>
                           </table>
                           `;
-            divEmbarque.appendChild(row);
-          }
-        } else {
-          Swal.fire({
-            text: error.response.data.msg,
-            icon: "error",
-          });
-        }
-      } catch (error) {
-        Swal.fire({
-          text: error.response.data.msg,
-          icon: "error",
-        });
-        console.error(error.message);
-      }
+                    divEmbarque.appendChild(row);
+                }
+            } catch (error) {
+                Swal.fire({
+                    text: error.response.data.msg,
+                    icon: "error",
+                });
+            }
 
-      const inputCpf = document.querySelector("#cpfRecarga");
-      setTimeout(() => {
-        inputCpf.value = "";
-        form.classList.remove("was-validated");
-      }, 1000);
-    }
-    form.classList.add("was-validated");
-  });
+            const inputCpf = document.querySelector("#cpfRecarga");
+            setTimeout(() => {
+                if (inputCpf) {
+                    inputCpf.value = "";
+                }
+                form.classList.remove("was-validated");
+            }, 1000);
+        }
+        form.classList.add("was-validated");
+    });
 });
