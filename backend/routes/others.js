@@ -61,7 +61,7 @@ router.get('/count-tipos', async (req, res) => {
 // RECARGA ---------------------------------------------------------------------------------------------------------------
 router.patch('/recarga/', async (req, res) => {
     try {
-        const { cpf, valor } = req.body
+        let { cpf, valor } = req.body
 
         // verifica se o passageiro existe
         const passageiroExistente = await prisma.passageiro.findMany({
@@ -74,7 +74,7 @@ router.patch('/recarga/', async (req, res) => {
         if (passageiroExistente.length === 0) {
             return res.status(404).json({ success: false, msg: 'Passageiro não encontrado' })
         };
-
+        valor = valor.replace(',', '.')
         const saldo = Number(passageiroExistente[0].saldo) + Number(valor)
         const usuario_id = Number(passageiroExistente[0].usuario_id)
 
@@ -137,14 +137,13 @@ router.post('/catraca', async (req, res) => {
             if (novoSaldo < 0) {
                 return res.status(400).json({ msg: "Saldo insuficiente", passageiroId: passageiro[0] });
             }
-
             if (novoSaldo >= 0) {
                 await prisma.passageiro.update({
                     where: {
                         id: Number(passageiro[0].id)
                     },
                     data: {
-                        saldo: novoSaldo
+                        saldo: Number(novoSaldo)
                     }
                 })
             }
