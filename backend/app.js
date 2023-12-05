@@ -12,6 +12,7 @@ const passageiroRouter = require("./routes/passageiro");
 const usuarioRouter = require("./routes/usuario");
 const viagemRouter = require("./routes/viagem");
 const authRouter = require("./routes/auth");
+const historicoRouter = require("./routes/historico")
 
 app.use(cors());
 app.use(express.json());
@@ -27,5 +28,6 @@ app.use("/", passageiroRouter);
 app.use("/", usuarioRouter);
 app.use("/", viagemRouter);
 app.use("/auth", authRouter);
+app.use("/", historicoRouter)
 
 module.exports = app;
