@@ -45,6 +45,12 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+    <style>
+        #tabelaEmbarques {
+            max-height: 500px;
+            overflow: scroll;
+        }
+    </style>
 </head>
 
 <body>
@@ -91,7 +97,7 @@
                                         <label for="cpfRecarga">CPF</label>
                                         <input type="text" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" autocomplete="off"
                                             required placeholder="Informe seu CPF" class="form-control" id="cpfRecarga"
-                                            pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14">
+                                            pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" maxlength="14" autofocus>
                                         <div class="valid-feedback">
                                             Tudo certo!
                                         </div>
@@ -109,8 +115,8 @@
                     </div>
 
                     <ul id="lista-embarque" style="display: none; list-style: none;">
-                        <div id="tabelaEmbarques">
-                            <h2 id="titulo"></h2>
+                        <h2 id="titulo"></h2>
+                        <div id="tabelaEmbarques" class="px-4">
                         </div>
                     </ul>
                 </div>
