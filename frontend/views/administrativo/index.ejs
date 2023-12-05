@@ -252,63 +252,24 @@
                                             <thead class="bg-light">
                                                 <tr class="border-0">
                                                     <th class="border-0">Função</th>
-                                                    <th class="border-0">ID</th>
                                                     <th class="border-0">Nome</th>
-
-                                                    <th class="border-0">Data</th>
                                                     <th class="border-0">Autor</th>
+                                                    <th class="border-0">Data</th>
+                                                    <th class="border-0">Hora</th>
                                                     <th class="border-0">Ação</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
+                                            <tbody id="table-historico">
 
-
-                                                    <td>Motorista</td>
-                                                    <td>7</td>
-                                                    <td>Sara Hadassa da Cruz</td>
-
-                                                    <td>27-08-2018 01:22:12</td>
-                                                    <td>Patricia Santos</td>
-                                                    <td><span class="badge-dot badge-danger mr-2"></span>Removido</td>
-                                                </tr>
-                                                <tr>
-
-
-                                                    <td>Passageiro</td>
-                                                    <td>4</td>
-                                                    <td>César Antonio Gonçalves</td>
-
-                                                    <td>25-08-2018 21:12:56</td>
-                                                    <td>Rachel Wicker</td>
-                                                    <td><span class="badge-dot badge-success mr-2"></span>Cadastrado
-                                                    </td>
-                                                </tr>
-                                                <tr>
-
-
-                                                    <td>Linha</td>
-                                                    <td>106</td>
-                                                    <td>Jaraguá Noturno</td>
-
-                                                    <td>24-08-2018 14:12:77</td>
-                                                    <td>Michael K. Ledford </td>
-                                                    <td><span class="badge-dot badge-success mr-2"></span>Cadastrado
-                                                    </td>
-                                                </tr>
-                                                <tr>
-
-
-                                                    <td>Motorista</td>
-                                                    <td>6</td>
-                                                    <td>Rosa Melissa da Conceição</td>
-
-                                                    <td>25-08-2018 21:12:56</td>
-                                                    <td>Rachel Wicker</td>
-                                                    <td><span class="badge-dot badge-success mr-2"></span>Cadastrado
-                                                    </td>
-                                                </tr>
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="6"><a href="/admin/historico"
+                                                            class="btn btn-primary float-left">Ver
+                                                            todos</a>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
@@ -385,6 +346,7 @@
                 <script src="/administrativo/js/auth.js"></script>
                 <script src="/administrativo/js/auth.js"></script>
                 <script src="/administrativo/js/infoUsuario.js"></script>
+                <script src="/administrativo/js/historico.js"></script>
                 <script>
                     document.addEventListener("DOMContentLoaded", async function () {
                         try {

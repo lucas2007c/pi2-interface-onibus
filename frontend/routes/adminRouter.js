@@ -143,4 +143,9 @@ router.get('/cadastro', (req, res) => {
   res.render('administrativo/cadastro');
 });
 
+// rota do historico
+router.get('/historico', (req, res) => {
+  res.render('administrativo/historico');
+});
+
 module.exports = router;
