@@ -21,7 +21,7 @@ USE `fasttravel` ;
 -- Table `fasttravel`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`usuario` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(200) NOT NULL,
   `email` VARCHAR(200) NOT NULL,
   `senha` VARCHAR(200) NOT NULL,
@@ -37,7 +37,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`passageiro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`passageiro` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(200) NOT NULL,
   `saldo` DECIMAL(10,2) NOT NULL,
   `cpf` VARCHAR(15) NULL DEFAULT NULL,
@@ -63,7 +63,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`motorista`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`motorista` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(15) NULL DEFAULT NULL,
   `nome` VARCHAR(200) NOT NULL,
   `numero` VARCHAR(15) NOT NULL,
@@ -80,7 +80,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`onibus`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`onibus` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `placa` VARCHAR(8) NOT NULL,
   `inativado` DATE NULL,
   PRIMARY KEY (`id`))
@@ -93,7 +93,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`linha`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`linha` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NOT NULL,
   `origem` VARCHAR(100) NOT NULL,
   `destino` VARCHAR(100) NOT NULL,
@@ -110,7 +110,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`viagem`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`viagem` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `dataPartida` DATETIME NULL DEFAULT NULL,
   `dataChegada` DATETIME NULL DEFAULT NULL,
   `onibus_id` INT(11) NOT NULL,
@@ -139,7 +139,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `fasttravel`.`embarque`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fasttravel`.`embarque` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `tarifa` DECIMAL(10,2) NOT NULL,
   `data` DATETIME NOT NULL,
   `passageiro_id` INT(11) NOT NULL,
@@ -156,6 +156,20 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
+
+-- -----------------------------------------------------
+-- Table `fasttravel`.`historico`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fasttravel`.`historico` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `funcao` VARCHAR(100) NULL,
+  `nome` VARCHAR(200) NULL,
+  `autor` VARCHAR(200) NULL,
+  `data` DATE NULL,
+  `hora` TIME NULL,
+  `acao` VARCHAR(100) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
