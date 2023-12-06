@@ -14,6 +14,7 @@
     <link href="/administrativo/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/administrativo/assets/libs/css/style.css">
     <link rel="stylesheet" href="/administrativo/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 </head>
 
 
@@ -145,8 +146,28 @@
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
-                    <div class="row">
-
+                    <div>
+                        <div class="card">
+                            <div class="card-body m-2">
+                                <div class="table table-hover table-responsive">
+                                    <table class="table" id="table">
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                                <th class="border-0">Função</th>
+                                                <th class="border-0">Nome</th>
+                                                <th class="border-0">Autor</th>
+                                                <th class="border-0">Data</th>
+                                                <th class="border-0">Hora</th>
+                                                <th class="border-0">Ação</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end hoverable table -->
+                        <!-- ============================================================== -->
                     </div>
                 </div>
                 <script src="/administrativo/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
@@ -174,6 +195,11 @@
                 <!-- Script formatação && checkbox -->
                 <script src="/administrativo/js/auth.js"></script>
                 <script src="/administrativo/js/infoUsuario.js"></script>
+                <script src="/administrativo/js/historicoDataTable.js"></script>
+                <!-- DataTable -->
+                <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+                <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
                 <script>
                     document.addEventListener("DOMContentLoaded", async function () {
                         try {

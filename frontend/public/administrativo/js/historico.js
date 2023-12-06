@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         }
 
         historico.forEach((acao) => {
-            const data = acao.data.split("T")[0];
+            const data = formatarData(acao.data)
             const hora = acao.hora.split("T")[1].split(".")[0];
             const acaoTable = formatarAcao(acao.acao)
             const tr = document.createElement('tr')
@@ -43,4 +43,14 @@ const formatarAcao = (acao) => {
     if (acao == 'editado') {
         return '<span class="badge-dot badge-primary mr-2"></span>Editado'
     }
+}
+
+const formatarData = (data) => {
+    data = data.split("T")[0];
+    const partes = data.split("-");
+    const dia = partes[2];
+    const mes = partes[1];
+    const ano = partes[0];
+
+    return `${dia}/${mes}/${ano}`
 }
