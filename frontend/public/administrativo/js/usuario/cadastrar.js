@@ -7,10 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (form.checkValidity()) {
       const formData = new FormData(form);
 
-      const autor = document.querySelector("#nomeUsuario").textContent;
       const nome = document.querySelector("#nome").value;
-      const dataFormatada = dataISO(); // função no final do script.
+      try {
+        var autor = document.querySelector("#nomeUsuario").textContent;
+      } catch (error) {
+        autor = nome
+      }
 
+      const dataFormatada = dataISO(); // função no final do script.
       const dataHistorico = {
         autor: autor,
         funcao: "Usuário",
@@ -54,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(responseUsuario.data.msg);
       } catch (error) {
         Swal.fire({
-          text: error.responseUsuario.data.msg,
+          text: error.response.data.msg,
           icon: "error",
         });
         console.error("danger", error.message);
