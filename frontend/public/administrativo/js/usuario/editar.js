@@ -25,11 +25,23 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       if (!inputFoto.checked) {
         const novoValor = usuarioFotoCaminho;
         formData.set("foto_caminho", novoValor);
-        console.log(formData.get("foto_caminho"));
       }
 
+      const autor = document.querySelector("#nomeUsuario").textContent;
+      const nome = document.querySelector("#nome").value;
+      const dataFormatada = dataISO(); // função no final do script.
+
+      const dataHistorico = {
+        autor: autor,
+        funcao: "Usuário",
+        nome: nome,
+        data: dataFormatada,
+        hora: dataFormatada,
+        acao: "editado",
+      };
+
       try {
-        const response = await axios.patch(
+        const responseUsuario = await axios.patch(
           `http://localhost:3000/usuario/${urlId}`,
           formData,
           {
@@ -39,23 +51,26 @@ document.addEventListener("DOMContentLoaded", async (event) => {
           }
         );
 
-        if (response) {
+        const responseHistorico = await axios.post(
+          "http://localhost:3000/historico",
+          dataHistorico
+        );
+
+        if (responseUsuario) {
           Swal.fire({
-            text: response.data.msg,
-            icon: "success"
+            text: responseUsuario.data.msg,
+            icon: "success",
           }).then((result) => {
             if (result.isConfirmed) {
-              window.location.href = 'http://localhost:3001/admin/usuario';
+              window.location.href = "http://localhost:3001/admin/usuario";
             }
           });
         }
         console.log("Dados atualizados com sucesso!");
-
-      
       } catch (error) {
         Swal.fire({
-          text: error.response.data.msg,
-          icon: "error"
+          text: error.responseUsuario.data.msg,
+          icon: "error",
         });
         console.error("Erro ao atualizar os dados:", error);
       }
@@ -64,3 +79,20 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     form.classList.add("was-validated");
   });
 });
+
+function dataISO() {
+  const dataAtual = new Date();
+
+  const padZero = (value) => String(value).padStart(2, "0");
+
+  const dia = padZero(dataAtual.getDate());
+  const mes = padZero(dataAtual.getMonth() + 1);
+  const ano = dataAtual.getFullYear();
+  const horas = padZero(dataAtual.getHours());
+  const minutos = padZero(dataAtual.getMinutes());
+  const segundos = padZero(dataAtual.getSeconds());
+
+  const dataFormatada = `${ano}-${mes}-${dia}T${horas}:${minutos}:${segundos}.000Z`;
+
+  return dataFormatada;
+}

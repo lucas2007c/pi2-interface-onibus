@@ -16,7 +16,9 @@ async function getPassageiro() {
     document.querySelector("#email").value = passageiro.email;
     document.querySelector("#codigo_cartao").value = passageiro.codigo_cartao;
     document.querySelector("#tipo_cartao").value = passageiro.tipo_cartao;
-    document.querySelector("#src_foto").src = `http://localhost:3000/${passageiro.foto_caminho}`;
+    document.querySelector(
+      "#src_foto"
+    ).src = `http://localhost:3000/${passageiro.foto_caminho}`;
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);
   }
@@ -28,18 +30,34 @@ async function excluirPassageiro() {
   const url = window.location.href;
   const urlId = url.split("/").pop();
 
+  const autor = document.querySelector("#nomeUsuario").textContent;
+  const nome = document.querySelector("#nome").value;
+  const dataFormatada = dataISO(); // função no final do script.
+
+  const dataHistorico = {
+    autor: autor,
+    funcao: "Passageiro",
+    nome: nome,
+    data: dataFormatada,
+    hora: dataFormatada,
+    acao: "excluido",
+  };
+
   try {
-    const response = await axios.delete(
+    const responsePassageiro = await axios.delete(
       `http://localhost:3000/passageiro/${urlId}`
     );
 
-    console.log("Resposta do servidor:", response.data);
+    const responseHistorico = await axios.post(
+      "http://localhost:3000/historico",
+      dataHistorico
+    );
 
-
+    console.log("Resposta do servidor:", responsePassageiro.data);
   } catch (error) {
     Swal.fire({
-      text: error.response.data.msg,
-      icon: "error"
+      text: error.responsePassageiro.data.msg,
+      icon: "error",
     });
     console.error("Erro ao excluir o passageiro:", error);
   }
@@ -55,16 +73,15 @@ botaoConfirmar.addEventListener("click", function () {
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     cancelButtonText: "Cancelar",
-    confirmButtonText: "Excluir"
+    confirmButtonText: "Excluir",
   }).then((result) => {
     if (result.isConfirmed) {
-
       excluirPassageiro();
 
       Swal.fire({
         title: "Tudo certo.",
         text: "Passageiro excluído com sucesso!",
-        icon: "success"
+        icon: "success",
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = "http://localhost:3001/admin/passageiro";
@@ -73,3 +90,20 @@ botaoConfirmar.addEventListener("click", function () {
     }
   });
 });
+
+function dataISO() {
+  const dataAtual = new Date();
+
+  const padZero = (value) => String(value).padStart(2, "0");
+
+  const dia = padZero(dataAtual.getDate());
+  const mes = padZero(dataAtual.getMonth() + 1);
+  const ano = dataAtual.getFullYear();
+  const horas = padZero(dataAtual.getHours());
+  const minutos = padZero(dataAtual.getMinutes());
+  const segundos = padZero(dataAtual.getSeconds());
+
+  const dataFormatada = `${ano}-${mes}-${dia}T${horas}:${minutos}:${segundos}.000Z`;
+
+  return dataFormatada;
+}
