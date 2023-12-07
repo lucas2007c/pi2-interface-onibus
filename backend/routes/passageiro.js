@@ -109,6 +109,17 @@ router.post('/passageiro', upload.single('foto_caminho'), async (req, res) => {
             return res.status(409).json({ success: false, msg: 'O passageiro já está cadastrado.' })
         }
 
+        const cartaoExistente = await prisma.passageiro.findMany({
+            where: {
+                codigo_cartao: data.codigo_cartao,
+                inativado: null
+            }
+        });
+
+        if (cartaoExistente.length > 0) {
+            return res.status(409).json({ success: false, msg: 'Este cartão já está cadastrado.' })
+        }
+
         if (data.tipo_cartao === 'Idoso' || data.tipo_cartao === 'Estudante') {
             data.saldo = 0;
         }

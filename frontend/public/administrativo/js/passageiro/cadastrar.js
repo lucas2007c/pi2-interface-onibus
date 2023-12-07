@@ -50,10 +50,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           });
         }
 
-        console.log(responsePassageiro.data.msg);
       } catch (error) {
         Swal.fire({
-          text: error.responsePassageiro.data.msg,
+          text: error.response.data.msg,
           icon: "error",
         });
         console.error("danger", error.message);
