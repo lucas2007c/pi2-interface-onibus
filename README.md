@@ -1,11 +1,58 @@
 # PI 2 - Interface De Controle De Ônibus
 
 # Folders
-**Frontend** - Contém os arquivos voltados para o frontend.
+**Frontend** - Contém o servidor frontend.
 
-**Backend** - Contém os arquivos voltados para o backend.
+**Backend** - Contém o servidor backend.
 
-**Doc** - contém a documentação do projeto
+**db** - contém o script, o diagrama e o arquivo mwb do banco de dados.
+
+**Doc** - contém a documentação e o protótipo do projeto.
+<br>
+
+# ⚙ Configuração do Ambiente:
+
+- Terminal 1 - Frontend:
+```bash
+ cd frontend
+```
+```bash
+ npm i
+```
+```bash
+ npm run dev
+```
+
+- Terminal 2 - backend:
+```bash
+ cd backend
+```
+```bash
+ npm i
+```
+```bash
+ npm run dev
+```
+
+- Terminal 3 - banco de dados:
+```bash
+ cd backend
+```
+```bash
+ npx prisma db push
+```
+```bash
+ npx prisma generate
+```
+
+- Site administrativo : <br>
+        - http://localhost:3001/admin
+
+- Site publico : <br>
+        - http://localhost:3001/fasttravel
+
+- Catraca <br>
+        - http://localhost:3001/catraca
 
 # Authors
 * Lucas - <carneiro.g@aluno.ifsp.edu.br>
