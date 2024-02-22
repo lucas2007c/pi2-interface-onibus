@@ -39,7 +39,7 @@
  cd backend
 ```
 ```bash
- npx prisma db push
+ npx prisma db pull
 ```
 ```bash
  npx prisma generate
