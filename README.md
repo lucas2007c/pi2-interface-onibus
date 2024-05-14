@@ -47,6 +47,7 @@
 
 - Site administrativo : <br>
         - http://localhost:3001/admin
+ (/doc/admin.gif)       
 
 - Site publico : <br>
         - http://localhost:3001/fasttravel
