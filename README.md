@@ -52,8 +52,12 @@
 - Site publico : <br>
         - http://localhost:3001/fasttravel
 
+<img src="/doc/publico.gif">  
+
 - Catraca <br>
         - http://localhost:3001/catraca
+
+<img src="/doc/catraca.gif">  
 
 # Authors
 * Lucas - <carneiro.g@aluno.ifsp.edu.br>
